@@ -59,77 +59,93 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.setForeground(new java.awt.Color(255, 153, 153));
         jPanel1.setAlignmentX(60.0F);
         jPanel1.setAlignmentY(60.0F);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        catalogoCronometros.setIcon(new javax.swing.ImageIcon("C:\\Users\\Personal\\Dropbox\\GasValid2.0\\Codigo\\GasValid2P0\\src\\Multimedia\\cronometro_opt.png")); // NOI18N
+        catalogoCronometros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/termometro_de_gas (1)_opt.jpg"))); // NOI18N
         catalogoCronometros.setAlignmentX(0.5F);
         catalogoCronometros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 catalogoCronometrosActionPerformed(evt);
             }
         });
+        jPanel1.add(catalogoCronometros, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 8, 60, 60));
 
-        catalogoJarras.setIcon(new javax.swing.ImageIcon("C:\\Users\\Personal\\Dropbox\\GasValid2.0\\Codigo\\GasValid2P0\\src\\Multimedia\\jarras_opt.png")); // NOI18N
+        catalogoJarras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/jarras_opt.png"))); // NOI18N
         catalogoJarras.setAlignmentX(0.5F);
         catalogoJarras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 catalogoJarrasActionPerformed(evt);
             }
         });
+        jPanel1.add(catalogoJarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 8, 60, -1));
 
-        catalogoTermometros.setIcon(new javax.swing.ImageIcon("C:\\Users\\Personal\\Dropbox\\GasValid2.0\\Codigo\\GasValid2P0\\src\\Multimedia\\termometro_de_gas (1)_opt.jpg")); // NOI18N
+        catalogoTermometros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/thermometer.png"))); // NOI18N
         catalogoTermometros.setAlignmentX(0.5F);
         catalogoTermometros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 catalogoTermometrosActionPerformed(evt);
             }
         });
+        jPanel1.add(catalogoTermometros, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 8, 60, 60));
 
+        catalogoHologramas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/profeco.png"))); // NOI18N
         catalogoHologramas.setAlignmentX(0.5F);
         catalogoHologramas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 catalogoHologramasActionPerformed(evt);
             }
         });
+        jPanel1.add(catalogoHologramas, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 8, 60, 60));
 
+        capturaEstacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/document_pen.png"))); // NOI18N
         capturaEstacion.setAlignmentX(0.5F);
         capturaEstacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 capturaEstacionActionPerformed(evt);
             }
         });
+        jPanel1.add(capturaEstacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 357, 60, -1));
 
+        movimientoDispensarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/contract_pencil.png"))); // NOI18N
         movimientoDispensarios.setAlignmentX(0.5F);
         movimientoDispensarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 movimientoDispensariosActionPerformed(evt);
             }
         });
+        jPanel1.add(movimientoDispensarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 357, 60, 60));
 
+        registroSolicitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/to_do_list_checked2.png"))); // NOI18N
         registroSolicitud.setAlignmentX(0.5F);
         registroSolicitud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registroSolicitudActionPerformed(evt);
             }
         });
+        jPanel1.add(registroSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 357, 60, -1));
 
-        registoContrato.setIcon(new javax.swing.ImageIcon("C:\\Users\\Personal\\Dropbox\\GasValid2.0\\Codigo\\GasValid2P0\\src\\Multimedia\\contrato-de-diseno_opt.jpg")); // NOI18N
+        registoContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/pemex.png"))); // NOI18N
         registoContrato.setAlignmentX(0.5F);
         registoContrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registoContratoActionPerformed(evt);
             }
         });
+        jPanel1.add(registoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 8, 60, 60));
 
+        inspeccionMedicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gas.png"))); // NOI18N
         inspeccionMedicion.setAlignmentX(0.5F);
         inspeccionMedicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inspeccionMedicionActionPerformed(evt);
             }
         });
+        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 8, 59, -1));
 
         inspeccionMedicion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gasvalid_changemain.png"))); // NOI18N
         inspeccionMedicion1.setAlignmentX(0.5F);
@@ -138,63 +154,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 inspeccionMedicion1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(capturaEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(movimientoDispensarios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(registroSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(inspeccionMedicion1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelFondo)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(catalogoCronometros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(catalogoJarras, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(catalogoTermometros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(catalogoHologramas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(registoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(inspeccionMedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(291, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(labelFondo)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(catalogoJarras, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(catalogoCronometros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(catalogoTermometros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(catalogoHologramas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(registoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(capturaEstacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(movimientoDispensarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(registroSolicitud, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inspeccionMedicion1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(inspeccionMedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        jPanel1.add(inspeccionMedicion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 357, 59, 60));
+        jPanel1.add(labelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
