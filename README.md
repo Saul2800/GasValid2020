@@ -1,2 +1,2 @@
-# GasValid2020
-Programa para validacion de gasolinerias
+# GasValid20
+GasValid es un Software para el chequeo de gasolineras.
