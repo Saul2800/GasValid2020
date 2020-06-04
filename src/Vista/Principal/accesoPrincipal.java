@@ -52,6 +52,8 @@ public class accesoPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gas Valid 2.0");
         setLocation(new java.awt.Point(600, 200));
+        setMaximumSize(new java.awt.Dimension(470, 688));
+        setMinimumSize(new java.awt.Dimension(470, 688));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,6 +131,7 @@ public class accesoPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioSesionActionPerformed

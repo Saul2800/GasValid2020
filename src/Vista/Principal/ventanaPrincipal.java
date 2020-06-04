@@ -58,6 +58,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         labelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(600, 0));
+        setMaximumSize(new java.awt.Dimension(1000, 600));
+        setMinimumSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -73,7 +76,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 catalogoCronometrosActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogoCronometros, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 8, 60, 60));
+        jPanel1.add(catalogoCronometros, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 80));
 
         catalogoJarras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/jarras_opt.png"))); // NOI18N
         catalogoJarras.setAlignmentX(0.5F);
@@ -82,7 +85,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 catalogoJarrasActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogoJarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 8, 60, -1));
+        jPanel1.add(catalogoJarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 80, 80));
 
         catalogoTermometros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/thermometer.png"))); // NOI18N
         catalogoTermometros.setAlignmentX(0.5F);
@@ -91,7 +94,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 catalogoTermometrosActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogoTermometros, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 8, 60, 60));
+        jPanel1.add(catalogoTermometros, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 80, 80));
 
         catalogoHologramas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/profeco.png"))); // NOI18N
         catalogoHologramas.setAlignmentX(0.5F);
@@ -100,7 +103,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 catalogoHologramasActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogoHologramas, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 8, 60, 60));
+        jPanel1.add(catalogoHologramas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 80, 80));
 
         capturaEstacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/document_pen.png"))); // NOI18N
         capturaEstacion.setAlignmentX(0.5F);
@@ -109,7 +112,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 capturaEstacionActionPerformed(evt);
             }
         });
-        jPanel1.add(capturaEstacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 357, 60, -1));
+        jPanel1.add(capturaEstacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 80, 80));
 
         movimientoDispensarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/contract_pencil.png"))); // NOI18N
         movimientoDispensarios.setAlignmentX(0.5F);
@@ -118,7 +121,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 movimientoDispensariosActionPerformed(evt);
             }
         });
-        jPanel1.add(movimientoDispensarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 357, 60, 60));
+        jPanel1.add(movimientoDispensarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, 80));
 
         registroSolicitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/to_do_list_checked2.png"))); // NOI18N
         registroSolicitud.setAlignmentX(0.5F);
@@ -127,7 +130,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 registroSolicitudActionPerformed(evt);
             }
         });
-        jPanel1.add(registroSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 357, 60, -1));
+        jPanel1.add(registroSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 80, 80));
 
         registoContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/pemex.png"))); // NOI18N
         registoContrato.setAlignmentX(0.5F);
@@ -136,7 +139,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 registoContratoActionPerformed(evt);
             }
         });
-        jPanel1.add(registoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 8, 60, 60));
+        jPanel1.add(registoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 80, 80));
 
         inspeccionMedicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gas.png"))); // NOI18N
         inspeccionMedicion.setAlignmentX(0.5F);
@@ -145,7 +148,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 inspeccionMedicionActionPerformed(evt);
             }
         });
-        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 8, 59, -1));
+        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 80, 80));
 
         inspeccionMedicion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gasvalid_changemain.png"))); // NOI18N
         inspeccionMedicion1.setAlignmentX(0.5F);
@@ -154,7 +157,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 inspeccionMedicion1ActionPerformed(evt);
             }
         });
-        jPanel1.add(inspeccionMedicion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 357, 59, 60));
+        jPanel1.add(inspeccionMedicion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 510, 70, 70));
         jPanel1.add(labelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,6 +172,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void catalogoCronometrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoCronometrosActionPerformed
