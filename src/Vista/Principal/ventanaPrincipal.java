@@ -55,11 +55,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         registoContrato = new javax.swing.JButton();
         inspeccionMedicion = new javax.swing.JButton();
         inspeccionMedicion1 = new javax.swing.JButton();
+        Usuarios = new javax.swing.JButton();
         labelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 0));
-        setMaximumSize(new java.awt.Dimension(1000, 600));
         setMinimumSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -158,17 +158,20 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(inspeccionMedicion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 510, 70, 70));
+
+        Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/user_group.png"))); // NOI18N
+        jPanel1.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, 80, 80));
         jPanel1.add(labelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -283,6 +286,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Usuarios;
     private javax.swing.JButton capturaEstacion;
     private javax.swing.JButton catalogoCronometros;
     private javax.swing.JButton catalogoHologramas;

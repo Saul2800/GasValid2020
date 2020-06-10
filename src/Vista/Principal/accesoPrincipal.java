@@ -7,7 +7,10 @@ package Vista.Principal;
 
 import Modelo.TextPrompt;
 import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -26,10 +29,33 @@ public class accesoPrincipal extends javax.swing.JFrame {
         initComponents();
         TextPrompt placeholder = new TextPrompt("Usuario",campoUsuario);
         TextPrompt placeholderPass = new TextPrompt("Password", jPasswordField1);
-        Calendar cal = Calendar.getInstance();  //Llama la libreria de fechas
-        java.util.Date fecha = cal.getTime(); //Toma el tiempo actua
+    /*Calendar cal = Calendar.getInstance();  //Llama la libreria de fechas
+      //  java.util.Date fecha = cal.getTime(); //Toma el tiempo actual
         DateFormat formatterTime = DateFormat.getDateTimeInstance();//Toma la fecha actual
-        etiquetaFecha.setText(formatterTime.format(fecha));
+        etiquetaFecha.setText(formatterTime.format(fecha));*/
+    /**
+ *
+ * @author Saul Arenas 
+ * @Objetive Actualizar la fecha de acuerdo al sistema cada segundo.
+ * @Date 10/06/2020
+ */
+
+    DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+Runnable runnable = new Runnable() {
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(500);
+                etiquetaHora.setText(formateador.format(LocalDateTime.now()));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+};
+Thread hilo = new Thread(runnable);
+hilo.start();
     }
 
     /**
@@ -46,13 +72,12 @@ public class accesoPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
         botonInicioSesion = new javax.swing.JButton();
-        etiquetaFecha = new javax.swing.JLabel();
+        etiquetaHora = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gas Valid 2.0");
         setLocation(new java.awt.Point(600, 200));
-        setMaximumSize(new java.awt.Dimension(470, 688));
         setMinimumSize(new java.awt.Dimension(470, 688));
         setResizable(false);
 
@@ -74,7 +99,7 @@ public class accesoPrincipal extends javax.swing.JFrame {
             }
         });
 
-        etiquetaFecha.setText("Fecha");
+        etiquetaHora.setText("Hora");
 
         jPasswordField1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -82,10 +107,6 @@ public class accesoPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(etiquetaFecha)
-                .addGap(27, 27, 27))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -101,6 +122,10 @@ public class accesoPrincipal extends javax.swing.JFrame {
                         .addGap(181, 181, 181)
                         .addComponent(botonInicioSesion)))
                 .addContainerGap(109, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(etiquetaHora)
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,8 +140,9 @@ public class accesoPrincipal extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonInicioSesion)
-                .addGap(133, 133, 133)
-                .addComponent(etiquetaFecha))
+                .addGap(113, 113, 113)
+                .addComponent(etiquetaHora)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,7 +217,7 @@ public class accesoPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonInicioSesion;
     private javax.swing.JTextField campoUsuario;
-    private javax.swing.JLabel etiquetaFecha;
+    private javax.swing.JLabel etiquetaHora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
