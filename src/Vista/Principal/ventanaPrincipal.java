@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Vista.Usuarios.Administracion_de_usuarios;
+
 /**
  *
  * @author yuliana adame
@@ -160,6 +162,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(inspeccionMedicion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 510, 70, 70));
 
         Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/user_group.png"))); // NOI18N
+        Usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuariosActionPerformed(evt);
+            }
+        });
         jPanel1.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, 80, 80));
         jPanel1.add(labelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
 
@@ -249,6 +256,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 }
             }
     }//GEN-LAST:event_inspeccionMedicion1ActionPerformed
+
+    private void UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariosActionPerformed
+ Administracion_de_usuarios  abrir = new Administracion_de_usuarios();
+    abrir.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_UsuariosActionPerformed
 
     /**
      * @param args the command line arguments
