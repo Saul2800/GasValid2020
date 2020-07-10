@@ -5,12 +5,17 @@
  */
 package Vista.Principal;
 
+import Controlador.LibreriaBDControlador;
+import Controlador.LibreriaToolsControlador;
 import Modelo.TextPrompt;
+import Modelo.modeloTablaUsuario;
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -25,6 +30,15 @@ public class accesoPrincipal extends javax.swing.JFrame {
      */
     String Usuario = ""; //Inicializo el usuario //JLCI 23/03/2020
     String Password = "";//
+    /*Inicia importo las librerias basicas para validar el usuario
+    Jose Luis Caamal Ic 28/06/2020
+    */
+    LibreriaToolsControlador lbt = new LibreriaToolsControlador();
+    LibreriaBDControlador lbd = new LibreriaBDControlador();
+    /*Termina la validación de la libreria*/
+    /*Obtengo la lista de usuarios.. Jose Luis Caamal Ic 28/06/2020*/
+    List <Object> listaDatosUsuarios = new ArrayList<Object>(); //Cargo una lista JLCI 28/06/2020 :D
+        
     public accesoPrincipal() {
         initComponents();
         TextPrompt placeholder = new TextPrompt("Usuario",campoUsuario);
@@ -41,21 +55,21 @@ public class accesoPrincipal extends javax.swing.JFrame {
  */
 
     DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-Runnable runnable = new Runnable() {
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                Thread.sleep(500);
-                etiquetaHora.setText(formateador.format(LocalDateTime.now()));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(500);
+                        etiquetaHora.setText(formateador.format(LocalDateTime.now()));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
-    }
-};
-Thread hilo = new Thread(runnable);
-hilo.start();
+        };
+        Thread hilo = new Thread(runnable);
+        hilo.start();
     }
 
     /**
@@ -74,6 +88,7 @@ hilo.start();
         botonInicioSesion = new javax.swing.JButton();
         etiquetaHora = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        labelNotificacionError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gas Valid 2.0");
@@ -103,10 +118,18 @@ hilo.start();
 
         jPasswordField1.setBackground(new java.awt.Color(204, 204, 255));
 
+        labelNotificacionError.setBackground(new java.awt.Color(204, 255, 204));
+        labelNotificacionError.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        labelNotificacionError.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(etiquetaHora)
+                .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -120,12 +143,11 @@ hilo.start();
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(181, 181, 181)
-                        .addComponent(botonInicioSesion)))
+                        .addComponent(botonInicioSesion))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(labelNotificacionError)))
                 .addContainerGap(109, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(etiquetaHora)
-                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,13 +156,15 @@ hilo.start();
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonInicioSesion)
-                .addGap(113, 113, 113)
+                .addGap(44, 44, 44)
+                .addComponent(labelNotificacionError)
+                .addGap(53, 53, 53)
                 .addComponent(etiquetaHora)
                 .addGap(20, 20, 20))
         );
@@ -162,20 +186,43 @@ hilo.start();
 
     private void botonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioSesionActionPerformed
         // TODO add your handling code here:
+        int validaResp = 0; //valida los resultados de la constula jlci 28/06/2020
         Usuario = campoUsuario.getText();
         Password = jPasswordField1.getText();
-        
-        //Hay que añadir md5 // JLCI 23/08/2020
+        Password = lbt.obtenerMD5(Password);
+        /*Inicia: Se añade la validación del sistema para que se obtenga la información del usuario
+        de manera global usaremos el modeloTablas Jose Luis Caamal Ic 28/06/2020 */
+        lbd.openConnection();
+        listaDatosUsuarios = lbd.obtenerDatosUsuario("tabla_usuarios", Usuario, Password);
+        System.out.println("listaDatosUsuarios tamaño obtenido: "+listaDatosUsuarios.size()+"\nbotonInicioSesionActionPerformed :"+listaDatosUsuarios);
+        lbd.closeConnection();
+        validaResp = listaDatosUsuarios.size();
+        //Hay que añadir md5 para comparar la contraseña actual con la insertada // JLCI 23/08/2020
         /*Se validan con usuarios temporales*/
-        if(Usuario.equals("gasvalid") && Password.equals("gasvalid")){
-            ventanaPrincipal ventanaPrincipal = new ventanaPrincipal();
-            this.dispose();
-            ventanaPrincipal.show();
-        }
-        else{
-            System.out.println("Verifica tu usuario y contraseña.");
-            //Añadir un log de errores
-        }
+        if(validaResp != 0){
+//            if(Usuario.equals("gasvalid") && Password.equals("gasvalid")){
+                //Inicia: Se obtienen toda la información del usuario en modelo Tablas JLCI 28/06/2020
+                
+                //lbt.obtenerDatosUsuarioGlobal(listaDatosUsuarios);
+                //Imprimo mis datos del modeloTablas para verificar que ya los tenga
+                //lbd.mt.toString();
+                //Para recuperar el usuario se valida con lo siguiente lbd.mt.toString
+                System.out.println(lbd.mtu.toString());
+                //Termina.
+                ventanaPrincipal ventanaPrincipal = new ventanaPrincipal(lbd.mtu);
+                this.dispose();
+                ventanaPrincipal.show();
+//            }
+//            else{
+//                System.out.println("Verifica tu usuario y contraseña.");
+//                labelNotificacionError.setText("Verifica tu usuario y contraseña.");
+//                //Añadir un log de errores
+//            }
+        }else{
+                System.out.println("No existe el usuario.");
+                labelNotificacionError.setText("No existe el usuario.\nVerifica tu usuario y contraseña.");
+                //Añadir un log de errores
+            }
     }//GEN-LAST:event_botonInicioSesionActionPerformed
 
     /**
@@ -222,5 +269,6 @@ hilo.start();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel labelNotificacionError;
     // End of variables declaration//GEN-END:variables
 }

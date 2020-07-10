@@ -5,6 +5,13 @@
  */
 package Vista.Usuarios;
 
+import Controlador.LibreriaBDControlador;
+import Controlador.LibreriaToolsControlador;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Saul
@@ -14,8 +21,14 @@ public class Usuarios extends javax.swing.JDialog {
     /**
      * Creates new form Usuarios
      */
+    public String columna[];
+    DefaultTableModel modeloUsuarios;
+    LibreriaBDControlador lbc = new LibreriaBDControlador();
+    LibreriaToolsControlador lbt = new LibreriaToolsControlador();
     public Usuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        modeloUsuarios = new DefaultTableModel(null, getColumnas());
+        setFilas();
         initComponents();
     }
 
@@ -40,17 +53,7 @@ public class Usuarios extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(modeloUsuarios);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
@@ -108,13 +111,49 @@ public class Usuarios extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-this.setVisible(false);        // TODO add your handling code here:
+    this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    String[] getColumnas(){ //Columnas
+//        columna = new String[] {"IDUSUARIO","NOMBREUSUARIO","PASSWORD","FECHAINICIO",
+//                                 "FECHAFIN","NOMBRECOMPLETO","TIPOUSUARIO"};
+          columna = new String[] {"IDUSUARIO","NOMBREUSUARIO","FECHAINICIO",
+                                 "FECHAFIN","NOMBRECOMPLETO","TIPOUSUARIO"};
+        return columna;
+    }
+    
+    void setFilas(){
+        try{
+            String Sql = "";
+            Sql = "SELECT id,nombre_usuario,fechainicio,fechafinal,nombre_completo,tipo_usuario FROM gasvalid.tabla_usuarios";
+                 //   "SELECT dni_pago,usuario,fecha_pago,total,saldoActual FROM tabla_pagos";
+            System.out.println("Contenido: "+Sql);
 
+            PreparedStatement us = lbc.openConnection().prepareStatement(Sql);
+            ResultSet res = us.executeQuery();
+            Object objDatos[] = new Object[columna.length]; //Siempre debe cconexoincidir con el numero de columnas!
+            
+            while(res.next()){
+                for (int i = 0; i<columna.length; i++){
+                    objDatos[i] = res.getObject(i+1);
+                    //Casteo la información del usuario
+                    if(i==5){
+                        objDatos[i] = lbt.validaUsuario((int) objDatos[i]);
+                    }
+                    
+                    //System.out.println(objDatos[i]);
+                }
+                modeloUsuarios.addRow(objDatos);
+            }
+        }
+        catch(SQLException ex){
+        
+        }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

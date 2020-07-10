@@ -5,6 +5,11 @@
  */
 package Vista.Usuarios;
 
+import Controlador.LibreriaBDControlador;
+import Controlador.LibreriaToolsControlador;
+import Modelo.modeloTablaUsuario;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,9 +22,30 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
     /**
      * Creates new form Agregar_Usuarios
      */
-    public Agregar_Usuarios(java.awt.Frame parent, boolean modal) {
+    LibreriaBDControlador lbc = new LibreriaBDControlador();
+    LibreriaToolsControlador lbt = new LibreriaToolsControlador();
+    int newIdUser = 0;
+    /*Inicia: Se implementa los campos de datos para obtener 
+    el tiempo y fecha.
+    Jose Luis Caamal Ic 27/06/2020
+    */
+    Date ahora = new Date();
+    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat formatoTiempo = new SimpleDateFormat("hh:mm:ss");
+    /*Ejemplo de uso:*/
+    String fechaFormateada = formatoFecha.format(ahora);
+    String fechaFormatoTiempo = formatoTiempo.format(ahora);
+    /*Termina
+    Jose Luis Caamal Ic 27/06/2020
+    */
+    /*Lista de variables a guardar en modeloTablas*/
+    modeloTablaUsuario mt = new modeloTablaUsuario();
+    
+    public Agregar_Usuarios(java.awt.Frame parent, boolean modal,int newIdUser) {
         super(parent, modal);
         initComponents();
+        campoIDUsuario.setText(String.valueOf(newIdUser));
+        this.newIdUser = newIdUser; //Obtengo el Id que sigue
     }
 
     /**
@@ -39,16 +65,16 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        UsuarioAU = new javax.swing.JTextField();
-        NombreCompletoAU = new javax.swing.JTextField();
-        ContraseniaAU = new javax.swing.JPasswordField();
-        PuestoAU = new javax.swing.JComboBox<>();
-        FechaInicioAU = new javax.swing.JTextField();
-        FechaFinAU = new javax.swing.JTextField();
-        IdAU = new javax.swing.JTextField();
+        campoUsuario = new javax.swing.JTextField();
+        campoNombreCompleto = new javax.swing.JTextField();
+        campoPassword = new javax.swing.JPasswordField();
+        campoTipoUsuario = new javax.swing.JComboBox<>();
+        campoIDUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         AgregarAU = new javax.swing.JButton();
+        campoFechaInicio = new com.toedter.calendar.JDateChooser();
+        campoFechaFin = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -67,54 +93,49 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
         jLabel4.setText("Fecha Inicio");
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        jLabel5.setText("Fecha fin");
+        jLabel5.setText("Fecha Fin");
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         jLabel6.setText("Nombre completo");
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        jLabel7.setText("Puesto");
+        jLabel7.setText("Tipo de Usuario");
 
-        UsuarioAU.setBackground(new java.awt.Color(200, 226, 236));
-        UsuarioAU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        UsuarioAU.addActionListener(new java.awt.event.ActionListener() {
+        campoUsuario.setBackground(new java.awt.Color(200, 226, 236));
+        campoUsuario.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioAUActionPerformed(evt);
+                campoUsuarioActionPerformed(evt);
             }
         });
 
-        NombreCompletoAU.setBackground(new java.awt.Color(200, 226, 236));
-        NombreCompletoAU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        NombreCompletoAU.addActionListener(new java.awt.event.ActionListener() {
+        campoNombreCompleto.setBackground(new java.awt.Color(200, 226, 236));
+        campoNombreCompleto.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoNombreCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreCompletoAUActionPerformed(evt);
+                campoNombreCompletoActionPerformed(evt);
             }
         });
 
-        ContraseniaAU.setBackground(new java.awt.Color(200, 226, 236));
-        ContraseniaAU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        ContraseniaAU.addActionListener(new java.awt.event.ActionListener() {
+        campoPassword.setBackground(new java.awt.Color(200, 226, 236));
+        campoPassword.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseniaAUActionPerformed(evt);
+                campoPasswordActionPerformed(evt);
             }
         });
 
-        PuestoAU.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        PuestoAU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente Técnico", "Técnico Verificador", "Personal apoyo" }));
+        campoTipoUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        campoTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente Técnico", "Técnico Verificador", "Personal apoyo" }));
 
-        FechaInicioAU.setBackground(new java.awt.Color(200, 226, 236));
-        FechaInicioAU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-
-        FechaFinAU.setBackground(new java.awt.Color(200, 226, 236));
-        FechaFinAU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-
-        IdAU.setBackground(new java.awt.Color(200, 226, 236));
-        IdAU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoIDUsuario.setEditable(false);
+        campoIDUsuario.setBackground(new java.awt.Color(200, 226, 236));
+        campoIDUsuario.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 25)); // NOI18N
         jLabel8.setText("Agregar Usuario");
 
-        AgregarAU.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        AgregarAU.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         AgregarAU.setForeground(new java.awt.Color(51, 102, 0));
         AgregarAU.setText("Agregar");
         AgregarAU.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +143,10 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
                 AgregarAUActionPerformed(evt);
             }
         });
+
+        campoFechaInicio.setBackground(new java.awt.Color(200, 226, 236));
+
+        campoFechaFin.setBackground(new java.awt.Color(200, 226, 236));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,41 +157,34 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(PuestoAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(NombreCompletoAU))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(165, 165, 165)
-                                        .addComponent(IdAU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel5))
-                                        .addGap(78, 78, 78)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(FechaInicioAU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(FechaFinAU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ContraseniaAU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(UsuarioAU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(69, 69, 69)
-                                        .addComponent(jLabel8)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9))))
+                                .addGap(69, 69, 69)
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(campoNombreCompleto)
+                                        .addComponent(campoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                                        .addComponent(campoUsuario)
+                                        .addComponent(campoIDUsuario)
+                                        .addComponent(campoFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(campoFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(campoTipoUsuario, 0, 208, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jLabel9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(AgregarAU)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,31 +199,31 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(IdAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(campoIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UsuarioAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ContraseniaAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(FechaInicioAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(campoFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(FechaFinAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(campoFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(NombreCompletoAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(PuestoAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(AgregarAU, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -226,21 +244,53 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsuarioAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioAUActionPerformed
+    private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioAUActionPerformed
+    }//GEN-LAST:event_campoUsuarioActionPerformed
 
-    private void NombreCompletoAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreCompletoAUActionPerformed
+    private void campoNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreCompletoAUActionPerformed
+    }//GEN-LAST:event_campoNombreCompletoActionPerformed
 
-    private void ContraseniaAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseniaAUActionPerformed
+    private void campoPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseniaAUActionPerformed
+    }//GEN-LAST:event_campoPasswordActionPerformed
 
     private void AgregarAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAUActionPerformed
- JOptionPane.showMessageDialog(rootPane, "Se agrego un nuevo usuario");
-this.setVisible(false);
+        
+        /*Inicia: Se implementa el cambio para el insertado en base de datos de la tabla de usuarios
+        Nota: Se añade primero la consulta del ID que sigue para buenas practicas.
+          Jose Luis Caamal Ic 27/06/2020
+        */
+        //Obtengos los datos de los campos
+//        mt.setNombreUsuario(campoUsuario.getText());
+//        mt.setPassword(lbt.obtenerMD5(campoPassword.getText()));
+//        mt.setFechaInicio(formatoFecha.format(campoFechaInicio.getDate()));
+//        mt.setFechaFin(formatoFecha.format(campoFechaFin.getDate()));
+//        mt.setNombreCompleto(campoNombreCompleto.getText());
+//        mt.setTipoUsuario(String.valueOf(campoTipoUsuario.getSelectedIndex()));
+        String nombreUsuario = campoUsuario.getText();
+        String password = lbt.obtenerMD5(campoPassword.getText());
+        String fechaInicio = formatoFecha.format(campoFechaInicio.getDate());
+        String fechaFin = formatoFecha.format(campoFechaFin.getDate());
+        String nombreCompleto = campoNombreCompleto.getText();
+        int tipoUsuario = campoTipoUsuario.getSelectedIndex();
+        
+        //abro conexión a la bd y las guardo
+        lbc.openConnection();
+        lbc.insertarDatosUsuario("tabla_usuarios",newIdUser, nombreUsuario, 
+                                 password, fechaInicio, fechaFin, nombreCompleto, 
+                                 tipoUsuario);
+        lbc.closeConnection();
+        /*Termina: Se implementa el cambio para el insertado en base de datos de la tabla de usuarios
+          Jose Luis Caamal Ic 27/06/2020
+        */
+        
+        
+        
+        
+        JOptionPane.showMessageDialog(rootPane, "Se agrego un nuevo usuario");
+        this.setVisible(false);
     }//GEN-LAST:event_AgregarAUActionPerformed
 
     /**
@@ -250,13 +300,13 @@ this.setVisible(false);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarAU;
-    private javax.swing.JPasswordField ContraseniaAU;
-    private javax.swing.JTextField FechaFinAU;
-    private javax.swing.JTextField FechaInicioAU;
-    private javax.swing.JTextField IdAU;
-    private javax.swing.JTextField NombreCompletoAU;
-    private javax.swing.JComboBox<String> PuestoAU;
-    private javax.swing.JTextField UsuarioAU;
+    private com.toedter.calendar.JDateChooser campoFechaFin;
+    private com.toedter.calendar.JDateChooser campoFechaInicio;
+    private javax.swing.JTextField campoIDUsuario;
+    private javax.swing.JTextField campoNombreCompleto;
+    private javax.swing.JPasswordField campoPassword;
+    private javax.swing.JComboBox<String> campoTipoUsuario;
+    private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

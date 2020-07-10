@@ -5,6 +5,10 @@
  */
 package Vista.Usuarios;
 
+import Controlador.LibreriaBDControlador;
+import Controlador.LibreriaToolsControlador;
+import Modelo.modeloTablaUsuario;
+
 /**
  *
  * @author Saul
@@ -14,9 +18,24 @@ public class Mi_Cuenta extends javax.swing.JDialog {
     /**
      * Creates new form Mi_Cuenta
      */
-    public Mi_Cuenta(java.awt.Frame parent, boolean modal) {
+    //LibreriaBDControlador lbc = new LibreriaBDControlador();
+    LibreriaToolsControlador lbt = new LibreriaToolsControlador();
+    modeloTablaUsuario mtu = new modeloTablaUsuario();
+    public Mi_Cuenta(java.awt.Frame parent, boolean modal, modeloTablaUsuario mtu) {
         super(parent, modal);
         initComponents();
+        this.mtu = mtu;
+        String tipoUsuario = "";
+        int idMC = mtu.getIdActual();
+        campoIDActual.setText(String.valueOf(idMC));
+        campoNombreUsuarioActual.setText(mtu.getNombreUsuario());
+        //campoNombreUsuarioActual.setText(lbc.mtu.getPassword());
+        campoFechaInicioActual.setText(mtu.getFechaInicio());
+        campoFechaFinActual.setText(mtu.getFechaFin());
+        campoNomCompletoActual.setText(mtu.getNombreCompleto());
+        tipoUsuario = lbt.validaUsuario(mtu.getTipoUsuario());
+        campoTipoUsuario.setText(tipoUsuario);
+        
     }
 
     /**
@@ -35,15 +54,15 @@ public class Mi_Cuenta extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        UsuarioMC = new javax.swing.JTextField();
-        NombreCompletoMC = new javax.swing.JTextField();
-        FechaInicioMC = new javax.swing.JTextField();
-        FechaFinMC = new javax.swing.JTextField();
-        IdMC = new javax.swing.JTextField();
+        campoNombreUsuarioActual = new javax.swing.JTextField();
+        campoNomCompletoActual = new javax.swing.JTextField();
+        campoFechaInicioActual = new javax.swing.JTextField();
+        campoFechaFinActual = new javax.swing.JTextField();
+        campoIDActual = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         VolverMC = new javax.swing.JButton();
-        PuestoMC = new javax.swing.JTextField();
+        campoTipoUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -71,30 +90,35 @@ public class Mi_Cuenta extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         jLabel7.setText("Puesto");
 
-        UsuarioMC.setBackground(new java.awt.Color(200, 226, 236));
-        UsuarioMC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        UsuarioMC.addActionListener(new java.awt.event.ActionListener() {
+        campoNombreUsuarioActual.setEditable(false);
+        campoNombreUsuarioActual.setBackground(new java.awt.Color(200, 226, 236));
+        campoNombreUsuarioActual.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoNombreUsuarioActual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioMCActionPerformed(evt);
+                campoNombreUsuarioActualActionPerformed(evt);
             }
         });
 
-        NombreCompletoMC.setBackground(new java.awt.Color(200, 226, 236));
-        NombreCompletoMC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        NombreCompletoMC.addActionListener(new java.awt.event.ActionListener() {
+        campoNomCompletoActual.setEditable(false);
+        campoNomCompletoActual.setBackground(new java.awt.Color(200, 226, 236));
+        campoNomCompletoActual.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoNomCompletoActual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreCompletoMCActionPerformed(evt);
+                campoNomCompletoActualActionPerformed(evt);
             }
         });
 
-        FechaInicioMC.setBackground(new java.awt.Color(200, 226, 236));
-        FechaInicioMC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoFechaInicioActual.setEditable(false);
+        campoFechaInicioActual.setBackground(new java.awt.Color(200, 226, 236));
+        campoFechaInicioActual.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
 
-        FechaFinMC.setBackground(new java.awt.Color(200, 226, 236));
-        FechaFinMC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoFechaFinActual.setEditable(false);
+        campoFechaFinActual.setBackground(new java.awt.Color(200, 226, 236));
+        campoFechaFinActual.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
 
-        IdMC.setBackground(new java.awt.Color(200, 226, 236));
-        IdMC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoIDActual.setEditable(false);
+        campoIDActual.setBackground(new java.awt.Color(200, 226, 236));
+        campoIDActual.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 25)); // NOI18N
         jLabel8.setText("Mi cuenta");
@@ -108,11 +132,12 @@ public class Mi_Cuenta extends javax.swing.JDialog {
             }
         });
 
-        PuestoMC.setBackground(new java.awt.Color(200, 226, 236));
-        PuestoMC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        PuestoMC.addActionListener(new java.awt.event.ActionListener() {
+        campoTipoUsuario.setEditable(false);
+        campoTipoUsuario.setBackground(new java.awt.Color(200, 226, 236));
+        campoTipoUsuario.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PuestoMCActionPerformed(evt);
+                campoTipoUsuarioActionPerformed(evt);
             }
         });
 
@@ -128,35 +153,34 @@ public class Mi_Cuenta extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(165, 165, 165)
-                                .addComponent(IdMC, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(113, 113, 113)
-                                .addComponent(UsuarioMC, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(123, 123, 123)
-                                    .addComponent(PuestoMC))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(NombreCompletoMC))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(100, 100, 100)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(FechaInicioMC, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(FechaFinMC, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel10)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(11, 11, 11))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(160, 160, 160)
+                                        .addComponent(campoIDActual, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel2))
+                                        .addGap(25, 25, 25)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(campoNomCompletoActual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                            .addComponent(campoFechaFinActual, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(campoFechaInicioActual, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(campoNombreUsuarioActual, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(campoTipoUsuario))))
+                                .addGap(0, 13, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jLabel9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
@@ -164,7 +188,7 @@ public class Mi_Cuenta extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(158, 158, 158)
                         .addComponent(VolverMC)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,27 +203,27 @@ public class Mi_Cuenta extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(IdMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(campoIDActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UsuarioMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNombreUsuarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(FechaInicioMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoFechaInicioActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(FechaFinMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoFechaFinActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(NombreCompletoMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNomCompletoActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(PuestoMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(1, 1, 1)
@@ -224,21 +248,21 @@ public class Mi_Cuenta extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsuarioMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioMCActionPerformed
+    private void campoNombreUsuarioActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreUsuarioActualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioMCActionPerformed
+    }//GEN-LAST:event_campoNombreUsuarioActualActionPerformed
 
-    private void NombreCompletoMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreCompletoMCActionPerformed
+    private void campoNomCompletoActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomCompletoActualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreCompletoMCActionPerformed
+    }//GEN-LAST:event_campoNomCompletoActualActionPerformed
 
     private void VolverMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverMCActionPerformed
      this.setVisible(false);
     }//GEN-LAST:event_VolverMCActionPerformed
 
-    private void PuestoMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoMCActionPerformed
+    private void campoTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTipoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PuestoMCActionPerformed
+    }//GEN-LAST:event_campoTipoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,13 +270,13 @@ public class Mi_Cuenta extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField FechaFinMC;
-    private javax.swing.JTextField FechaInicioMC;
-    private javax.swing.JTextField IdMC;
-    private javax.swing.JTextField NombreCompletoMC;
-    private javax.swing.JTextField PuestoMC;
-    private javax.swing.JTextField UsuarioMC;
     private javax.swing.JButton VolverMC;
+    private javax.swing.JTextField campoFechaFinActual;
+    private javax.swing.JTextField campoFechaInicioActual;
+    private javax.swing.JTextField campoIDActual;
+    private javax.swing.JTextField campoNomCompletoActual;
+    private javax.swing.JTextField campoNombreUsuarioActual;
+    private javax.swing.JTextField campoTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

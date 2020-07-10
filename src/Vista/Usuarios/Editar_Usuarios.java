@@ -5,6 +5,11 @@
  */
 package Vista.Usuarios;
 
+import Controlador.LibreriaBDControlador;
+import Controlador.LibreriaToolsControlador;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +21,40 @@ public class Editar_Usuarios extends javax.swing.JDialog {
     /**
      * Creates new form Editar_Usuarios
      */
-    public Editar_Usuarios(java.awt.Frame parent, boolean modal) {
+    LibreriaBDControlador lbc = new LibreriaBDControlador();
+    LibreriaToolsControlador lbt = new LibreriaToolsControlador();
+    public String editarID = "12345";
+    public Editar_Usuarios(java.awt.Frame parent, boolean modal, String editarID) {
         super(parent, modal);
         initComponents();
+        this.editarID = editarID;
+        setFilas(editarID);
+    }
+    
+    void setFilas(String id){
+        try{
+          
+            String Sql = "SELECT * FROM gasvalid.tabla_usuarios where id = '"+id+"'";
+
+            System.out.println("Contenido: "+Sql);
+
+            PreparedStatement us = lbc.openConnection().prepareStatement(Sql);
+            ResultSet res = us.executeQuery();
+            //Object objDatos[] = new Object[columna.length]; //Siempre debe cconexoincidir con el numero de columnas!
+            
+            while(res.next()){
+               //Obtengo la información y la desplazo a los campos de la vista; 
+                campoIdEditaUsuario.setText(res.getString("id"));
+                campoUsuarioEditaUsuario.setText(res.getString("nombre_usuario"));
+                campoNombreCompleto.setText(res.getString("nombre_completo"));
+                campoTipoUsuario.setSelectedIndex(res.getInt("tipo_usuario"));
+            }
+        }
+        catch(SQLException ex){
+        
+        }
+        //lbc.closeConnection();
+    
     }
 
     /**
@@ -36,11 +72,11 @@ public class Editar_Usuarios extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        UsuarioEU = new javax.swing.JTextField();
-        NombreCompletoEU = new javax.swing.JTextField();
-        ContraseniaEU = new javax.swing.JPasswordField();
-        PuestoEU = new javax.swing.JComboBox<>();
-        IdEU = new javax.swing.JTextField();
+        campoUsuarioEditaUsuario = new javax.swing.JTextField();
+        campoNombreCompleto = new javax.swing.JTextField();
+        campoContraseña = new javax.swing.JPasswordField();
+        campoTipoUsuario = new javax.swing.JComboBox<>();
+        campoIdEditaUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         EditarEU = new javax.swing.JButton();
@@ -62,37 +98,44 @@ public class Editar_Usuarios extends javax.swing.JDialog {
         jLabel6.setText("Nombre completo");
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        jLabel7.setText("Puesto");
+        jLabel7.setText("Tipo de Usuario");
 
-        UsuarioEU.setBackground(new java.awt.Color(200, 226, 236));
-        UsuarioEU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        UsuarioEU.addActionListener(new java.awt.event.ActionListener() {
+        campoUsuarioEditaUsuario.setEditable(false);
+        campoUsuarioEditaUsuario.setBackground(new java.awt.Color(200, 226, 236));
+        campoUsuarioEditaUsuario.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoUsuarioEditaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioEUActionPerformed(evt);
+                campoUsuarioEditaUsuarioActionPerformed(evt);
             }
         });
 
-        NombreCompletoEU.setBackground(new java.awt.Color(200, 226, 236));
-        NombreCompletoEU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        NombreCompletoEU.addActionListener(new java.awt.event.ActionListener() {
+        campoNombreCompleto.setBackground(new java.awt.Color(200, 226, 236));
+        campoNombreCompleto.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoNombreCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreCompletoEUActionPerformed(evt);
+                campoNombreCompletoActionPerformed(evt);
             }
         });
 
-        ContraseniaEU.setBackground(new java.awt.Color(200, 226, 236));
-        ContraseniaEU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        ContraseniaEU.addActionListener(new java.awt.event.ActionListener() {
+        campoContraseña.setBackground(new java.awt.Color(200, 226, 236));
+        campoContraseña.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseniaEUActionPerformed(evt);
+                campoContraseñaActionPerformed(evt);
             }
         });
 
-        PuestoEU.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        PuestoEU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente Técnico", "Técnico Verificador", "Personal apoyo" }));
+        campoTipoUsuario.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        campoTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente Técnico", "Técnico Verificador", "Personal apoyo" }));
 
-        IdEU.setBackground(new java.awt.Color(200, 226, 236));
-        IdEU.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoIdEditaUsuario.setEditable(false);
+        campoIdEditaUsuario.setBackground(new java.awt.Color(200, 226, 236));
+        campoIdEditaUsuario.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoIdEditaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoIdEditaUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 25)); // NOI18N
         jLabel8.setText("Editar Usuario");
@@ -111,42 +154,40 @@ public class Editar_Usuarios extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(165, 165, 165)
-                                .addComponent(IdEU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(78, 78, 78)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ContraseniaEU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(UsuarioEU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(165, 165, 165)
+                                        .addComponent(campoIdEditaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel2)
+                                                    .addComponent(jLabel3))
+                                                .addGap(84, 84, 84))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addGap(47, 47, 47)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(campoTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(campoContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                                .addComponent(campoUsuarioEditaUsuario)
+                                                .addComponent(campoNombreCompleto))))
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(84, 84, 84)
+                                .addComponent(jLabel9))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NombreCompletoEU, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PuestoEU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(171, 171, 171)
+                        .addComponent(EditarEU)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(EditarEU)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(118, 118, 118))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,28 +197,28 @@ public class Editar_Usuarios extends javax.swing.JDialog {
                         .addGap(84, 84, 84)
                         .addComponent(jLabel9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(IdEU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(campoIdEditaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UsuarioEU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoUsuarioEditaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ContraseniaEU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(NombreCompletoEU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(PuestoEU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(EditarEU, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -187,7 +228,7 @@ public class Editar_Usuarios extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,22 +239,31 @@ public class Editar_Usuarios extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsuarioEUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioEUActionPerformed
+    private void campoUsuarioEditaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioEditaUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioEUActionPerformed
+    }//GEN-LAST:event_campoUsuarioEditaUsuarioActionPerformed
 
-    private void NombreCompletoEUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreCompletoEUActionPerformed
+    private void campoNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreCompletoEUActionPerformed
+    }//GEN-LAST:event_campoNombreCompletoActionPerformed
 
-    private void ContraseniaEUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseniaEUActionPerformed
+    private void campoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseniaEUActionPerformed
+    }//GEN-LAST:event_campoContraseñaActionPerformed
 
     private void EditarEUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEUActionPerformed
+        String password = lbt.obtenerMD5(campoContraseña.getText());
+        
+        lbc.openConnection();  
+        lbc.updateDatosUsuario("tabla_usuarios", Integer.parseInt(editarID), password, campoNombreCompleto.getText(), campoTipoUsuario.getSelectedIndex());
+        lbc.closeConnection();
         JOptionPane.showMessageDialog(rootPane, "Se edito el usuario");
         this.setVisible(false);
     }//GEN-LAST:event_EditarEUActionPerformed
+
+    private void campoIdEditaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdEditaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoIdEditaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,12 +271,12 @@ public class Editar_Usuarios extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField ContraseniaEU;
     private javax.swing.JButton EditarEU;
-    private javax.swing.JTextField IdEU;
-    private javax.swing.JTextField NombreCompletoEU;
-    private javax.swing.JComboBox<String> PuestoEU;
-    private javax.swing.JTextField UsuarioEU;
+    private javax.swing.JPasswordField campoContraseña;
+    private javax.swing.JTextField campoIdEditaUsuario;
+    private javax.swing.JTextField campoNombreCompleto;
+    private javax.swing.JComboBox<String> campoTipoUsuario;
+    private javax.swing.JTextField campoUsuarioEditaUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -57,6 +57,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="RegresarADU" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
@@ -73,7 +75,7 @@
                           <EmptySpace pref="94" max="32767" attributes="0"/>
                           <Component id="EditarADU" min="-2" pref="249" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="249" max="-2" attributes="0"/>
+                          <Component id="EliminarADU" min="-2" pref="249" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -89,10 +91,13 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="AgregarADU" alignment="3" min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="EditarADU" alignment="3" min="-2" pref="176" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="176" max="-2" attributes="0"/>
+                      <Component id="EliminarADU" alignment="3" min="-2" pref="176" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="231" max="32767" attributes="0"/>
-                  <Component id="RegresarADU" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="RegresarADU" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -149,7 +154,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditarADUActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="EliminarADU">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="18" style="0"/>
@@ -163,7 +168,7 @@
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarADUActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="UsuariosADU">
@@ -210,6 +215,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MicuentaADUActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nota: Solo usuarios tipo administrador pueden agregar, ver, editar y eliminar a los usuarios en el sistema."/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
