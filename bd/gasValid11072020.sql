@@ -32,7 +32,7 @@ CREATE TABLE `tabla_usuarios` (
   `tipo_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_usuario_UNIQUE` (`nombre_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,40 @@ LOCK TABLES `tabla_usuarios` WRITE;
 /*!40000 ALTER TABLE `tabla_usuarios` DISABLE KEYS */;
 INSERT INTO `tabla_usuarios` VALUES (1,'jose.caamal','5f4dcc3b5aa765d61d8327deb882cf99','2020-06-01 00:00:00','2020-06-30 16:23:23','Jose Luis Caamal Ic',0),(2,'saul.ramirez','5f4dcc3b5aa765d61d8327deb882cf99','2020-06-01 00:00:00','2021-06-01 15:20:33','Saul Ramirez',1),(3,'roberto.apoyo','5f4dcc3b5aa765d61d8327deb882cf99','2020-06-07 00:00:00','2020-06-30 00:00:00','Roberto Palazuelos',2);
 /*!40000 ALTER TABLE `tabla_usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tablagasvalid`
+--
+
+DROP TABLE IF EXISTS `tablagasvalid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tablagasvalid` (
+  `Holograma` varchar(45) NOT NULL,
+  `No Solicitud` varchar(45) DEFAULT NULL,
+  `F_Verif` varchar(45) DEFAULT NULL,
+  `Num Est` varchar(45) DEFAULT NULL,
+  `Estacion` varchar(45) DEFAULT NULL,
+  `Disp` varchar(45) DEFAULT NULL,
+  `Modelo` varchar(45) DEFAULT NULL,
+  `Manguera` varchar(45) DEFAULT NULL,
+  `Lado` varchar(45) DEFAULT NULL,
+  `Estatus` varchar(45) DEFAULT 'No asignada',
+  `tipoHolograma` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Holograma`),
+  UNIQUE KEY `Holograma_UNIQUE` (`Holograma`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tablagasvalid`
+--
+
+LOCK TABLES `tablagasvalid` WRITE;
+/*!40000 ALTER TABLE `tablagasvalid` DISABLE KEYS */;
+INSERT INTO `tablagasvalid` VALUES ('F202102200021',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada','PROFECO'),('P20200210000100',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL),('P20200210000101',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL),('P20200210000102',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL);
+/*!40000 ALTER TABLE `tablagasvalid` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -62,4 +96,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-28 17:07:04
+-- Dump completed on 2020-07-11 14:36:36

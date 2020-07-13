@@ -217,11 +217,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_catalogoTermometrosActionPerformed
 
     private void catalogoHologramasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoHologramasActionPerformed
-//saul arenas ramirez 8/07/2020
-        
-        catalogoHologramas abrir=new catalogoHologramas();
-abrir.setVisible(true);
-this.setVisible(false);// TODO add your handling code here:
+        //saul arenas ramirez 8/07/2020
+
+        catalogoHologramas abrir=new catalogoHologramas(mtu);
+        abrir.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_catalogoHologramasActionPerformed
 
     private void catalogoEstacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoEstacionesActionPerformed

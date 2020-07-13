@@ -7,7 +7,7 @@ package Vista.Hologramas;
 
 import javax.swing.JOptionPane;
 import Controlador.LibreriaBDControlador;
-import java.sql.*;
+//import java.sql.*;
 
 
 /**
@@ -57,7 +57,6 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
         PROFECOGDC = new javax.swing.JRadioButton();
         UVAGDC = new javax.swing.JRadioButton();
         GuardarGDC = new javax.swing.JButton();
-        SalirGDC = new javax.swing.JButton();
         AnioGDC = new javax.swing.JComboBox<>();
         TipodeVerificacionGDC = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -135,17 +134,10 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
             }
         });
 
-        SalirGDC.setFont(new java.awt.Font("Arial Black", 0, 13)); // NOI18N
-        SalirGDC.setForeground(new java.awt.Color(255, 51, 51));
-        SalirGDC.setText("Salir");
-        SalirGDC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirGDCActionPerformed(evt);
-            }
-        });
-
+        AnioGDC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AnioGDC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050" }));
 
+        TipodeVerificacionGDC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TipodeVerificacionGDC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "021", "022", "023" }));
         TipodeVerificacionGDC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,14 +163,13 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(UVAGDC)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addGap(177, 177, 177)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AnioGDC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AnioGDC, 0, 141, Short.MAX_VALUE)
                             .addComponent(LetraGDC)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,19 +177,20 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
                             .addComponent(jLabel5)
                             .addComponent(PROFECOGDC)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel3))
-                        .addGap(36, 36, 36)
+                            .addComponent(jLabel3)
+                            .addComponent(UVAGDC))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TipodeVerificacionGDC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 16, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(SalirGDC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(GuardarGDC, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
-                                .addGap(0, 16, Short.MAX_VALUE))
-                            .addComponent(FoloFinalGDC)
-                            .addComponent(FolioInicialGDC)
-                            .addComponent(CEROSADICIONALESGDC))))
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TipodeVerificacionGDC, 0, 141, Short.MAX_VALUE)
+                                    .addComponent(FoloFinalGDC)
+                                    .addComponent(FolioInicialGDC)
+                                    .addComponent(CEROSADICIONALESGDC)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(GuardarGDC, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16)))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -207,7 +199,7 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(LetraGDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LetraGDC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -219,7 +211,7 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(CEROSADICIONALESGDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CEROSADICIONALESGDC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -234,13 +226,11 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
                         .addComponent(PROFECOGDC)
                         .addGap(18, 18, 18)
                         .addComponent(UVAGDC)
-                        .addContainerGap(30, Short.MAX_VALUE))
+                        .addContainerGap(32, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(GuardarGDC, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SalirGDC, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))))
+                        .addComponent(GuardarGDC, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,11 +263,11 @@ lbc.openConnection();
 
 
      // para guardar los datos que ya esten ingresados
-   String  letra,anio,tipo,ceros,folioinicial,foliofinal,profOuva,HOLOGRAMA;
-   String  sql="";
+  String  letra,anio,tipo,ceros,folioinicial,foliofinal,profOuva,HOLOGRAMA;
+  //String  sql="";
    
-   letra=LetraGDC.getText();
-   anio=(String) AnioGDC.getSelectedItem();
+  letra=LetraGDC.getText();
+  anio=(String) AnioGDC.getSelectedItem();
   tipo=(String) TipodeVerificacionGDC.getSelectedItem();
   ceros=CEROSADICIONALESGDC.getText();
   folioinicial=FolioInicialGDC.getText();
@@ -302,7 +292,7 @@ HOLOGRAMA=(letra+anio+tipo+ceros+folioinicialI);
 folioinicialI++;
 
 //mandar los datos a la base de datos
-lbc.insertarHologramas("TablaGasValid", HOLOGRAMA);
+lbc.insertarHologramas("TablaGasValid", HOLOGRAMA, profOuva);
     System.out.println(HOLOGRAMA);
 }
 //CIERRA LA CONEXION
@@ -314,10 +304,6 @@ JOptionPane.showMessageDialog(rootPane, "Guardado exitosamente");
   
 
     }//GEN-LAST:event_GuardarGDCActionPerformed
-
-    private void SalirGDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirGDCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SalirGDCActionPerformed
 
     private void TipodeVerificacionGDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipodeVerificacionGDCActionPerformed
         // TODO add your handling code here:
@@ -378,7 +364,6 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}JOptionPane.sh
     private javax.swing.JButton GuardarGDC;
     private javax.swing.JTextField LetraGDC;
     private javax.swing.JRadioButton PROFECOGDC;
-    private javax.swing.JButton SalirGDC;
     private javax.swing.JComboBox<String> TipodeVerificacionGDC;
     private javax.swing.JRadioButton UVAGDC;
     private javax.swing.JLabel jLabel1;
