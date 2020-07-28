@@ -7,6 +7,8 @@ package Vista.Principal;
 
 import Modelo.modeloTablaUsuario;
 import Vista.Cronometros.catalogoCronometro;
+import Vista.Dispensarios.catalogoDispensarios;
+import Vista.Estacion.*;
 import Vista.Hologramas.catalogoHologramas;
 import Vista.Jarras.catalogoMedidadVolumetricasJarras;
 import java.awt.Dimension;
@@ -19,6 +21,8 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Vista.Usuarios.Administracion_de_usuarios;
+import Vista.Solicitud.registroSolicitudContrato;
+import Vista.Solicitud.catalogoSolicitud;
 
 /**
  *
@@ -39,11 +43,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         catalogoCronometros.setToolTipText("Cátologo Cronometros");
         catalogoJarras.setToolTipText("Cátologo Jarras");
         catalogoTermometros.setToolTipText("Cátologo Termometros");
-        catalogoEstaciones.setToolTipText("Cátologo Estaciones");
-        catalogosMovimientoDispensarios.setToolTipText("Cátologo Movimientos Dispensarios");
-        registroSolicitud.setToolTipText("Registro Solicitud");
-        registoContrato.setToolTipText("Registro Contrato");
+        registroContrato.setToolTipText("Registro Contrato");
         inspeccionMedicion.setToolTipText("Inspección de Medición");
+        registroSolicitud.setToolTipText("Registro Solicitud");
+        catalogoEstaciones.setToolTipText("Cátologo Estaciones");
+        catalogoDispensarios.setToolTipText("Cátologo Movimientos Dispensarios");
         cambiarImagen.setToolTipText("Cambiar Imagen");
         catalogoUsuarios.setToolTipText("Cátologo Usuarios");
         catalogoHologramas.setToolTipText("Cátologo Hologramas");
@@ -65,11 +69,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         catalogoJarras = new javax.swing.JButton();
         catalogoTermometros = new javax.swing.JButton();
         catalogoHologramas = new javax.swing.JButton();
-        catalogoEstaciones = new javax.swing.JButton();
-        catalogosMovimientoDispensarios = new javax.swing.JButton();
-        registroSolicitud = new javax.swing.JButton();
-        registoContrato = new javax.swing.JButton();
+        registroContrato = new javax.swing.JButton();
         inspeccionMedicion = new javax.swing.JButton();
+        registroSolicitud = new javax.swing.JButton();
+        catalogoEstaciones = new javax.swing.JButton();
+        catalogoDispensarios = new javax.swing.JButton();
         cambiarImagen = new javax.swing.JButton();
         catalogoUsuarios = new javax.swing.JButton();
         labelFondo = new javax.swing.JLabel();
@@ -121,23 +125,23 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(catalogoHologramas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 80, 80));
 
-        catalogoEstaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/document_pen.png"))); // NOI18N
-        catalogoEstaciones.setAlignmentX(0.5F);
-        catalogoEstaciones.addActionListener(new java.awt.event.ActionListener() {
+        registroContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/document_pen.png"))); // NOI18N
+        registroContrato.setAlignmentX(0.5F);
+        registroContrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                catalogoEstacionesActionPerformed(evt);
+                registroContratoActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogoEstaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 80, 80));
+        jPanel1.add(registroContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, 80));
 
-        catalogosMovimientoDispensarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/contract_pencil.png"))); // NOI18N
-        catalogosMovimientoDispensarios.setAlignmentX(0.5F);
-        catalogosMovimientoDispensarios.addActionListener(new java.awt.event.ActionListener() {
+        inspeccionMedicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/contract_pencil.png"))); // NOI18N
+        inspeccionMedicion.setAlignmentX(0.5F);
+        inspeccionMedicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                catalogosMovimientoDispensariosActionPerformed(evt);
+                inspeccionMedicionActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogosMovimientoDispensarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, 80));
+        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 80, 80));
 
         registroSolicitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/to_do_list_checked2.png"))); // NOI18N
         registroSolicitud.setAlignmentX(0.5F);
@@ -146,25 +150,25 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 registroSolicitudActionPerformed(evt);
             }
         });
-        jPanel1.add(registroSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 80, 80));
+        jPanel1.add(registroSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 80, 80));
 
-        registoContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/pemex.png"))); // NOI18N
-        registoContrato.setAlignmentX(0.5F);
-        registoContrato.addActionListener(new java.awt.event.ActionListener() {
+        catalogoEstaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/pemex.png"))); // NOI18N
+        catalogoEstaciones.setAlignmentX(0.5F);
+        catalogoEstaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registoContratoActionPerformed(evt);
+                catalogoEstacionesActionPerformed(evt);
             }
         });
-        jPanel1.add(registoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 80, 80));
+        jPanel1.add(catalogoEstaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 80, 80));
 
-        inspeccionMedicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gas.png"))); // NOI18N
-        inspeccionMedicion.setAlignmentX(0.5F);
-        inspeccionMedicion.addActionListener(new java.awt.event.ActionListener() {
+        catalogoDispensarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gas.png"))); // NOI18N
+        catalogoDispensarios.setAlignmentX(0.5F);
+        catalogoDispensarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inspeccionMedicionActionPerformed(evt);
+                catalogoDispensariosActionPerformed(evt);
             }
         });
-        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 80, 80));
+        jPanel1.add(catalogoDispensarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 80, 80));
 
         cambiarImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/gasvalid_changemain.png"))); // NOI18N
         cambiarImagen.setAlignmentX(0.5F);
@@ -220,29 +224,35 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         //saul arenas ramirez 8/07/2020
 
         catalogoHologramas abrir=new catalogoHologramas(mtu);
-        abrir.setVisible(true);
-        this.setVisible(false);// TODO add your handling code here:
+        abrir.show();
+        //this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_catalogoHologramasActionPerformed
 
-    private void catalogoEstacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoEstacionesActionPerformed
+    private void registroContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroContratoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_catalogoEstacionesActionPerformed
-
-    private void catalogosMovimientoDispensariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogosMovimientoDispensariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_catalogosMovimientoDispensariosActionPerformed
-
-    private void registroSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroSolicitudActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registroSolicitudActionPerformed
-
-    private void registoContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registoContratoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registoContratoActionPerformed
+    }//GEN-LAST:event_registroContratoActionPerformed
 
     private void inspeccionMedicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inspeccionMedicionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inspeccionMedicionActionPerformed
+
+    private void registroSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroSolicitudActionPerformed
+       catalogoSolicitud ver=new catalogoSolicitud(mtu);
+       ver.show();
+// TODO add your handling code here:
+    }//GEN-LAST:event_registroSolicitudActionPerformed
+
+    private void catalogoEstacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoEstacionesActionPerformed
+        // TODO add your handling code here:
+        catalogoEstaciones ce = new catalogoEstaciones();
+        ce.show();
+    }//GEN-LAST:event_catalogoEstacionesActionPerformed
+
+    private void catalogoDispensariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoDispensariosActionPerformed
+        // TODO add your handling code here:
+        catalogoDispensarios cd = new catalogoDispensarios(mtu);
+        cd.show();
+    }//GEN-LAST:event_catalogoDispensariosActionPerformed
 
     
     /*
@@ -319,16 +329,16 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cambiarImagen;
     private javax.swing.JButton catalogoCronometros;
+    private javax.swing.JButton catalogoDispensarios;
     private javax.swing.JButton catalogoEstaciones;
     private javax.swing.JButton catalogoHologramas;
     private javax.swing.JButton catalogoJarras;
     private javax.swing.JButton catalogoTermometros;
     private javax.swing.JButton catalogoUsuarios;
-    private javax.swing.JButton catalogosMovimientoDispensarios;
     private javax.swing.JButton inspeccionMedicion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelFondo;
-    private javax.swing.JButton registoContrato;
+    private javax.swing.JButton registroContrato;
     private javax.swing.JButton registroSolicitud;
     // End of variables declaration//GEN-END:variables
 }

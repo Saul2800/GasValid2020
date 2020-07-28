@@ -9,6 +9,7 @@ import Modelo.modeloTablaUsuario;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -94,63 +95,14 @@ public class LibreriaToolsControlador {
     }
     
     /*
-    Inicia:
-    @obtenerDatosUsuarioGlobal void para recuperar la info de la lista obtenida en la consulta
-    Se encripta la contraseña
-    Nota: Siempre hay que obtener la validación desde aquí:
-    @Author: Jose Caamal 27/06/2020
+    Formateo la fecha para recibirla y guardarla en MySQL
+    @Author: Jose Caamal 15/07/2020
     */
-//    public void obtenerDatosUsuarioGlobal(List<Object> listaDatosUsuarios) {
-//        int tamañoListaDU = listaDatosUsuarios.size(); //Obtengo el tamaño de los usuarios
-//       //Cuando se añada un nuevo campo a la tabla es necesario que se actualize :p
-//       //En un futuro se puede pasar a la libreria de bd
-//       Iterator iter = listaDatosUsuarios.iterator();
-//       while (iter.hasNext()){
-//            
-//            switch(tamañoListaDU){
-//                /*Nota:
-//                Cuando es un objeto puedo castear directamente unicamente añadiendo el tipo de variable
-//                que deseo que se convierta ejemplo: (int) nameVariable
-//                Jose Luis Caamal Ic 28/06/2020
-//                */
-//                case 1:
-//                    mt.setTipoUsuario((int) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 2:
-//                    mt.setNombreCompleto((String) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 3:
-//                    //mt.setFechaFin((String) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 4:
-//                    //mt.setFechaInicio((String) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 5:
-//                    mt.setPassword((String) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 6:
-//                    mt.setNombreUsuario((String) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 7:
-//                    mt.setIdActual((int) iter.next());
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                case 8:
-//                    System.out.println("Posición"+tamañoListaDU+": "+iter.next());
-//                break;
-//                default:
-//                    System.out.println("Hay valores que aún no estan en la lista: "+tamañoListaDU+": "+iter.next());
-//                break;
-//            }
-//            tamañoListaDU = tamañoListaDU-1; //Quito un valor al tamaño para que el contenido sea exacto
-//            
-//        }
-//    }
-       
+    public String convertirFecha(Date fecha){
+        SimpleDateFormat plantilla;
+        //fecha = new java.util.Date();  
+        plantilla = new SimpleDateFormat("yyyy/MM/dd H:mm:ss"); //Obtengo Horas y 
+        String tiempo = plantilla.format(fecha);
+        return tiempo;
+    }
 }

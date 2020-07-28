@@ -16,6 +16,47 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `tabla_clientes`
+--
+
+DROP TABLE IF EXISTS `tabla_clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tabla_clientes` (
+  `idestacion` int(11) NOT NULL AUTO_INCREMENT,
+  `fecharegistro` datetime DEFAULT NULL,
+  `nombre_responsable` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `razon_social` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `registro_fedcausante` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `domicilio` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `colonia` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `ciudad` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `estado` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `telefono` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `correo_electronico` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `coordenadasUTM` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `codigo_postal` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `numero_cre` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `marca_gasolina` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `mangueraMagna` int(11) DEFAULT NULL,
+  `mangueraPremium` int(11) DEFAULT NULL,
+  `mangueraDiesel` int(11) DEFAULT NULL,
+  `estatus_maguera` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  PRIMARY KEY (`idestacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tabla_clientes`
+--
+
+LOCK TABLES `tabla_clientes` WRITE;
+/*!40000 ALTER TABLE `tabla_clientes` DISABLE KEYS */;
+INSERT INTO `tabla_clientes` VALUES (1,'2020-07-15 20:10:35','prueba','prueba','prueba','conocido','prueba','Merida','Jalisco','9992059252','jose.caamal','odkjalkdasljk','99','99','Pemex',1,1,1,'VIGENTE');
+/*!40000 ALTER TABLE `tabla_clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tabla_usuarios`
 --
 
@@ -75,7 +116,7 @@ CREATE TABLE `tablagasvalid` (
 
 LOCK TABLES `tablagasvalid` WRITE;
 /*!40000 ALTER TABLE `tablagasvalid` DISABLE KEYS */;
-INSERT INTO `tablagasvalid` VALUES ('F202102200021',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada','PROFECO'),('P20200210000100',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL),('P20200210000101',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL),('P20200210000102',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL);
+INSERT INTO `tablagasvalid` VALUES ('A202002100000123',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada','PROFECO'),('A202002100000124',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada','PROFECO'),('A202002100000125',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada','PROFECO'),('F202102200021',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada','PROFECO'),('P20200210000100',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL),('P20200210000101',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL),('P20200210000102',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No asignada',NULL);
 /*!40000 ALTER TABLE `tablagasvalid` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-11 14:36:36
+-- Dump completed on 2020-07-16 13:19:21

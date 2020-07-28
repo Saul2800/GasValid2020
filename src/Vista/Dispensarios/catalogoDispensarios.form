@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jToggleButton1"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -96,7 +103,7 @@
                   <Font name="Lucida Grande" size="12" style="2"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="modeloHologramas" type="code"/>
+                  <Connection code="modeloDispenarios" type="code"/>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0"/>
@@ -131,11 +138,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="AgregarCH" max="32767" attributes="0"/>
-                      <Component id="ModificarEstatusCH" pref="188" max="32767" attributes="0"/>
-                      <Component id="eliminarFolio" alignment="0" pref="188" max="32767" attributes="0"/>
+                      <Component id="botonAgregarDispensario" max="32767" attributes="0"/>
+                      <Component id="botonModificarDispensario" pref="188" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -147,24 +153,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="AgregarCH" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ModificarEstatusCH" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="eliminarFolio" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane2" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="botonAgregarDispensario" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="botonModificarDispensario" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="AgregarCH">
+        <Component class="javax.swing.JButton" name="botonAgregarDispensario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -172,10 +178,10 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarCHActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAgregarDispensarioActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ModificarEstatusCH">
+        <Component class="javax.swing.JButton" name="botonModificarDispensario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar "/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -183,24 +189,13 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModificarEstatusCHActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="eliminarFolio">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Eliminar Folio"/>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarFolioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarDispensarioActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="cc" type="rgb"/>
+              <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -214,22 +209,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="folioHolograma" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tipoCalcomania" max="32767" attributes="0"/>
-                                  <Component id="estatusHolograma" max="32767" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="folioDispensario" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="marcaGasolina" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="folioEstacion" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="110" max="32767" attributes="0"/>
@@ -244,23 +241,23 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="folioHolograma" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="folioDispensario" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="MostrarTodasCH" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tipoCalcomania" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="folioEstacion" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="estatusHolograma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="marcaGasolina" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           </Group>
@@ -287,38 +284,35 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Folio Calcoman&#xed;a:"/>
+                <Property name="text" type="java.lang.String" value="No. Dispensario:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="folioHolograma">
+            <Component class="javax.swing.JTextField" name="folioDispensario">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo Calcoman&#xed;a:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="tipoCalcomania">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="PROFECO"/>
-                    <StringItem index="1" value="UVA"/>
-                  </StringArray>
-                </Property>
+                <Property name="text" type="java.lang.String" value="No Estaci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Estatus:"/>
+                <Property name="text" type="java.lang.String" value="Marca Gasolina:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="estatusHolograma">
+            <Component class="javax.swing.JComboBox" name="marcaGasolina">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="ASIGNADA"/>
-                    <StringItem index="1" value="NO ASIGNADA"/>
-                    <StringItem index="2" value="DA&#xd1;ADO"/>
+                  <StringArray count="10">
+                    <StringItem index="0" value="WAYNE"/>
+                    <StringItem index="1" value="PETROL &amp; IMPORT"/>
+                    <StringItem index="2" value="GILBARCO"/>
+                    <StringItem index="3" value="TOKHEIM"/>
+                    <StringItem index="4" value="PEGASUS"/>
+                    <StringItem index="5" value="TEAM"/>
+                    <StringItem index="6" value="GBR"/>
+                    <StringItem index="7" value="UNIVERSEL"/>
+                    <StringItem index="8" value="BENNETT"/>
+                    <StringItem index="9" value="SUPRAMAX"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -330,6 +324,8 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RefrescarCHActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="folioEstacion">
             </Component>
           </SubComponents>
         </Container>
@@ -344,11 +340,14 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Monospaced" size="12" style="0"/>
+                </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Para filtrar los campos primero&#xa;deben a&#xf1;adir informaci&#xf3;n a los &#xa;campos y despu&#xe9;s darle clic a &#xa;buscar. Nota: Puede seleccionar&#xa;directamente en la tabla para&#xa;llenar el folio en automatico."/>
+                <Property name="text" type="java.lang.String" value="Para filtrar los campos primero&#xa;deben a&#xf1;adir informaci&#xf3;n a los &#xa;campos y despu&#xe9;s darle clic a &#xa;buscar. Nota: Puede seleccionar&#xa;directamente en la tabla para&#xa;llenar el n&#xfa;mero dispensario en &#xa;automatico."/>
                 <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>

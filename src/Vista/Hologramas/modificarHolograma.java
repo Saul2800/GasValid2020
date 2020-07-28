@@ -152,30 +152,30 @@ public class modificarHolograma extends javax.swing.JDialog {
     }//GEN-LAST:event_hologramaMHActionPerformed
 
     private void modificarMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarMHActionPerformed
-//Saul Arenas Ramirez 12/07/28
-String Holograma1=hologramaMH.getText();
-String Holograma2=reingreseelhologramaMH.getText();
-String   Estatus1=(String) EstatusMH.getSelectedItem();
-String tipoHolograma1=(String)this.tipodehologramaMH.getSelectedItem();
+    //Saul Arenas Ramirez 12/07/28
+    String Holograma1=hologramaMH.getText();
+    String Holograma2=reingreseelhologramaMH.getText();
+    String   Estatus1=(String) EstatusMH.getSelectedItem();
+    String tipoHolograma1=(String)this.tipodehologramaMH.getSelectedItem();
 
-        if(Holograma1.equals(Holograma2)){
-  
-   LibreriaBDControlador lbc= new LibreriaBDControlador();
+            if(Holograma1.equals(Holograma2)){
 
-lbc.openConnection();
+       LibreriaBDControlador lbc= new LibreriaBDControlador();
+
+    lbc.openConnection();
 
 
-//validar si existe el holograma
-lbc.ModificarHolograma(Holograma1, Estatus1, tipoHolograma1);
-//Actualizar los datos
-//lbc.modificarHologramas(Holograma1, Estatus1, tipoHolograma1);
+    //validar si existe el holograma
+    lbc.ModificarHolograma(Holograma1, Estatus1, tipoHolograma1);
+    //Actualizar los datos
+    //lbc.modificarHologramas(Holograma1, Estatus1, tipoHolograma1);
 
-lbc.closeConnection();
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(rootPane, "Los Hologramas de las entradas NO COINCIDEN por favor revise");
-        }
+    lbc.closeConnection();
+
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Los Hologramas de las entradas NO COINCIDEN por favor revise");
+            }
 
   
     }//GEN-LAST:event_modificarMHActionPerformed
@@ -183,44 +183,44 @@ lbc.closeConnection();
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                modificarHolograma dialog = new modificarHolograma(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(modificarHolograma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                modificarHolograma dialog = new modificarHolograma(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> EstatusMH;

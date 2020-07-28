@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista.Hologramas;
+package Vista.Dispensarios;
 
+import Vista.Hologramas.*;
 import Controlador.LibreriaBDControlador;
 import Modelo.modeloTablaUsuario;
 import java.sql.PreparedStatement;
@@ -16,44 +17,44 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author yuliana adame
  */
-public class catalogoHologramas extends javax.swing.JFrame {
+public class catalogoDispensarios extends javax.swing.JFrame {
 
     /**
      * Creates new form catalogoHologramas
      */
     public String columna[];
     LibreriaBDControlador lbd = new LibreriaBDControlador();
-    DefaultTableModel modeloHologramas;
+    DefaultTableModel modeloDispenarios;
     modeloTablaUsuario mtu = new modeloTablaUsuario();
     int tipoUsuario = 0;
-    public catalogoHologramas(modeloTablaUsuario mtu) {
+    public catalogoDispensarios(modeloTablaUsuario mtu) {
         this.mtu = mtu;
         tipoUsuario = mtu.getTipoUsuario();
         getColumnas();
         lbd.openConnection();
-        modeloHologramas = lbd.modeloGasValid(columna,"","",""); //Cargo el contenido por defecto
+        modeloDispenarios = lbd.modeloDispensarios(columna,"","",""); //Cargo el contenido por defecto
         lbd.closeConnection();
         //setFilas(); //Añado las filas
         initComponents();
-        //Valido eltipo de usuario
-        if(tipoUsuario != 0){
-            ModificarEstatusCH.setEnabled(false);
-            eliminarFolio.setEnabled(false);
-        }
+//        //Valido eltipo de usuario
+//        if(tipoUsuario != 0){
+//            botonModificarDispensario.setEnabled(false);
+//            //botonEliminarFolio.setEnabled(false);
+//        }
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 int row = jTable1.rowAtPoint(evt.getPoint());
-                int col = 0;
+                int col = 1;
                 if (row >= 0 && col >= 0) {
                     String valor = jTable1.getModel().getValueAt(row, col).toString(); //Tomo el valor de el modelo de la tabla
-                    folioHolograma.setText(valor); //Obtengo el valor del textfield
+                    folioDispensario.setText(valor); //Obtengo el valor del textfield
                 }
-//                col = 1;
-//                if (row >= 0 && col >= 0) {
-//                    String valor = jTable1.getModel().getValueAt(row, col).toString(); //Tomo el valor de el modelo de la tabla
-//                    jTextField2.setText(valor); //Obtengo el valor del textfield
-//                }
+                col = 2;
+                if (row >= 0 && col >= 0) {
+                    String valor = jTable1.getModel().getValueAt(row, col).toString(); //Tomo el valor de el modelo de la tabla
+                    folioEstacion.setText(valor); //Obtengo el valor del textfield
+                }
 //                col = 2;
 //                if (row >= 0 && col >= 0) {
 //                    String valor = jTable1.getModel().getValueAt(row, col).toString(); //Tomo el valor de el modelo de la tabla
@@ -64,16 +65,21 @@ public class catalogoHologramas extends javax.swing.JFrame {
     }
     /*Obtengo los titulos de mi tabla*/
     String[] getColumnas(){ //Columnas
-            columna = new String[] {"HOLOGRAMA",
-            "NÚM. SOLICITUD",
-            "F.VERIFICAR",
-            "NÚM. ESTACION",
-            "ESTACIÓN",
-            "DISPENSARIO",
+            columna = new String[] {"ID","NUMDISPENSARIO",
+            "NÚM.ESTACIÓN",
+            "MARCA",
             "MODELO",
-            "MAGUERA",
-            "LADO",
-            "STATUS"};
+            "SERIE",
+            "ALCANCEMIN",
+            "APROBACIONDGN",
+            "ALCANCEMAX",
+            "MANG.A",
+            "MANG.B",
+            "MANG.C",
+            "MANG.D",
+            "MANG.E",
+            "MANG.F",
+            "FEC.REG"};
         return columna;
     }
     /**
@@ -85,25 +91,27 @@ public class catalogoHologramas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
         jPanel2 = new javax.swing.JPanel();
-        AgregarCH = new javax.swing.JButton();
-        ModificarEstatusCH = new javax.swing.JButton();
-        eliminarFolio = new javax.swing.JButton();
+        botonAgregarDispensario = new javax.swing.JButton();
+        botonModificarDispensario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         MostrarTodasCH = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        folioHolograma = new javax.swing.JTextField();
+        folioDispensario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        tipoCalcomania = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        estatusHolograma = new javax.swing.JComboBox();
+        marcaGasolina = new javax.swing.JComboBox();
         RefrescarCH = new javax.swing.JButton();
+        folioEstacion = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 600));
@@ -112,7 +120,7 @@ public class catalogoHologramas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1.setFont(new java.awt.Font("Lucida Grande", 2, 12)); // NOI18N
-        jTable1.setModel(modeloHologramas);
+        jTable1.setModel(modeloDispenarios);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -135,37 +143,27 @@ public class catalogoHologramas extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        AgregarCH.setText("Agregar");
-        AgregarCH.setFocusable(false);
-        AgregarCH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        AgregarCH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        AgregarCH.addActionListener(new java.awt.event.ActionListener() {
+        botonAgregarDispensario.setText("Agregar");
+        botonAgregarDispensario.setFocusable(false);
+        botonAgregarDispensario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonAgregarDispensario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        botonAgregarDispensario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarCHActionPerformed(evt);
+                botonAgregarDispensarioActionPerformed(evt);
             }
         });
 
-        ModificarEstatusCH.setText("Modificar ");
-        ModificarEstatusCH.setFocusable(false);
-        ModificarEstatusCH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ModificarEstatusCH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        ModificarEstatusCH.addActionListener(new java.awt.event.ActionListener() {
+        botonModificarDispensario.setText("Modificar ");
+        botonModificarDispensario.setFocusable(false);
+        botonModificarDispensario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonModificarDispensario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        botonModificarDispensario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarEstatusCHActionPerformed(evt);
+                botonModificarDispensarioActionPerformed(evt);
             }
         });
 
-        eliminarFolio.setText("Eliminar Folio");
-        eliminarFolio.setFocusable(false);
-        eliminarFolio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        eliminarFolio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        eliminarFolio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarFolioActionPerformed(evt);
-            }
-        });
-
-        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         MostrarTodasCH.setForeground(new java.awt.Color(255, 0, 0));
@@ -176,15 +174,13 @@ public class catalogoHologramas extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Folio Calcomanía:");
+        jLabel3.setText("No. Dispensario:");
 
-        jLabel1.setText("Tipo Calcomanía:");
+        jLabel1.setText("No Estación");
 
-        tipoCalcomania.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PROFECO", "UVA" }));
+        jLabel2.setText("Marca Gasolina:");
 
-        jLabel2.setText("Estatus:");
-
-        estatusHolograma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASIGNADA", "NO ASIGNADA", "DAÑADO" }));
+        marcaGasolina.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WAYNE", "PETROL & IMPORT", "GILBARCO", "TOKHEIM", "PEGASUS", "TEAM", "GBR", "UNIVERSEL", "BENNETT", "SUPRAMAX" }));
 
         RefrescarCH.setText("Refrescar");
         RefrescarCH.addActionListener(new java.awt.event.ActionListener() {
@@ -199,19 +195,20 @@ public class catalogoHologramas extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(folioHolograma, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tipoCalcomania, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(estatusHolograma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(17, 17, 17))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(15, 15, 15)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(folioDispensario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(marcaGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(folioEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(MostrarTodasCH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,21 +218,21 @@ public class catalogoHologramas extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(folioHolograma, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(folioDispensario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MostrarTodasCH))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(tipoCalcomania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(folioEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(estatusHolograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(marcaGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(4, 4, 4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(RefrescarCH)
@@ -244,9 +241,10 @@ public class catalogoHologramas extends javax.swing.JFrame {
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Para filtrar los campos primero\ndeben añadir información a los \ncampos y después darle clic a \nbuscar. Nota: Puede seleccionar\ndirectamente en la tabla para\nllenar el folio en automatico.");
+        jTextArea1.setText("Para filtrar los campos primero\ndeben añadir información a los \ncampos y después darle clic a \nbuscar. Nota: Puede seleccionar\ndirectamente en la tabla para\nllenar el número dispensario en \nautomatico.");
         jTextArea1.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea1);
 
@@ -257,10 +255,9 @@ public class catalogoHologramas extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AgregarCH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ModificarEstatusCH, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(eliminarFolio, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
-                .addGap(59, 59, 59)
+                    .addComponent(botonAgregarDispensario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonModificarDispensario, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,16 +267,16 @@ public class catalogoHologramas extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(AgregarCH)
-                        .addGap(18, 18, 18)
-                        .addComponent(ModificarEstatusCH)
-                        .addGap(18, 18, 18)
-                        .addComponent(eliminarFolio))
-                    .addComponent(jScrollPane2))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGap(19, 19, 19)
+                        .addComponent(botonAgregarDispensario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonModificarDispensario)
+                        .addGap(0, 47, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -314,50 +311,39 @@ public class catalogoHologramas extends javax.swing.JFrame {
 
     private void MostrarTodasCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarTodasCHActionPerformed
         // TODO add your handling code here:
-        String folioH = folioHolograma.getText();
-        String tipoH = (String)tipoCalcomania.getSelectedItem();
-        String estatusH = (String) estatusHolograma.getSelectedItem();
+        String folioDispensariob = folioDispensario.getText();
+        String folioEstacionb =  folioEstacion.getText();
+        String marcaGas = (String) marcaGasolina.getSelectedItem();
         lbd.openConnection();
-        modeloHologramas = lbd.modeloGasValid(columna, tipoH, folioH, estatusH);
+        modeloDispenarios = lbd.modeloDispensarios(columna, folioDispensariob, folioEstacionb,marcaGas);
         lbd.closeConnection();
-        jTable1.setModel(modeloHologramas);
-        modeloHologramas.fireTableDataChanged();
+        jTable1.setModel(modeloDispenarios);
+        modeloDispenarios.fireTableDataChanged();
     }//GEN-LAST:event_MostrarTodasCHActionPerformed
 
-    private void AgregarCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCHActionPerformed
-                GeneradorDeCalcomonia dialog = new GeneradorDeCalcomonia(new javax.swing.JFrame(), true);
+    private void botonAgregarDispensarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarDispensarioActionPerformed
+                agregarDispensario dialog = new agregarDispensario(new javax.swing.JFrame(), true);
                 dialog.setVisible(true);
-    }//GEN-LAST:event_AgregarCHActionPerformed
+    }//GEN-LAST:event_botonAgregarDispensarioActionPerformed
 
     private void RefrescarCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefrescarCHActionPerformed
         // TODO add your handling code here:
         lbd.openConnection();
-        modeloHologramas = lbd.modeloGasValid(columna, "", "", "");
+        modeloDispenarios = lbd.modeloDispensarios(columna, "", "", "");
         lbd.closeConnection();
-        jTable1.setModel(modeloHologramas);
-        modeloHologramas.fireTableDataChanged();
+        jTable1.setModel(modeloDispenarios);
+        modeloDispenarios.fireTableDataChanged();
     }//GEN-LAST:event_RefrescarCHActionPerformed
 
-    private void ModificarEstatusCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarEstatusCHActionPerformed
-      modificarHolograma dialog = new modificarHolograma(new javax.swing.JFrame(), true);
+    private void botonModificarDispensarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarDispensarioActionPerformed
+      modificarDispensario dialog = new modificarDispensario(new javax.swing.JFrame(), true);
       dialog.setVisible(true);        // TODO add your handling code here:
-      lbd.openConnection();
-      modeloHologramas = lbd.modeloGasValid(columna, "", "", "");
-      lbd.closeConnection();
-      jTable1.setModel(modeloHologramas);
-      modeloHologramas.fireTableDataChanged();
-    }//GEN-LAST:event_ModificarEstatusCHActionPerformed
-
-    private void eliminarFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFolioActionPerformed
-      EliminarFolios dialog = new EliminarFolios(new javax.swing.JFrame(), true);
-      dialog.setVisible(true);
-      // TODO add your handling code here:  // TODO add your handling code here:
-      lbd.openConnection();
-      modeloHologramas = lbd.modeloGasValid(columna, "", "", "");
-      lbd.closeConnection();
-      jTable1.setModel(modeloHologramas);
-      modeloHologramas.fireTableDataChanged();
-    }//GEN-LAST:event_eliminarFolioActionPerformed
+//      lbd.openConnection();
+//      modeloDispenarios = lbd.modeloGasValid(columna, "", "", "");
+//      lbd.closeConnection();
+//      jTable1.setModel(modeloDispenarios);
+//      modeloDispenarios.fireTableDataChanged();
+    }//GEN-LAST:event_botonModificarDispensarioActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -395,13 +381,12 @@ public class catalogoHologramas extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarCH;
-    private javax.swing.JButton ModificarEstatusCH;
     private javax.swing.JButton MostrarTodasCH;
     private javax.swing.JButton RefrescarCH;
-    private javax.swing.JButton eliminarFolio;
-    private javax.swing.JComboBox estatusHolograma;
-    private javax.swing.JTextField folioHolograma;
+    private javax.swing.JButton botonAgregarDispensario;
+    private javax.swing.JButton botonModificarDispensario;
+    private javax.swing.JTextField folioDispensario;
+    private javax.swing.JTextField folioEstacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -412,7 +397,8 @@ public class catalogoHologramas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JComboBox tipoCalcomania;
+    private javax.swing.JComboBox marcaGasolina;
     // End of variables declaration//GEN-END:variables
 }

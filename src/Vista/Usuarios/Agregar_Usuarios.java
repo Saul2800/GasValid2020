@@ -285,10 +285,6 @@ public class Agregar_Usuarios extends javax.swing.JDialog {
         /*Termina: Se implementa el cambio para el insertado en base de datos de la tabla de usuarios
           Jose Luis Caamal Ic 27/06/2020
         */
-        
-        
-        
-        
         JOptionPane.showMessageDialog(rootPane, "Se agrego un nuevo usuario");
         this.setVisible(false);
     }//GEN-LAST:event_AgregarAUActionPerformed

@@ -292,7 +292,7 @@ HOLOGRAMA=(letra+anio+tipo+ceros+folioinicialI);
 folioinicialI++;
 
 //mandar los datos a la base de datos
-lbc.insertarHologramas("TablaGasValid", HOLOGRAMA, profOuva);
+lbc.insertarHologramas(HOLOGRAMA, profOuva);
     System.out.println(HOLOGRAMA);
 }
 //CIERRA LA CONEXION
