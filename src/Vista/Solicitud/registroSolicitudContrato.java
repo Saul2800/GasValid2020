@@ -543,10 +543,10 @@ int validaEstacion = 0;
     private void noEstacionRSCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noEstacionRSCKeyTyped
 char solonumero=evt.getKeyChar();
 
-if(Character.isLetter(solonumero)){
-getToolkit().beep();
-evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}
+//if(Character.isLetter(solonumero)){
+//        getToolkit().beep();
+//        evt.consume();
+//        JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}
     }//GEN-LAST:event_noEstacionRSCKeyTyped
 
     /**

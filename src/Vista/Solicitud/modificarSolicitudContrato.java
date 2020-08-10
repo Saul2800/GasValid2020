@@ -534,10 +534,10 @@ int validaEstacion = 0;
           private void noEstacionMSCKeyTyped(java.awt.event.KeyEvent evt) {                                       
 char solonumero=evt.getKeyChar();
 
-if(Character.isLetter(solonumero)){
-getToolkit().beep();
-evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}
+//if(Character.isLetter(solonumero)){
+//getToolkit().beep();
+//evt.consume();
+//JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}
           }
         
         

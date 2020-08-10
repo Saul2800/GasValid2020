@@ -10,6 +10,7 @@ import Vista.Cronometros.catalogoCronometro;
 import Vista.Dispensarios.catalogoDispensarios;
 import Vista.Estacion.*;
 import Vista.Hologramas.catalogoHologramas;
+import Vista.InspeccionDeMedicion.catalogoInspeccionDeMedicion;
 import Vista.Jarras.catalogoMedidadVolumetricasJarras;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -43,7 +44,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         catalogoCronometros.setToolTipText("Cátologo Cronometros");
         catalogoJarras.setToolTipText("Cátologo Jarras");
         catalogoTermometros.setToolTipText("Cátologo Termometros");
-        registroContrato.setToolTipText("Registro Contrato");
+        //registroContrato.setToolTipText("Registro Contrato");
         inspeccionMedicion.setToolTipText("Inspección de Medición");
         registroSolicitud.setToolTipText("Registro Solicitud");
         catalogoEstaciones.setToolTipText("Cátologo Estaciones");
@@ -69,7 +70,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         catalogoJarras = new javax.swing.JButton();
         catalogoTermometros = new javax.swing.JButton();
         catalogoHologramas = new javax.swing.JButton();
-        registroContrato = new javax.swing.JButton();
         inspeccionMedicion = new javax.swing.JButton();
         registroSolicitud = new javax.swing.JButton();
         catalogoEstaciones = new javax.swing.JButton();
@@ -125,15 +125,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(catalogoHologramas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 80, 80));
 
-        registroContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/document_pen.png"))); // NOI18N
-        registroContrato.setAlignmentX(0.5F);
-        registroContrato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroContratoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(registroContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, 80));
-
         inspeccionMedicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/contract_pencil.png"))); // NOI18N
         inspeccionMedicion.setAlignmentX(0.5F);
         inspeccionMedicion.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +132,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 inspeccionMedicionActionPerformed(evt);
             }
         });
-        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 80, 80));
+        jPanel1.add(inspeccionMedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, 80));
 
         registroSolicitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/to_do_list_checked2.png"))); // NOI18N
         registroSolicitud.setAlignmentX(0.5F);
@@ -185,7 +176,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 catalogoUsuariosActionPerformed(evt);
             }
         });
-        jPanel1.add(catalogoUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, 80, 80));
+        jPanel1.add(catalogoUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 80, 80));
         jPanel1.add(labelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,12 +219,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         //this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_catalogoHologramasActionPerformed
 
-    private void registroContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroContratoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registroContratoActionPerformed
-
     private void inspeccionMedicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inspeccionMedicionActionPerformed
         // TODO add your handling code here:
+        catalogoInspeccionDeMedicion cipm = new catalogoInspeccionDeMedicion();
+        cipm.show();
     }//GEN-LAST:event_inspeccionMedicionActionPerformed
 
     private void registroSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroSolicitudActionPerformed
@@ -338,7 +327,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton inspeccionMedicion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelFondo;
-    private javax.swing.JButton registroContrato;
     private javax.swing.JButton registroSolicitud;
     // End of variables declaration//GEN-END:variables
 }

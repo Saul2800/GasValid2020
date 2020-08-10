@@ -6,6 +6,8 @@
 package Controlador;
 
 import Modelo.modeloTablaUsuario;
+import Vista.Principal.accesoPrincipal;
+import Vista.Principal.ventanaPrincipal;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -104,5 +106,18 @@ public class LibreriaToolsControlador {
         plantilla = new SimpleDateFormat("yyyy/MM/dd H:mm:ss"); //Obtengo Horas y 
         String tiempo = plantilla.format(fecha);
         return tiempo;
+    }
+
+    /*
+    Se abre la ventana principal desde el acceso principal
+    @Author: Christian Olmedo 23/07/2020
+    */
+    public void usuarioCorrecto(LibreriaBDControlador lbd){
+//        System.out.println(lbd.mtu.toString());
+//        ventanaPrincipal ventanaPrincipal = new ventanaPrincipal(lbd.mtu);
+//        accesoPrincipal accesoPrincipal = new accesoPrincipal(); 
+////        this.setVisible(false);
+//        ventanaPrincipal.show(true);
+//        //accesoPrincipal.show(false);  
     }
 }

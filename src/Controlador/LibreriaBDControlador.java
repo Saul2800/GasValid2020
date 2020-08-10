@@ -1548,9 +1548,99 @@ public void EliminarHolograma(String Holograma){
     
     return modeloRetorno;
 }
-       
-       
-       
+
+/*
+    Caamal Ic Jose Luis
+    Valida que exista el FolioSolicitud
+    si no exista lo añade.
+    Since 20/07/2020
+*/
+        public int validaFolioSolicitud(String idFolio) 
+                {
+                int aux = 0;
+        
+                try{
+                    String Query = "SELECT count(*) as idFolio FROM tabla_registro_solicitud WHERE folio_solicitud = '"+idFolio+"'";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                    
+
+                    if(res.next()){
+                            //JOptionPane.showMessageDialog(null, "Si existe la estacion: " + idEstacion, "ATENCIÓN",JOptionPane.ERROR_MESSAGE);
+                            aux = res.getInt("idFolio");
+                            //if(aux)
+                            //aux = aux + 1; //Aumento si la consulta me arroja cero y solo si existe el numero de estación
+                            //Se cambia para aumentar por codigo
+                            return aux;
+                    }
+                    else{//no se 
+                            //JOptionPane.showMessageDialog(null, "No existe la estacion: " + idEstacion, "ATENCIÓN",JOptionPane.ERROR_MESSAGE);
+//                          if(aux==0)
+//                                aux = aux + 1;
+                            res.close();
+                            return aux;
+                    }
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    aux = 0;
+                }
+        
+        return aux;
+        
+    }
+     /*
+            obtenerDatosSolicitud
+            Caamal Ic Jose Luis
+            Obtiene toda la información del los datos de solicitud y del cliente;
+            si no exista lo añade.
+            Since 06/08/2020
+    */
+     public Object[] obtenerDatosSolicitud(String idFolio) 
+                {
+                Object [] arrObjetos = null;
+                try{
+                    //String Query = "SELECT * FROM tabla_dispensarios WHERE numero_estacion = '" +idEstacion+ "' AND no_dispensario = '" +idDispensario+ "';";
+                    String Query = "SELECT tblreg.folio_solicitud, UPPER(tblreg.nombre_usuario) as nombre_usuario,tblclie.razon_social,tblclie.nombre_responsable, tblclie.ciudad, tblclie.estado,tblreg.fecha_propuesta,UPPER(tblreg.nombre_usuario) as nombre_usuario,UPPER(tblreg.nombre_tecnico) as nombre_tecnico "
+                            + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie\n" +
+                               "WHERE  tblreg.idestacion = tblclie.idestacion and folio_solicitud = '"+idFolio+"'";
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    System.out.println(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                    ResultSetMetaData metaDatos = res.getMetaData();
+                        // Se obtiene el número de columnas.
+                        int numeroColumnas = metaDatos.getColumnCount();
+                        // Se crea un array de etiquetas para rellenar
+                        arrObjetos =new Object[numeroColumnas];
+                        
+                        while (res.next())
+                        {
+                            for (int i=0;i<numeroColumnas;i++)
+                            {
+                                arrObjetos[i]=res.getObject(i+1);
+                            }
+                            
+
+                        }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    arrObjetos = null;
+                }
+        
+        return arrObjetos;
+        
+    }   
        
     
             
