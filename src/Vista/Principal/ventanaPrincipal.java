@@ -6,7 +6,7 @@
 package Vista.Principal;
 
 import Modelo.modeloTablaUsuario;
-import Vista.Cronometros.catalogoCronometro;
+import Vista.Cronometros.catalogoCronometros;
 import Vista.Dispensarios.catalogoDispensarios;
 import Vista.Estacion.*;
 import Vista.Hologramas.catalogoHologramas;
@@ -24,6 +24,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Vista.Usuarios.Administracion_de_usuarios;
 import Vista.Solicitud.registroSolicitudContrato;
 import Vista.Solicitud.catalogoSolicitud;
+
+import Vista.Termometro.catalogoTermometro;
 
 /**
  *
@@ -195,9 +197,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void catalogoCronometrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoCronometrosActionPerformed
-    catalogoCronometro abrir = new catalogoCronometro();
-    abrir.setVisible(true);
-    this.setVisible(false);
+  catalogoCronometros abrir=new catalogoCronometros(mtu);
+     abrir.show();
         
     }//GEN-LAST:event_catalogoCronometrosActionPerformed
   
@@ -208,12 +209,13 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_catalogoJarrasActionPerformed
 
     private void catalogoTermometrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoTermometrosActionPerformed
-        // TODO add your handling code here:
+       catalogoTermometro abrir=new catalogoTermometro(mtu);
+        abrir.show();
+
     }//GEN-LAST:event_catalogoTermometrosActionPerformed
 
     private void catalogoHologramasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoHologramasActionPerformed
         //saul arenas ramirez 8/07/2020
-
         catalogoHologramas abrir=new catalogoHologramas(mtu);
         abrir.show();
         //this.setVisible(false);// TODO add your handling code here:

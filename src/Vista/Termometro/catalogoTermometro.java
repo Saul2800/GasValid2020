@@ -4,17 +4,79 @@
  * and open the template in the editor.
  */
 package Vista.Termometro;
-
+import Controlador.LibreriaBDControlador;
+import Modelo.modeloTablaUsuario;
+import Vista.Hologramas.modificarHolograma;
+import Vista.Termometro.agregarTermometro;
+import Vista.Termometro.editarTermometro;
+import Vista.Termometro.eliminarTermometro;
+import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author yuliana adame
+ * @author Saul Arenas Ramirez
  */
-public class catalogoTermometro extends javax.swing.JFrame {
+public class catalogoTermometro extends javax.swing.JDialog {
+  public String columna[];
+    LibreriaBDControlador lbd = new LibreriaBDControlador();
+    DefaultTableModel modeloTermometros;
+    modeloTablaUsuario mtu = new modeloTablaUsuario();
+    int tipoUsuario = 0;
+
+    public catalogoTermometro(modeloTablaUsuario mtu) {
+        this.mtu = mtu;
+        tipoUsuario = mtu.getTipoUsuario();
+        getColumnas();
+        lbd.openConnection();
+        modeloTermometros = lbd.modeloTermometros(columna); //Cargo el contenido por defecto
+        lbd.closeConnection();
+
+        initComponents();
+        //Valido eltipo de usuario
+        if(tipoUsuario != 0){
+            editarCT.setEnabled(false);
+            eliminarCT.setEnabled(false);
+        }
+        tablaCatalogoTermometros.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = tablaCatalogoTermometros.rowAtPoint(evt.getPoint());
+                int col = 0;
+                if (row >= 0 && col >= 0) {
+                    String valor = tablaCatalogoTermometros.getModel().getValueAt(row, col).toString(); //Tomo el valor de el modelo de la tabla
+                }
+
+            }
+        });
+
+    }//fincatalogoTermometro
+    
+    String[] getColumnas(){ //Columnas
+            columna = new String[] {"id_Termo",
+            "marca",
+            "modelo",
+            "serie",
+            "estatus",
+            "fecha_calibracion",
+            "resultado",
+            "informe_calibracion"};
+        return columna;
+    }
+    
+        private void RefrescarCTctionPerformed(java.awt.event.ActionEvent evt) {                                            
+        lbd.openConnection();
+        modeloTermometros = lbd.modeloTermometros(columna);
+        lbd.closeConnection();
+        tablaCatalogoTermometros.setModel(modeloTermometros);
+        modeloTermometros.fireTableDataChanged();
+    }   
+    
+    
 
     /**
-     * Creates new form catalogoHologramas
+     * Creates new form catalogoTermometro
      */
-    public catalogoTermometro() {
+    public catalogoTermometro(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -27,49 +89,58 @@ public class catalogoTermometro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCatalogoTermometros = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        agregarCT = new javax.swing.JButton();
+        editarCT = new javax.swing.JButton();
+        eliminarCT = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 600));
-        setMinimumSize(new java.awt.Dimension(1000, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(987, 558));
+        setMinimumSize(new java.awt.Dimension(987, 558));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        tablaCatalogoTermometros.setModel(modeloTermometros);
+        jScrollPane1.setViewportView(tablaCatalogoTermometros);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setForeground(new java.awt.Color(204, 204, 255));
 
-        jButton4.setText("Agregar");
+        agregarCT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        agregarCT.setText("Agregar");
+        agregarCT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarCTActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Editar");
+        editarCT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        editarCT.setText("Editar");
+        editarCT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarCTActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Eliminar");
+        eliminarCT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        eliminarCT.setText("Eliminar");
+        eliminarCT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarCTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(agregarCT, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
+                .addComponent(editarCT, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eliminarCT, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -77,26 +148,26 @@ public class catalogoTermometro extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(agregarCT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarCT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eliminarCT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -104,52 +175,50 @@ public class catalogoTermometro extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
+    private void agregarCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCTActionPerformed
+agregarTermometro abrir=new agregarTermometro(new javax.swing.JFrame(), true);
+        abrir.show();
+        RefrescarCTctionPerformed(evt);
+    }//GEN-LAST:event_agregarCTActionPerformed
+
+    private void editarCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarCTActionPerformed
+        editarTermometro abrir=new editarTermometro(new javax.swing.JFrame(), true);
+        abrir.show();
+        RefrescarCTctionPerformed(evt);
+    }//GEN-LAST:event_editarCTActionPerformed
+
+    private void eliminarCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarCTActionPerformed
+        eliminarTermometro abrir=new eliminarTermometro(new javax.swing.JFrame(), true);
+        abrir.show();
+        RefrescarCTctionPerformed(evt);
+    }//GEN-LAST:event_eliminarCTActionPerformed
+
+    /*
      * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(catalogoTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(catalogoTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(catalogoTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(catalogoTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new catalogoTermometro().setVisible(true);
-//            }
-//        });
-//    }
+*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton agregarCT;
+    private javax.swing.JButton editarCT;
+    private javax.swing.JButton eliminarCT;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaCatalogoTermometros;
     // End of variables declaration//GEN-END:variables
 }

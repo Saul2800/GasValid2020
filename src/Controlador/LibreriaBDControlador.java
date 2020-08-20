@@ -1642,6 +1642,308 @@ public void EliminarHolograma(String Holograma){
         
     }   
        
+     /*  ----------------------------------------------------------------------------------
+    Aut@r: Saul Arenas Ramirez
+     18/08/20
+    ----------------------------------------------------------------------------------
+*/
+     public void  agregarTermometro(String id_Termo,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+         try {
+                PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_termometros (id_Termo,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion) VALUES (?,?,?,?,?,?,?,?) ");
+                pps.setString(1,id_Termo);
+                pps.setString(2, marca);
+               pps.setString(3, modelo);
+                pps.setString(4, serie);
+                pps.setString(5, estatus);
+                pps.setString(6, fecha_calibracion);
+                pps.setString(7, resultado);
+                pps.setString(8,informe_calibracion);
+
+                pps.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+        } catch (SQLException ex) {
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+        }}
+     
+     
+     public void modificarTermometro(String id_Termo,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+      try{
+            PreparedStatement stmt;
+                        stmt = Conexion.prepareStatement("SELECT id_Termo FROM tabla_termometros WHERE id_Termo = '" + id_Termo+ "'");
+                       java.sql.ResultSet res;
+
+                        res = stmt.executeQuery();
+
+                        if(res.next()){
+                    //se encontro
+                     try{
+
+                    //PreparedStatement stmt  ;
+                    stmt=Conexion.prepareStatement("UPDATE tabla_termometros SET marca=(?),modelo=(?),serie=(?),estatus=(?),fecha_calibracion=(?),resultado=(?),informe_calibracion=(?) WHERE id_Termo=(?)");
+                    stmt.setString(1, marca);
+                    stmt.setString(2, modelo);
+                     stmt.setString(3, serie);
+                    stmt.setString(4, estatus);
+                    stmt.setString(5, fecha_calibracion);
+                    stmt.setString(6, resultado);
+                    stmt.setString(7, informe_calibracion);
+                    stmt.setString(8,id_Termo);
+
+                        stmt.executeUpdate();
+
+                                //Inica el statement de la conexión
+                                //Statement st = Conexion.createStatement();
+                       //     st.executeUpdate(Query);
+                                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa.");
+                        Conexion.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                               System.out.println(ex.getMessage());
+                                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos."+ex);
+                            }            }
+
+            else{//no se 
+            JOptionPane.showMessageDialog(null, "NO existe el Termometro: " + id_Termo, " por favor revise",JOptionPane.ERROR_MESSAGE);
+            res.close();
+                        }
+            } catch(SQLException a){
+                JOptionPane.showMessageDialog(null, a);
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+            }
+     }
+     
+     
+     public void eliminarTermometro(String id_Termo){
+         try{
+        PreparedStatement stmt;
+        stmt = Conexion.prepareStatement("SELECT id_Termo FROM tabla_termometros WHERE id_Termo = '" + id_Termo+ "'");
+        java.sql.ResultSet res;
+        res = stmt.executeQuery();
+
+        if(res.next()){
+            //PreparedStatement stmt;
+            try {
+                stmt=Conexion.prepareStatement("DELETE FROM tabla_termometros WHERE id_Termo = '" + id_Termo+ "'");
+                stmt.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "El Termometro "+id_Termo+" ha sido ELIMINADO exitosamente");
+
+            } 
+            catch (SQLException ex){
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+        else{//no se 
+                JOptionPane.showMessageDialog(null, "No existe el Termometro: " + id_Termo, " por favor revise",JOptionPane.ERROR_MESSAGE);
+                res.close();
+            }
+        } catch(SQLException a){
+            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+            JOptionPane.showMessageDialog(null, a);
+        }
+         
+     
+     }
+     
+     
+     
+       /*  ----------------------------------------------------------------------------------
+    Nombre: Clase modeloTemometros
+    Función: Se realiza la implementación del modelo par el llenado de tabla
+    Date: 19/08/2020
+    Aut@r: Saul Arenas Ramirez
+    Parametros: String columna[]
+    ----------------------------------------------------------------------------------
+    */
+    public DefaultTableModel modeloTermometros(String columna[]){
+    DefaultTableModel modeloRetorno;
+    modeloRetorno = new DefaultTableModel(null, columna); 
+        try{
+                String Query = "SELECT * FROM gasvalid.tabla_termometros";
+
+                System.out.println("Contenido en ejecución: "+Query);
+
+                PreparedStatement us = Conexion.prepareStatement(Query);
+                ResultSet res = us.executeQuery();
+                Object objDatos[] = new Object[columna.length]; //Siempre debe cconexoincidir con el numero de columnas!
+
+                while(res.next()){
+                    for (int i = 0; i<columna.length; i++){
+                        objDatos[i] = res.getObject(i+1);
+                        System.out.println(objDatos[i]);
+                    }
+                    modeloRetorno.addRow(objDatos);
+                }
+            }
+            catch(SQLException ex){
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.toString());
+            }
     
-            
+    return modeloRetorno;
 }
+     
+    
+      /*  ----------------------------------------------------------------------------------
+    agregarCronometros
+    Aut@r: Saul Arenas Ramirez
+     19/08/20
+    ----------------------------------------------------------------------------------
+*/
+     public void  agregarCronometros(String id_Crono,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+         try {
+                PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_cronometros (id_Crono,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion) VALUES (?,?,?,?,?,?,?,?) ");
+                pps.setString(1,id_Crono);
+                pps.setString(2, marca);
+               pps.setString(3, modelo);
+                pps.setString(4, serie);
+                pps.setString(5, estatus);
+                pps.setString(6, fecha_calibracion);
+                pps.setString(7, resultado);
+                pps.setString(8,informe_calibracion);
+
+                pps.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+        } catch (SQLException ex) {
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+        }}
+     
+      /*  ----------------------------------------------------------------------------------
+    Nombre: Clase modeloTemometros
+    Función: Se realiza la implementación del modelo par el llenado de tabla
+    Date: 19/08/2020
+    Aut@r: Saul Arenas Ramirez
+    Parametros: String columna[]
+    ----------------------------------------------------------------------------------
+    */
+    public DefaultTableModel modeloCronometros(String columna[]){
+    DefaultTableModel modeloRetorno;
+    modeloRetorno = new DefaultTableModel(null, columna); 
+        try{
+                String Query = "SELECT * FROM gasvalid.tabla_cronometros";
+
+                System.out.println("Contenido en ejecución: "+Query);
+
+                PreparedStatement us = Conexion.prepareStatement(Query);
+                ResultSet res = us.executeQuery();
+                Object objDatos[] = new Object[columna.length]; //Siempre debe cconexoincidir con el numero de columnas!
+
+                while(res.next()){
+                    for (int i = 0; i<columna.length; i++){
+                        objDatos[i] = res.getObject(i+1);
+                        System.out.println(objDatos[i]);
+                    }
+                    modeloRetorno.addRow(objDatos);
+                }
+            }
+            catch(SQLException ex){
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.toString());
+            }
+    
+    return modeloRetorno;
+}
+    
+    
+    
+    /*  ----------------------------------------------------------------------------------
+    Aut@r: Saul Arenas Ramirez
+     18/08/20
+    ----------------------------------------------------------------------------------
+*/
+    
+    public void editarCronometro(String id_Crono,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+      try{
+            PreparedStatement stmt;
+                        stmt = Conexion.prepareStatement("SELECT id_Crono FROM tabla_cronometros WHERE id_Crono = '" + id_Crono+ "'");
+                       java.sql.ResultSet res;
+
+                        res = stmt.executeQuery();
+
+                        if(res.next()){
+                    //se encontro
+                     try{
+
+                    //PreparedStatement stmt  ;
+                    stmt=Conexion.prepareStatement("UPDATE tabla_cronometros SET marca=(?),modelo=(?),serie=(?),estatus=(?),fecha_calibracion=(?),resultado=(?),informe_calibracion=(?) WHERE id_Crono=(?)");
+                    stmt.setString(1, marca);
+                    stmt.setString(2, modelo);
+                     stmt.setString(3, serie);
+                    stmt.setString(4, estatus);
+                    stmt.setString(5, fecha_calibracion);
+                    stmt.setString(6, resultado);
+                    stmt.setString(7, informe_calibracion);
+                    stmt.setString(8,id_Crono);
+
+                        stmt.executeUpdate();
+
+                                //Inica el statement de la conexión
+                                //Statement st = Conexion.createStatement();
+                       //     st.executeUpdate(Query);
+                                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa.");
+                        Conexion.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                               System.out.println(ex.getMessage());
+                                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos."+ex);
+                            }            }
+
+            else{//no se 
+            JOptionPane.showMessageDialog(null, "NO existe el Cronometro: " + id_Crono, " por favor revise",JOptionPane.ERROR_MESSAGE);
+            res.close();
+                        }
+            } catch(SQLException a){
+                JOptionPane.showMessageDialog(null, a);
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+            }
+     }
+     
+    
+        /*  ----------------------------------------------------------------------------------
+    Aut@r: Saul Arenas Ramirez
+     18/08/20
+    ----------------------------------------------------------------------------------
+*/
+      public void eliminarCronometro(String id_Crono){
+         try{
+        PreparedStatement stmt;
+        stmt = Conexion.prepareStatement("SELECT id_Crono FROM tabla_cronometros WHERE id_Crono = '" + id_Crono+ "'");
+        java.sql.ResultSet res;
+        res = stmt.executeQuery();
+
+        if(res.next()){
+            //PreparedStatement stmt;
+            try {
+                stmt=Conexion.prepareStatement("DELETE FROM tabla_cronometros WHERE id_Crono = '" + id_Crono+ "'");
+                stmt.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "El Cronometro "+id_Crono+" ha sido ELIMINADO exitosamente");
+
+            } 
+            catch (SQLException ex){
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+        else{//no se 
+                JOptionPane.showMessageDialog(null, "No existe el Cronometro: " + id_Crono, " por favor revise",JOptionPane.ERROR_MESSAGE);
+                res.close();
+            }
+        } catch(SQLException a){
+            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+            JOptionPane.showMessageDialog(null, a);
+        }
+         
+     
+     }
+     
+     
+     
+     
+     
+}//final

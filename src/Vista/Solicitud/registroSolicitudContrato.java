@@ -508,9 +508,9 @@ int validaEstacion = 0;
  Foliodesolicitud=folioSolicitudRSC.getText();
  Tipodesolicitud=(String)tiposolicitudRSC.getSelectedItem();
  
-     Date  fecha=fechaRCS.getDate();
-       DateFormat f=new SimpleDateFormat("dd-MM-yyyy");
-       Fecha2=f.format(fecha);
+        Date  fecha=fechaRCS.getDate();
+          DateFormat f=new SimpleDateFormat("dd-MM-yyyy");
+          Fecha2=f.format(fecha);
        
        Date FechaPropuesta=fechaPropuestaRSC.getDate();
        DateFormat F=new SimpleDateFormat("dd-MM-yyyy");

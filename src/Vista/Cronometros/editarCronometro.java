@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista.Termometro;
+package Vista.Cronometros;
 
 import Controlador.LibreriaBDControlador;
 import java.text.DateFormat;
@@ -12,14 +12,14 @@ import java.util.Date;
 
 /**
  *
- * @author Saul Arenas Ramirez
+ * @author Saul
  */
-public class agregarTermometro extends javax.swing.JDialog {
+public class editarCronometro extends javax.swing.JDialog {
 
     /**
-     * Creates new form agregarTermometro
+     * Creates new form editarCronometro
      */
-    public agregarTermometro(java.awt.Frame parent, boolean modal) {
+    public editarCronometro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -34,31 +34,31 @@ public class agregarTermometro extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        idAT = new javax.swing.JTextField();
+        idEC = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        fechaAT = new com.toedter.calendar.JDateChooser();
+        fechaEC = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
-        marcaAT = new javax.swing.JTextField();
-        serieAT = new javax.swing.JTextField();
-        modeloAT = new javax.swing.JTextField();
-        guardarAT = new javax.swing.JButton();
-        estatusAT = new javax.swing.JComboBox();
+        marcaEC = new javax.swing.JTextField();
+        serieEC = new javax.swing.JTextField();
+        modeloEC = new javax.swing.JTextField();
+        modificarEC = new javax.swing.JButton();
+        estatusEC = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
-        informeAT = new javax.swing.JTextField();
+        informeEC = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        resultadoAT = new javax.swing.JTextField();
+        resultadoEC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(491, 544));
-        setMinimumSize(new java.awt.Dimension(491, 544));
+        setMaximumSize(new java.awt.Dimension(487, 560));
+        setMinimumSize(new java.awt.Dimension(487, 560));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
-        idAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        idEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 35)); // NOI18N
         jLabel1.setText("ID");
@@ -75,38 +75,38 @@ public class agregarTermometro extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 35)); // NOI18N
         jLabel5.setText("Fecha calibracion:");
 
-        fechaAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        fechaEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 35)); // NOI18N
         jLabel7.setText("Estatus:");
 
-        marcaAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        marcaEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
-        serieAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        serieEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
-        modeloAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        modeloEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
-        guardarAT.setBackground(new java.awt.Color(204, 204, 255));
-        guardarAT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/good_or_tick.png"))); // NOI18N
-        guardarAT.setBorder(null);
-        guardarAT.addActionListener(new java.awt.event.ActionListener() {
+        modificarEC.setBackground(new java.awt.Color(255, 255, 204));
+        modificarEC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/good_or_tick.png"))); // NOI18N
+        modificarEC.setBorder(null);
+        modificarEC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarATActionPerformed(evt);
+                modificarECActionPerformed(evt);
             }
         });
 
-        estatusAT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        estatusAT.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VIGENTE", "CANCELADO", "FUERA DE SERVICIO" }));
+        estatusEC.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        estatusEC.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VIGENTE", "CANCELADO", "FUERA DE SERVICIO" }));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 35)); // NOI18N
         jLabel6.setText("Informe Calibración:");
 
-        informeAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        informeEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 35)); // NOI18N
         jLabel8.setText("Serie:");
 
-        resultadoAT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        resultadoEC.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,25 +115,15 @@ public class agregarTermometro extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(informeAT, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fechaAT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5))))
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guardarAT, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resultadoEC))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(estatusAT, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(resultadoAT))
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(estatusEC, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -146,12 +136,24 @@ public class agregarTermometro extends javax.swing.JDialog {
                                         .addComponent(jLabel8)))
                                 .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idAT, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(idEC, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modeloAT, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                                        .addComponent(marcaAT)
-                                        .addComponent(serieAT)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(modeloEC, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                                        .addComponent(marcaEC)
+                                        .addComponent(serieEC)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(informeEC, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(fechaEC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(modificarEC, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,38 +162,38 @@ public class agregarTermometro extends javax.swing.JDialog {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(idAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(marcaAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(marcaEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(modeloAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(modeloEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(serieAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serieEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(resultadoAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resultadoEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(estatusAT, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                    .addComponent(estatusEC, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(informeAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(informeEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel5)
-                        .addGap(8, 8, 8)
-                        .addComponent(fechaAT, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(guardarAT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaEC, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(modificarEC))
                 .addContainerGap())
         );
 
@@ -199,7 +201,9 @@ public class agregarTermometro extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,38 +214,31 @@ public class agregarTermometro extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void guardarATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarATActionPerformed
+    private void modificarECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarECActionPerformed
+        String id_Crono,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion;
 
-      String id_Termo,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion;
-        
-      LibreriaBDControlador lbd= new LibreriaBDControlador();
+        LibreriaBDControlador lbd= new LibreriaBDControlador();
 
+        id_Crono=idEC.getText();
+        marca=marcaEC.getText();
+        modelo=modeloEC.getText();
+        serie=serieEC.getText();
+        estatus=(String) estatusEC.getSelectedItem();
 
- id_Termo=idAT.getText();
- marca=marcaAT.getText();
- modelo=modeloAT.getText();
- serie=serieAT.getText();
-  estatus=(String) estatusAT.getSelectedItem();
-  
-       Date  fecha=fechaAT.getDate();
-       DateFormat f=new SimpleDateFormat("dd-MM-yyyy");
-       fecha_calibracion=f.format(fecha);
-       
-       resultado=resultadoAT.getText();
-       informe_calibracion=informeAT.getText();
-       
-       lbd.openConnection();
-    
-    lbd.agregarTermometro(id_Termo, marca, modelo, serie, estatus, fecha_calibracion,resultado,informe_calibracion);
-    
-    
-    lbd.closeConnection();
-      
-        
-        
-        
+        Date  fecha=fechaEC.getDate();
+        DateFormat f=new SimpleDateFormat("dd-MM-yyyy");
+        fecha_calibracion=f.format(fecha);
 
-    }//GEN-LAST:event_guardarATActionPerformed
+        resultado=resultadoEC.getText();
+        informe_calibracion=informeEC.getText();
+
+        lbd.openConnection();
+
+        lbd.editarCronometro(id_Crono, marca, modelo, serie, estatus, fecha_calibracion,resultado,informe_calibracion);
+
+        lbd.closeConnection();
+
+    }//GEN-LAST:event_modificarECActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,20 +257,20 @@ public class agregarTermometro extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarCronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarCronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarCronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarCronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                agregarTermometro dialog = new agregarTermometro(new javax.swing.JFrame(), true);
+                editarCronometro dialog = new editarCronometro(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -286,11 +283,10 @@ public class agregarTermometro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox estatusAT;
-    private com.toedter.calendar.JDateChooser fechaAT;
-    private javax.swing.JButton guardarAT;
-    private javax.swing.JTextField idAT;
-    private javax.swing.JTextField informeAT;
+    private javax.swing.JComboBox estatusEC;
+    private com.toedter.calendar.JDateChooser fechaEC;
+    private javax.swing.JTextField idEC;
+    private javax.swing.JTextField informeEC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -300,9 +296,10 @@ public class agregarTermometro extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField marcaAT;
-    private javax.swing.JTextField modeloAT;
-    private javax.swing.JTextField resultadoAT;
-    private javax.swing.JTextField serieAT;
+    private javax.swing.JTextField marcaEC;
+    private javax.swing.JTextField modeloEC;
+    private javax.swing.JButton modificarEC;
+    private javax.swing.JTextField resultadoEC;
+    private javax.swing.JTextField serieEC;
     // End of variables declaration//GEN-END:variables
 }
