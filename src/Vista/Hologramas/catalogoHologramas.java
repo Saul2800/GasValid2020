@@ -10,6 +10,8 @@ import Modelo.modeloTablaUsuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -40,6 +42,7 @@ public class catalogoHologramas extends javax.swing.JFrame {
             ModificarEstatusCH.setEnabled(false);
             eliminarFolio.setEnabled(false);
         }
+        
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -61,6 +64,9 @@ public class catalogoHologramas extends javax.swing.JFrame {
 //                }
             }
         });
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        jTable1.setDefaultRenderer(String.class, centerRenderer);
     }
     /*Obtengo los titulos de mi tabla*/
     String[] getColumnas(){ //Columnas

@@ -9,6 +9,7 @@ import Controlador.LibreriaBDControlador;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -211,17 +212,17 @@ public class agregarTermometro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarATActionPerformed
-
-      String id_Termo,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion;
+       int valida =0;
+       String id_Termo,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion;
         
-      LibreriaBDControlador lbd= new LibreriaBDControlador();
+       LibreriaBDControlador lbd= new LibreriaBDControlador();
 
 
- id_Termo=idAT.getText();
- marca=marcaAT.getText();
- modelo=modeloAT.getText();
- serie=serieAT.getText();
-  estatus=(String) estatusAT.getSelectedItem();
+       id_Termo=idAT.getText();
+       marca=marcaAT.getText();
+       modelo=modeloAT.getText();
+       serie=serieAT.getText();
+       estatus=(String) estatusAT.getSelectedItem();
   
        Date  fecha=fechaAT.getDate();
        DateFormat f=new SimpleDateFormat("dd-MM-yyyy");
@@ -232,58 +233,60 @@ public class agregarTermometro extends javax.swing.JDialog {
        
        lbd.openConnection();
     
-    lbd.agregarTermometro(id_Termo, marca, modelo, serie, estatus, fecha_calibracion,resultado,informe_calibracion);
+       valida = lbd.agregarTermometro(id_Termo, marca, modelo, serie, estatus, fecha_calibracion,resultado,informe_calibracion);
     
-    
-    lbd.closeConnection();
-      
-        
-        
-        
-
+       lbd.closeConnection();
+       
+       if(valida == 1){
+           this.hide();
+       }
+       else{
+           JOptionPane.showMessageDialog(null,"No se puede procesar la petición, valida la información de la tabla e intenta de nuevo");
+       }
+     
     }//GEN-LAST:event_guardarATActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                agregarTermometro dialog = new agregarTermometro(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(agregarTermometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                agregarTermometro dialog = new agregarTermometro(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox estatusAT;

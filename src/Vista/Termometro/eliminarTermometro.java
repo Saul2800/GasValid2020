@@ -130,36 +130,35 @@ public class eliminarTermometro extends javax.swing.JDialog {
         id_Termo=idELT.getText();
         reid_Termo=reingresarIdELT.getText();
         
-if(id_Termo.equals(reid_Termo)){
-    
-lbd.eliminarTermometro(id_Termo);
+        if(id_Termo.equals(reid_Termo)){
+            lbd.eliminarTermometro(id_Termo);
+            this.hide();
         }
         else{
-     JOptionPane.showMessageDialog(null, "LOS DATOS de las entradas NO COINCIDEN por favor revise");
+            JOptionPane.showMessageDialog(null, "Los DATOS de las entradas NO COINCIDEN por favor revise");
         }
- 
-  lbd.closeConnection();
+        lbd.closeConnection();
 
     }//GEN-LAST:event_eliminarELTActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {/*
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                eliminarTermometro dialog = new eliminarTermomidELTvax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    */}
+//    public static void main(String args[]) {/*
+//
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                eliminarTermometro dialog = new eliminarTermomidELTvax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    */}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton eliminarELT;

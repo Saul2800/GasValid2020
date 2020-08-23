@@ -6,6 +6,8 @@
 package Vista.Estacion;
 
 import Controlador.LibreriaBDControlador;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,6 +22,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
     public String columna[];
     DefaultTableModel modeloEstaciones;
     LibreriaBDControlador lbd = new LibreriaBDControlador();
+    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
     public catalogoEstaciones() {
         lbd.openConnection();
         getColumnas();
@@ -37,6 +40,8 @@ public class catalogoEstaciones extends javax.swing.JFrame {
                 }
           }
         });
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        jTable1.setDefaultRenderer(String.class, centerRenderer);
     }
     
     /*Obtengo los titulos de mi tabla*/

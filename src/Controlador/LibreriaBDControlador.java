@@ -47,7 +47,7 @@ Crecenciales de DB
             //Como obtener la información desde un archivo properties
             String db_nam = "gasvalid";
             String use = "root";
-            String pas ="ARENAS28";
+            String pas ="caamal95";
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_nam, use, pas);
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
@@ -1647,8 +1647,10 @@ public void EliminarHolograma(String Holograma){
      18/08/20
     ----------------------------------------------------------------------------------
 */
-     public void  agregarTermometro(String id_Termo,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+     public int  agregarTermometro(String id_Termo,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+         int valida = 0;
          try {
+                
                 PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_termometros (id_Termo,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion) VALUES (?,?,?,?,?,?,?,?) ");
                 pps.setString(1,id_Termo);
                 pps.setString(2, marca);
@@ -1662,15 +1664,20 @@ public void EliminarHolograma(String Holograma){
                 pps.executeUpdate();
 
                 JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+                valida = 1;
         } catch (SQLException ex) {
-                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
-        }}
+                //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+                valida = 0;
+        }
+         return valida;
+     }
      
      
-     public void modificarTermometro(String id_Termo,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
-      try{
+     public int modificarTermometro(String id_Termo,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
+     int valida = 0; 
+     try{
             PreparedStatement stmt;
                         stmt = Conexion.prepareStatement("SELECT id_Termo FROM tabla_termometros WHERE id_Termo = '" + id_Termo+ "'");
                        java.sql.ResultSet res;
@@ -1681,38 +1688,45 @@ public void EliminarHolograma(String Holograma){
                     //se encontro
                      try{
 
-                    //PreparedStatement stmt  ;
-                    stmt=Conexion.prepareStatement("UPDATE tabla_termometros SET marca=(?),modelo=(?),serie=(?),estatus=(?),fecha_calibracion=(?),resultado=(?),informe_calibracion=(?) WHERE id_Termo=(?)");
-                    stmt.setString(1, marca);
-                    stmt.setString(2, modelo);
-                     stmt.setString(3, serie);
-                    stmt.setString(4, estatus);
-                    stmt.setString(5, fecha_calibracion);
-                    stmt.setString(6, resultado);
-                    stmt.setString(7, informe_calibracion);
-                    stmt.setString(8,id_Termo);
+                                //PreparedStatement stmt  ;
+                                stmt=Conexion.prepareStatement("UPDATE tabla_termometros SET marca=(?),modelo=(?),serie=(?),estatus=(?),fecha_calibracion=(?),resultado=(?),informe_calibracion=(?) WHERE id_Termo=(?)");
+                                stmt.setString(1, marca);
+                                stmt.setString(2, modelo);
+                                 stmt.setString(3, serie);
+                                stmt.setString(4, estatus);
+                                stmt.setString(5, fecha_calibracion);
+                                stmt.setString(6, resultado);
+                                stmt.setString(7, informe_calibracion);
+                                stmt.setString(8,id_Termo);
 
-                        stmt.executeUpdate();
+                                stmt.executeUpdate();
 
                                 //Inica el statement de la conexión
                                 //Statement st = Conexion.createStatement();
-                       //     st.executeUpdate(Query);
+                                //     st.executeUpdate(Query);
                                 JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa.");
-                        Conexion.close();
+                                valida = 1;
+                                Conexion.close();
                             } catch (SQLException ex) {
-                                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
-                               System.out.println(ex.getMessage());
-                                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos."+ex);
-                            }            }
+                                valida = 0;
+                                //Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                                System.out.println(ex.getMessage());
+                                //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos."+ex);
+                            }
+                        }
 
             else{//no se 
-            JOptionPane.showMessageDialog(null, "NO existe el Termometro: " + id_Termo, " por favor revise",JOptionPane.ERROR_MESSAGE);
-            res.close();
+                
+                            JOptionPane.showMessageDialog(null, "NO existe el Termometro: " + id_Termo, " por favor revise",JOptionPane.ERROR_MESSAGE);
+                            valida = 1;
+                            res.close();
                         }
             } catch(SQLException a){
-                JOptionPane.showMessageDialog(null, a);
-                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                //JOptionPane.showMessageDialog(null, a);
+                //Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                valida = 0;
             }
+            return valida;
      }
      
      
@@ -1787,12 +1801,12 @@ public void EliminarHolograma(String Holograma){
 }
      
     
-      /*  ----------------------------------------------------------------------------------
-    agregarCronometros
-    Aut@r: Saul Arenas Ramirez
-     19/08/20
-    ----------------------------------------------------------------------------------
-*/
+     /*  ----------------------------------------------------------------------------------
+        agregarCronometros
+        Aut@r: Saul Arenas Ramirez
+        19/08/20
+        ----------------------------------------------------------------------------------
+    */
      public void  agregarCronometros(String id_Crono,String marca, String  modelo, String serie,String estatus, String fecha_calibracion, String resultado,String informe_calibracion){
          try {
                 PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_cronometros (id_Crono,marca,modelo,serie,estatus,fecha_calibracion,resultado,informe_calibracion) VALUES (?,?,?,?,?,?,?,?) ");
@@ -1812,7 +1826,8 @@ public void EliminarHolograma(String Holograma){
                 Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
-        }}
+        }
+     }
      
       /*  ----------------------------------------------------------------------------------
     Nombre: Clase modeloTemometros
@@ -1906,10 +1921,10 @@ public void EliminarHolograma(String Holograma){
      
     
         /*  ----------------------------------------------------------------------------------
-    Aut@r: Saul Arenas Ramirez
-     18/08/20
-    ----------------------------------------------------------------------------------
-*/
+        Aut@r: Saul Arenas Ramirez
+        18/08/20
+        ----------------------------------------------------------------------------------
+        */
       public void eliminarCronometro(String id_Crono){
          try{
         PreparedStatement stmt;
@@ -1941,9 +1956,137 @@ public void EliminarHolograma(String Holograma){
          
      
      }
+    /*  ----------------------------------------------------------------------------------
+    Nombre: Clase modeloJarras
+    Función: Se realiza la implementación del modelo par el llenado de tabla
+    Date: 23/08/2020
+    Aut@r: Saul Arenas Ramirez
+    @Modify: José Luis Caamal Ic
+    Parametros: String columna[]
+    ----------------------------------------------------------------------------------
+    */
+    public DefaultTableModel modeloJarras(String columna[]){
+        DefaultTableModel modeloRetorno;
+        modeloRetorno = new DefaultTableModel(null, columna); 
+        try{
+                String Query = "SELECT * FROM gasvalid.tabla_jarras";
+
+                System.out.println("Contenido en ejecución: "+Query);
+
+                PreparedStatement us = Conexion.prepareStatement(Query);
+                ResultSet res = us.executeQuery();
+                Object objDatos[] = new Object[columna.length]; //Siempre debe cconexoincidir con el numero de columnas!
+
+                while(res.next()){
+                    for (int i = 0; i<columna.length; i++){
+                        objDatos[i] = res.getObject(i+1);
+                        System.out.println(objDatos[i]);
+                    }
+                    modeloRetorno.addRow(objDatos);
+                }
+            }
+            catch(SQLException ex){
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.toString());
+            }
+    
+    return modeloRetorno;
+}
+    /*  ----------------------------------------------------------------------------------
+        agregarJarras
+        Aut@r: Jose Luis Caamal Ic
+        23/08/20
+        ----------------------------------------------------------------------------------
+    */
+     public int  agregarJarras(String id_Jarra,
+                               String marca, 
+                               String  modelo, 
+                               String serie,
+                               String estatus,
+                               String vol_conv,
+                               String factor_kc,
+                               String fecha_calibracion, 
+                               String resultado,
+                               String informe_calibracion){
+         int valida = 0;
+         try {
+                PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_jarras (id_Jarra,marca,modelo,serie,estatus,vol_conv,factor_kc,fecha_calibracion,resultado,informe_calibracion) VALUES (?,?,?,?,?,?,?,?,?,?) ");
+                pps.setString(1, id_Jarra);
+                pps.setString(2, marca);
+                pps.setString(3, modelo);
+                pps.setString(4, serie);
+                pps.setString(5, estatus);
+                pps.setString(6, vol_conv);
+                pps.setString(7, factor_kc);
+                pps.setString(8, fecha_calibracion);
+                pps.setString(9, resultado);
+                pps.setString(10, informe_calibracion);
+                /*
+                id_Jarra varchar(45) PK 
+                marca varchar(45) 
+                modelo varchar(45) 
+                serie varchar(45) 
+                estatus varchar(45) 
+                vol_conv varchar(45) 
+                factor_kc varchar(45) 
+                fecha_calibracion varchar(45) 
+                resultado varchar(45) 
+                informe_calibracion varchar(45)
+                */
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+                valida = 1;
+        } catch (SQLException ex) {
+                //Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
+                //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+                valida = 0;
+        }
+         
+         return valida;
+     }
      
-     
-     
-     
+        /*  ----------------------------------------------------------------------------------
+        Aut@r: Saul Arenas Ramirez
+        Modify: Jose Luis Caamal Ic
+        23/08/20
+        ----------------------------------------------------------------------------------
+        */
+    public int eliminarJarra(String id_Jarra){
+        int valida = 0;
+        try{
+        PreparedStatement stmt;
+        stmt = Conexion.prepareStatement("SELECT id_Jarra FROM tabla_jarras WHERE id_Jarra = '" + id_Jarra+ "'");
+        java.sql.ResultSet res;
+        res = stmt.executeQuery();
+
+        if(res.next()){
+            //PreparedStatement stmt;
+            try {
+                stmt=Conexion.prepareStatement("DELETE FROM tabla_jarras WHERE id_Jarra = '" + id_Jarra+ "'");
+                stmt.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "La Jarra "+id_Jarra+" ha sido ELIMINADO exitosamente");
+                valida = 1;
+            } 
+            catch (SQLException ex){
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                valida = 0;
+            } 
+        }
+        else{//no se 
+                JOptionPane.showMessageDialog(null, "No existe la Jarra: " + id_Jarra, " por favor revise",JOptionPane.ERROR_MESSAGE);
+                res.close();
+                valida = 1;
+            }
+        } catch(SQLException a){
+            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+            //JOptionPane.showMessageDialog(null, a);
+            valida = 0;
+        }
+         
+         return valida;
+     }
+ 
      
 }//final
