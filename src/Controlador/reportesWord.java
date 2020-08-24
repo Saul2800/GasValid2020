@@ -4,6 +4,8 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -217,19 +219,64 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
             Object[] datosReemplazo) 
             throws InvalidFormatException, IOException{
         
-    /*El nombre de la carpeta de salida debe ser fijo*/
-    String carpetaSalida = "C:\\Formatos\\";
-    /*El nombre de la carpeta de salida debe ser fijo*/
-    String nameSalida = ".docx"; //Pretendo recibir folio y fecha //06/08/2020
-    String extensiónSalida = ".docx";
-    //Direccion del machote en el proyecto
-    String direccion = "src\\Controlador\\Formatos\\";
-    //Nombre del documento que se usara para reemplazar
-    String name = "CONTRATO2021.docx";
-    XWPFDocument doc = new XWPFDocument(OPCPackage.open(direccion+name));
+        /*El nombre de la carpeta de salida debe ser fijo*/
+        String carpetaSalida = "C:\\Formatos\\";
+        /*El nombre de la carpeta de salida debe ser fijo*/
+        String nameSalida = ".docx"; //Pretendo recibir folio y fecha //06/08/2020
+        String extensiónSalida = ".docx";
+        //Direccion del machote en el proyecto
+        String direccion = "src\\Controlador\\Formatos\\";
+        //Nombre del documento que se usara para reemplazar
+        String name = "CONTRATO2021.docx";
+        //Obtengo el machote para no afectar y crear una copia en la cual se va trabajar
+        XWPFDocument doc = new XWPFDocument(OPCPackage.open(direccion+name));
+        //XWPFDocument docTempAux = doc;
     
-    for(int i = 0;i<datosReemplazo.length; i++ ){
+        //String nameCarpeta = 
+        nameSalida =  (String) datosReemplazo[6]+"-"+(String) datosReemplazo[0]; //Genera el nombre único
+        carpetaSalida = carpetaSalida+"\\"+nameSalida+"\\"; //Creo la carpeta
+        nameSalida = nameSalida + extensiónSalida;
         
+        File archivoFinal = new File(carpetaSalida);
+        
+        
+        if (!archivoFinal.exists()) {
+            if (archivoFinal.mkdirs()) {
+                System.out.println("Directorio creado");
+                FileOutputStream salida = new FileOutputStream(carpetaSalida+nameSalida);
+                doc.write(salida);
+                doc.close();
+                System.out.println("Lo que escribí:"+carpetaSalida+nameSalida);
+                salida.close();
+                crearDocumentoContrato( datosPalabra,datosReemplazo, carpetaSalida, nameSalida);
+                
+            } else {
+                System.out.println("Error al crear directorio");
+            }
+        }
+        else{
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            JOptionPane.showMessageDialog(null,"El directorio ya existe, verifica en la siguiente dirección: "+carpetaSalida+nameSalida);
+            int dialogResult = JOptionPane.showConfirmDialog (null, "¿Desea abrir el archivo generado?","Warning",dialogButton);
+            if(dialogResult == JOptionPane.YES_OPTION){
+              // Saving code here
+              openWord(carpetaSalida + "Contrato"+nameSalida);
+            }
+        }
+     
+    }
+    
+    public void crearDocumentoContrato(String[] datosPalabra,
+            Object[] datosReemplazo, String direccion, String nameArchive) throws InvalidFormatException, IOException{
+   
+         //Obtengo el documento creado para no afectar el de la raíz
+        //doc = new XWPFDocument(OPCPackage.open(direccion+name));
+        XWPFDocument doc = new XWPFDocument(OPCPackage.open(direccion+nameArchive));
+        System.out.println(doc.toString());
+        for(int i = 0;i<datosReemplazo.length; i++ ){
+//            if(datosReemplazo[i].equals("")||datosReemplazo[i]==null){
+//                datosReemplazo[i] = "";
+//            }
             for (XWPFParagraph p : doc.getParagraphs()) {
                 List<XWPFRun> runs = p.getRuns();
                 if (runs != null) {
@@ -259,47 +306,31 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
                   }
                }
             }
-        //    doc.write(new FileOutputStream(nameSalida));
-        //    doc.close();
-    }
-        //String nameCarpeta = 
-        nameSalida =  (String) datosReemplazo[6]+"-"+(String) datosReemplazo[0]; //Genera el nombre único
-        carpetaSalida = carpetaSalida+"\\"+nameSalida+"\\"; //Creo la carpeta
-        nameSalida = nameSalida + extensiónSalida;
-        
-        File archivoFinal = new File(carpetaSalida);
-        
-        
-        if (!archivoFinal.exists()) {
-            if (archivoFinal.mkdirs()) {
-                System.out.println("Directorio creado");
-                FileOutputStream salida = new FileOutputStream(carpetaSalida+nameSalida);
-                doc.write(salida);
-                doc.close();
-                System.out.println("Lo que escribí:"+carpetaSalida+nameSalida);
-                salida.close();
-                //openWord(carpetaSalida + nameSalida);
-                int dialogButton = JOptionPane.YES_NO_OPTION;
-                JOptionPane.showMessageDialog(null,"El directorio se creo con éxito, en la siguiente dirección: "+carpetaSalida+nameSalida);
-                int dialogResult = JOptionPane.showConfirmDialog (null, "¿Desea abrir el archivo generado?","Warning",dialogButton);
-                if(dialogResult == JOptionPane.YES_OPTION){
-                // Saving code here
-                openWord(carpetaSalida + nameSalida);
-                }
-            } else {
-                System.out.println("Error al crear directorio");
-            }
+//            doc.write(new FileOutputStream(direccion+nameArchive));
+//            doc.close();
+            
         }
-        else{
+        
+//            FileOutputStream salida = new FileOutputStream(direccion+nameArchive);
+//            System.out.println("Lo que escribí:"+direccion+nameArchive);
+//            doc.write(salida);
+//            doc.close();
+//            salida.close();
+            String nombreNuevo = "Contrato"+nameArchive;
+            try (FileOutputStream fileOut = new FileOutputStream(direccion+nombreNuevo)) {
+                doc.write(fileOut);
+                doc.close();
+            }
+            //Files.delete(Paths.get(direccion+nameArchive));
+            //Files.move(Paths.get(direccion+nameArchive+".docx"), Paths.get(direccion+nameArchive+".docx"));
             int dialogButton = JOptionPane.YES_NO_OPTION;
-            JOptionPane.showMessageDialog(null,"El directorio ya existe, verifica en la siguiente dirección: "+carpetaSalida+nameSalida);
+            JOptionPane.showMessageDialog(null,"El archivo se creo con éxito en la siguiente dirección: "+direccion+nameArchive);
             int dialogResult = JOptionPane.showConfirmDialog (null, "¿Desea abrir el archivo generado?","Warning",dialogButton);
             if(dialogResult == JOptionPane.YES_OPTION){
               // Saving code here
-              openWord(carpetaSalida + nameSalida);
+              openWord(direccion+nameArchive);
             }
-        }
-        
-}
+    
+    }
     
 }

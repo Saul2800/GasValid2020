@@ -1396,15 +1396,16 @@ public void EliminarHolograma(String Holograma){
         
     }
             //Saul Arenas Ramirez
-    //25/07/2020
-    //Ingresa los datos de registroSolicitudContrato en la tabla_registro_solicitud
+            //25/07/2020
+            //Ingresa los datos de registroSolicitudContrato en la tabla_registro_solicitud
        
-       public void subirDatosSolicitud(String Foliodesolicitud,String Usuario,String Tecnico, String Fecha,String FechaPropuesta, String Tipodesolicitud,String idestacion, String total_mangueras, String  ReferenciadeSolicitud,String Observaciones){
-         try {
-                PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_registro_solicitud (folio_solicitud,nombre_usuario,nombre_tecnico,fecha,fecha_propuesta,tipo_solicitud,idestacion,total_mangueras,referencia,observaciones) VALUES (?,?,?,?,?,?,?,?,?,?) ");
+       public int subirDatosSolicitud(String Foliodesolicitud,String Usuario,String Tecnico, String Fecha,String FechaPropuesta, String Tipodesolicitud,String idestacion, String total_mangueras, String  ReferenciadeSolicitud,String Observaciones,String perAPoyo){
+       int valida = 0;
+       try {
+                PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_registro_solicitud (folio_solicitud,nombre_usuario,nombre_tecnico,fecha,fecha_propuesta,tipo_solicitud,idestacion,total_mangueras,referencia,observaciones,personal) VALUES (?,?,?,?,?,?,?,?,?,?,?) ");
                 pps.setString(1,Foliodesolicitud);
                 pps.setString(2, Usuario);
-               pps.setString(3, Tecnico);
+                pps.setString(3, Tecnico);
                 pps.setString(4, Fecha);
                 pps.setString(5, FechaPropuesta);
                 pps.setString(6, Tipodesolicitud);
@@ -1412,6 +1413,7 @@ public void EliminarHolograma(String Holograma){
                 pps.setString(8,total_mangueras);
                 pps.setString(9, ReferenciadeSolicitud);
                 pps.setString(10,Observaciones);
+                pps.setString(11, perAPoyo);
            //     pps.setString(7, valida_contrato);
 
     
@@ -1421,12 +1423,14 @@ public void EliminarHolograma(String Holograma){
                 //Statement st = Conexion.createStatement();
                 //     st.executeUpdate(Query);
                 JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+                valida = 1;
         } catch (SQLException ex) {
-                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+                //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+                valida = 0;
         }
-       
+       return valida;
        }
        
        public void modificarDatosSolicitud(String Foliodesolicitud,String Usuario,String Tecnico, String Fecha,String FechaPropuesta, String Tipodesolicitud,String idestacion,String total_mangueras,  String  ReferenciadeSolicitud,String Observaciones){
@@ -1606,9 +1610,20 @@ public void EliminarHolograma(String Holograma){
                 Object [] arrObjetos = null;
                 try{
                     //String Query = "SELECT * FROM tabla_dispensarios WHERE numero_estacion = '" +idEstacion+ "' AND no_dispensario = '" +idDispensario+ "';";
-                    String Query = "SELECT tblreg.folio_solicitud, UPPER(tblreg.nombre_usuario) as nombre_usuario,tblclie.razon_social,tblclie.nombre_responsable, tblclie.ciudad, tblclie.estado,tblreg.fecha_propuesta,UPPER(tblreg.nombre_usuario) as nombre_usuario,UPPER(tblreg.nombre_tecnico) as nombre_tecnico "
-                            + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie\n" +
-                               "WHERE  tblreg.idestacion = tblclie.idestacion and folio_solicitud = '"+idFolio+"'";
+                    String Query = "SELECT tblreg.folio_solicitud, "
+                            + "UPPER(tblreg.nombre_usuario) as nombre_usuario,"
+                            + "tblclie.razon_social,"
+                            + "tblclie.nombre_responsable, "
+                            + "tblclie.ciudad, "
+                            + "tblclie.estado,"
+                            + "tblreg.fecha_propuesta,"
+                            /*+ "UPPER(tblreg.nombre_usuario) as nombre_usuario,"
+                            + "UPPER(tblreg.nombre_tecnico) as nombre_tecnico, "*/
+                            + "CONCAT(UPPER(tblreg.nombre_tecnico),'/', UPPER(tblreg.personal)) as Tecnico "
+                            /*+ "UPPER(tblreg.personal) as personal " +*/
+                            + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie "
+                            + "WHERE  tblreg.idestacion = tblclie.idestacion and folio_solicitud = '"+idFolio+"'";
+                    /*Se añade personal de apoyo, jose caamal 23/08/2020*/
                     PreparedStatement stmt;
                     stmt = Conexion.prepareStatement(Query);
                     System.out.println(Query);
@@ -1627,7 +1642,6 @@ public void EliminarHolograma(String Holograma){
                                 arrObjetos[i]=res.getObject(i+1);
                             }
                             
-
                         }
                     
                     
@@ -2087,6 +2101,37 @@ public void EliminarHolograma(String Holograma){
          
          return valida;
      }
+    
+        /*
+        Jose Luis Caamal Ic 23/08/2020
+        Se realiza el guardado de mangueras que se usarán en la validación de documentos
+        */
+       public int guardarMangueras(String Foliodesolicitud,String total,String magna, String premium, String diesel){
+       int valida = 0;
+        try {
+                PreparedStatement pps=Conexion.prepareStatement("INSERT INTO tabla_mangueras (id_tmanguera,total,magna,premium,diesel) VALUES (?,?,?,?,?) ");
+                pps.setString(1,Foliodesolicitud);
+                pps.setString(2, total);
+                pps.setString(3, magna);
+                pps.setString(4, premium);
+                pps.setString(5, diesel);
+                //     pps.setString(7, valida_contrato);
+                pps.executeUpdate();
+    
+                //Inica el statement de la conexión
+                //Statement st = Conexion.createStatement();
+                //     st.executeUpdate(Query);
+                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+                valida = 1;
+        } catch (SQLException ex) {
+                //Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
+                //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de "
+                //        + "datos"+ex);
+                valida = 0;
+        }
+       return valida;
+       }
  
      
 }//final

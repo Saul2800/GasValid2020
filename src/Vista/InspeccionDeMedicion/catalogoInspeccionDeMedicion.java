@@ -1732,8 +1732,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                     "«CIUDAD»",
                     "«ESTADO»",
                     "«FECHAVERIFICACION»",
-                    "«TESTIGO»",
-                    "«TESTIGOAPOYO»"};
+                    "«TESTIGO»"};
                 /*Recupero la información para mi documento :) */
                 lbd.openConnection();
                 arregloDatosDoc = lbd.obtenerDatosSolicitud(folioSol);

@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
 import Modelo.modeloTablaUsuario;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -23,12 +25,52 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
     LibreriaBDControlador lbd = new LibreriaBDControlador();
     modeloTablaUsuario mtu = new modeloTablaUsuario();
     public String Usuario;
-    
+    //personalApoyo.setEnabled(true);
     public registroSolicitudContrato(java.awt.Frame parent, boolean modal,modeloTablaUsuario mtu) {
                 super(parent, modal);
-        this.mtu = mtu;
-     Usuario = mtu.getNombreCompleto();
-             initComponents();             
+                this.mtu = mtu;
+                Usuario = mtu.getNombreCompleto();
+                initComponents();
+                personalApoyo.setEnabled(false);
+                tecnicoRSC.setEnabled(false);
+                //Jose Luis Caamal Ic
+                //23/08/2020 Se añade un checkbox para validar si entra o no la información.
+                jCheckBoxTecnico.addItemListener(new ItemListener(){
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if(e.getStateChange() == ItemEvent.SELECTED){
+                        tecnicoRSC.setEnabled(true);
+                        tecnicoRSC.setText(" ");
+                    }
+                    else if(e.getStateChange() == ItemEvent.DESELECTED){
+                        tecnicoRSC.setEnabled(false);
+                        tecnicoRSC.setText(" ");
+                    }
+
+                    validate();
+                    repaint();
+                }
+                });
+                jCheckBoxPApoyo.addItemListener(new ItemListener(){
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if(e.getStateChange() == ItemEvent.SELECTED){
+                        personalApoyo.setEnabled(true);
+                        personalApoyo.setText(" ");
+                    }
+                    else if(e.getStateChange() == ItemEvent.DESELECTED){
+                        personalApoyo.setEnabled(false);
+                        personalApoyo.setText(" ");
+                    }
+
+                    validate();
+                    repaint();
+                }
+                });
+
+//            add(jCheckBoxTecnico);
+//            add(tecnicoRSC);
+                
     }
 
 
@@ -85,7 +127,6 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         diselRSC = new javax.swing.JTextField();
         tiposolicitudRSC = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         tecnicoRSC = new javax.swing.JTextField();
         fechaRCS = new com.toedter.calendar.JDateChooser();
         folioSolicitudRSC = new javax.swing.JTextField();
@@ -96,9 +137,15 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jCheckBoxTecnico = new javax.swing.JCheckBox();
+        jCheckBoxPApoyo = new javax.swing.JCheckBox();
+        personalApoyo = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Solicitud de Contrato");
         setMinimumSize(new java.awt.Dimension(593, 712));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -178,22 +225,14 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Mangueras a verificar");
 
-        manguerasaVerificarRSC.setEditable(false);
-
-        magnaRSC.setEditable(false);
-
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("Magna");
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel9.setText("Premium");
 
-        premiumRSC.setEditable(false);
-
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jLabel10.setText("Disel");
-
-        diselRSC.setEditable(false);
+        jLabel10.setText("Diesel");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -212,18 +251,35 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                                 .addComponent(jLabel12)
                                 .addComponent(jLabel13))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(35, 35, 35)
-                                    .addComponent(razonSocialRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
-                                    .addComponent(regfedCausantesRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                    .addComponent(jLabel19)
+                                    .addComponent(manguerasaVerificarRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                                    .addComponent(magnaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(premiumRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel10)
                                     .addGap(18, 18, 18)
-                                    .addComponent(estacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(29, 29, 29)))))
+                                    .addComponent(diselRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(19, 19, 19))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(razonSocialRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(regfedCausantesRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel19)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(estacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(29, 29, 29)))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
@@ -239,21 +295,7 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(1, 1, 1)
-                        .addComponent(manguerasaVerificarRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(magnaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(premiumRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(diselRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 36, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,26 +348,32 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel18.setText("Fecha");
 
-        jLabel20.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jLabel20.setText("Tecnico");
-
         tecnicoRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         folioSolicitudRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         noEstacionRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         noEstacionRSC.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                noEstacionRSCKeyTyped(evt);
-            }
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 noEstacionRSCKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                noEstacionRSCKeyTyped(evt);
+            }
         });
 
+        fechaPropuestaRSC.setEnabled(false);
+
         referenciaSolicitudRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        referenciaSolicitudRSC.setText("  ");
 
         observacionesRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        observacionesRSC.setText("   ");
+        observacionesRSC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                observacionesRSCActionPerformed(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(51, 102, 0));
@@ -337,6 +385,15 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel23.setText("de ingresar el No.Estacion");
 
+        jCheckBoxTecnico.setText("Técnico");
+
+        jCheckBoxPApoyo.setText("Personal Apoyo");
+
+        personalApoyo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel20.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel20.setText("Para habilitar el nombre del Técnico o Personal de Apoyo, favor de hacer clic en las casillas de verificación e ingrese la información.");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -344,51 +401,53 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(tiposolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(folioSolicitudRSC)))
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel18)
-                        .addGap(18, 18, 18)
-                        .addComponent(fechaRCS, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(guardarRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(jLabel21))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel20))
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tecnicoRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(observacionesRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(referenciaSolicitudRSC)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(fechaPropuestaRSC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(noEstacionRSC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel23))
-                                .addGap(0, 6, Short.MAX_VALUE)))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(noEstacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel22)
+                                            .addComponent(jLabel23)))
+                                    .addComponent(referenciaSolicitudRSC)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tiposolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel18)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(fechaRCS, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(3, 3, 3)))
+                                .addComponent(fechaPropuestaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(folioSolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(69, 69, 69)
+                            .addComponent(observacionesRSC)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jCheckBoxTecnico)
+                            .addGap(31, 31, 31)
+                            .addComponent(tecnicoRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jCheckBoxPApoyo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(personalApoyo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -399,16 +458,17 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                     .addComponent(guardarRSC)
                     .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(folioSolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tiposolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel18)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -431,10 +491,14 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(observacionesRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(tecnicoRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tecnicoRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxTecnico)
+                    .addComponent(jCheckBoxPApoyo)
+                    .addComponent(personalApoyo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -501,40 +565,48 @@ int validaEstacion = 0;
     }//GEN-LAST:event_noEstacionRSCKeyPressed
 
     private void guardarRSCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarRSCActionPerformed
- String  Foliodesolicitud,Tipodesolicitud,Fecha2, NoEstacion,/*Usuario,*/FechaPropuesta2;
- String ReferenciadeSolicitud,Observaciones,Tecnico;
- String   total_mangueras;
+    String  Foliodesolicitud,Tipodesolicitud,Fecha2, NoEstacion,/*Usuario,*/FechaPropuesta2;
+    String ReferenciadeSolicitud,Observaciones,Tecnico;
+    String   total_mangueras;
+    //Jose Luis Caamal Ic
+    String perApoyo = "";
 
- Foliodesolicitud=folioSolicitudRSC.getText();
- Tipodesolicitud=(String)tiposolicitudRSC.getSelectedItem();
+    Foliodesolicitud=folioSolicitudRSC.getText();
+    Tipodesolicitud=(String)tiposolicitudRSC.getSelectedItem();
  
-        Date  fecha=fechaRCS.getDate();
+          Date  fecha=fechaRCS.getDate();
           DateFormat f=new SimpleDateFormat("dd-MM-yyyy");
           Fecha2=f.format(fecha);
        
-       Date FechaPropuesta=fechaPropuestaRSC.getDate();
-       DateFormat F=new SimpleDateFormat("dd-MM-yyyy");
-       FechaPropuesta2=F.format(FechaPropuesta);
+//       Date FechaPropuesta=fechaPropuestaRSC.getDate();
+//       DateFormat F=new SimpleDateFormat("dd-MM-yyyy");
+//       FechaPropuesta2=F.format(FechaPropuesta);
        
        
  
- NoEstacion=noEstacionRSC.getText();
- //Usuario=solicitanteRSC.getText();
-//Usuario=mtu.getNombreUsuario();
+    NoEstacion=noEstacionRSC.getText();
+    //Usuario=solicitanteRSC.getText();
+   //Usuario=mtu.getNombreUsuario();
  
  
- ReferenciadeSolicitud=referenciaSolicitudRSC.getText();
+    ReferenciadeSolicitud=referenciaSolicitudRSC.getText();
     Observaciones=observacionesRSC.getText();
     Tecnico=tecnicoRSC.getText();
-    
+    perApoyo = personalApoyo.getText();
     total_mangueras=manguerasaVerificarRSC.getText();
     
-    
+    int valida = 0;
     lbd.openConnection();
-    
-    lbd.subirDatosSolicitud(Foliodesolicitud, Usuario, Tecnico, Fecha2, FechaPropuesta2, Tipodesolicitud,NoEstacion,total_mangueras,ReferenciadeSolicitud,Observaciones);
-    
-    
+    /*Se añade la misma fecha para ambos campos*/
+    //lbd.subirDatosSolicitud(Foliodesolicitud, Usuario, Tecnico, Fecha2, FechaPropuesta2, Tipodesolicitud,NoEstacion,total_mangueras,ReferenciadeSolicitud,Observaciones);
+    valida = lbd.subirDatosSolicitud(Foliodesolicitud, Usuario, Tecnico, Fecha2, Fecha2, Tipodesolicitud,NoEstacion,total_mangueras,ReferenciadeSolicitud,Observaciones,perApoyo);
+    if(valida == 1)
+    {
+        valida = lbd.guardarMangueras(Foliodesolicitud,total_mangueras,magnaRSC.getText(),premiumRSC.getText(),diselRSC.getText());
+    }
+    else{
+        JOptionPane.showMessageDialog(null,"Hubo un error en el proceso, valida nuevamente los datos.");
+    }
     lbd.closeConnection();
  
 
@@ -548,6 +620,10 @@ char solonumero=evt.getKeyChar();
 //        evt.consume();
 //        JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}
     }//GEN-LAST:event_noEstacionRSCKeyTyped
+
+    private void observacionesRSCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_observacionesRSCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_observacionesRSCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -564,6 +640,8 @@ char solonumero=evt.getKeyChar();
     private com.toedter.calendar.JDateChooser fechaRCS;
     private javax.swing.JTextField folioSolicitudRSC;
     private javax.swing.JButton guardarRSC;
+    private javax.swing.JCheckBox jCheckBoxPApoyo;
+    private javax.swing.JCheckBox jCheckBoxTecnico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -594,6 +672,7 @@ char solonumero=evt.getKeyChar();
     private javax.swing.JTextField noEstacionRSC;
     private javax.swing.JTextField nombreSolicitanteRSC;
     private javax.swing.JTextField observacionesRSC;
+    private javax.swing.JTextField personalApoyo;
     private javax.swing.JTextField premiumRSC;
     private javax.swing.JTextField razonSocialRSC;
     private javax.swing.JTextField referenciaSolicitudRSC;

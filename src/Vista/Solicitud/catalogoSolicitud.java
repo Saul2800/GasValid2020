@@ -48,17 +48,18 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
     }
     /*Obtengo los titulos de mi tabla*/
     String[] getColumnas(){ //Columnas
-            columna = new String[] {"Folio de solicitud",
+            columna = new String[] {"FolioSolicitud",
             "Impreso",
-            "Nombre Usuario",
-            "Nombre tecnico",
+            "NombreUsuario",
+            "NombreTécnico",
             "Fecha",
-            "Fecha Propuesta",
-            "Tipo solicitud",
-            "ID estacion",
-            "Total mangueras",
+            "FechaPropuesta",
+            "TipoSolicitud",
+            "IDEstación",
+            "TMangueras",
             "Referencia",
-            "Observaciones"};
+            "Observaciones",
+            "PersonalApoyo"};
         return columna;
     }
     /*private void MostrarTodasSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -116,6 +117,7 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
 
         modificarCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         modificarCS.setText("Modificar");
+        modificarCS.setEnabled(false);
         modificarCS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarCSActionPerformed(evt);
@@ -123,10 +125,11 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
         });
 
         imprimirCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/printer.png"))); // NOI18N
-        imprimirCS.setText("Imprimir");
+        imprimirCS.setText("Imprimir Solicitud");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
         jTextArea1.setRows(5);
         jTextArea1.setText("Para filtrar los campos primero\ndeben añadir información a los \ncampos y después darle clic a \nbuscar. Nota: Puede seleccionar\ndirectamente en la tabla para\nllenar el folio en automatico.");
@@ -172,9 +175,9 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(agregarCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(modificarCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(imprimirCS, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                .addGap(115, 115, 115)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(imprimirCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -219,16 +222,14 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
                         .addComponent(refrescarCS)
                         .addGap(64, 64, 64))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(agregarCS)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(modificarCS, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(imprimirCS))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(imprimirCS)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -279,7 +280,7 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
     }//GEN-LAST:event_agregarCSActionPerformed
 
     private void modificarCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarCSActionPerformed
-modificarSolicitudContrato dialog=new modificarSolicitudContrato(new javax.swing.JFrame(), true, mtu);
+        modificarSolicitudContrato dialog=new modificarSolicitudContrato(new javax.swing.JFrame(), true, mtu);
         dialog.setVisible(true);
         
            lbd.openConnection();
