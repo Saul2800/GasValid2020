@@ -4,7 +4,7 @@
 @Date: 28/08/2020
 */
 CREATE DATABASE `gasvalid` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci */;
-
+USE `gasvalid`;
 CREATE TABLE `tabla_clientes` (
   `idestacion` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `fecharegistro` datetime DEFAULT NULL,
