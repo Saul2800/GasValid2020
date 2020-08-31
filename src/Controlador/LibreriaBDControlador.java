@@ -47,7 +47,7 @@ Crecenciales de DB
             //Como obtener la información desde un archivo properties
             String db_nam = "gasvalid";
             String use = "root";
-            String pas ="caamal95";
+            String pas ="sakai";
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_nam, use, pas);
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");

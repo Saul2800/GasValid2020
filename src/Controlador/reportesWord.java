@@ -318,7 +318,7 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
 //            doc.write(salida);
 //            doc.close();
 //            salida.close();
-            String nombreNuevo = "ContratoFolio"+nameArchive;
+            String nombreNuevo = "ContratoFolio-"+nameArchive;
             try (FileOutputStream fileOut = new FileOutputStream(direccion+nombreNuevo)) {
                 doc.write(fileOut);
                 doc.close();
