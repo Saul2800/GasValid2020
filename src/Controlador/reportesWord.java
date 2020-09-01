@@ -23,7 +23,7 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 
 
 public class reportesWord{
-
+LibreriaToolsControlador lbtc = new LibreriaToolsControlador();
 //    public static void main(String[] args) throws IOException, InvalidFormatException {
 //        
 //        reportesWord rp = new reportesWord();
@@ -34,6 +34,7 @@ public class reportesWord{
 //    
     
 public static void reemplazarDatosWord(String name,String nameSalida, String direccion, String palabra, String reemplazo) throws InvalidFormatException, IOException{
+    
     
     XWPFDocument doc = new XWPFDocument(OPCPackage.open(direccion+name));
     for (XWPFParagraph p : doc.getParagraphs()) {
@@ -192,31 +193,17 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
             throw new Exception("Problems were occurred during variable replacement");
         }
     }
-    
-    //Abre el archivo deseado en la dirección deseada
-    //@direccionArchivo C:/Formatos
-    //@Jose Luis Caamal Ic
-    public void openWord(String direccionArchivo){
-
-     try {
-
-            File objetofile = new File (direccionArchivo);
-            Desktop.getDesktop().open(objetofile);
-
-     }catch (IOException ex) {
-
-            System.out.println(ex);
-
-     }
-
-}
-    
+    /*
+    Crea el tipo de documento contrato o solicitud
+    Jose Luis Caamal Ic
+    31/08/2020
+    */
     public void creaDocContrato(/*String name,
             String nameSalida,
             String carpetaSalida,
             String direccion, */
             String[] datosPalabra,
-            Object[] datosReemplazo) 
+            Object[] datosReemplazo, int tipoDocumento) 
             throws InvalidFormatException, IOException{
         
         /*El nombre de la carpeta de salida debe ser fijo*/
@@ -227,48 +214,50 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
         //Direccion del machote en el proyecto
         String direccion = "src\\Controlador\\Formatos\\";
         //Nombre del documento que se usara para reemplazar
-        String name = "CONTRATO2021.docx";
+        String name = lbtc.tipoDocumentoImprimir(tipoDocumento);
         //Obtengo el machote para no afectar y crear una copia en la cual se va trabajar
         XWPFDocument doc = new XWPFDocument(OPCPackage.open(direccion+name));
         //XWPFDocument docTempAux = doc;
-    
         //String nameCarpeta =
         //Folio´+ "-"+(String) datosReemplazo[0];
-        nameSalida =  (String) datosReemplazo[6]+"-"+(String) datosReemplazo[0]; //Genera el nombre único
-        carpetaSalida = carpetaSalida+"\\"+nameSalida+"\\"; //Creo la carpeta
+        nameSalida = (String) datosReemplazo[0]+"-"+tipoDocumento; //Genera el nombre único
+        carpetaSalida = carpetaSalida+"\\"+(String) datosReemplazo[0]+"\\"; //Creo la carpeta
         nameSalida = nameSalida + extensiónSalida;
         
         File archivoFinal = new File(carpetaSalida);
-        
-        
-        if (!archivoFinal.exists()) {
+//        
+//        if (!archivoFinal.exists()) {
             if (archivoFinal.mkdirs()) {//Se crea la carpeta
                 System.out.println("Directorio creado");
+            } else {
+                System.out.println("Directorio ya existe.");
+            }
+                
                 FileOutputStream salida = new FileOutputStream(carpetaSalida+nameSalida);
                 doc.write(salida); //Copio el documento en la salida
                 doc.close();
                 System.out.println("Lo que escribí:"+carpetaSalida+nameSalida);
                 salida.close();
-                crearDocumentoContrato( datosPalabra,datosReemplazo, carpetaSalida, nameSalida);
-                
-            } else {
-                System.out.println("Error al crear directorio");
-            }
-        }
-        else{
-            int dialogButton = JOptionPane.YES_NO_OPTION;
-            JOptionPane.showMessageDialog(null,"El directorio ya existe, verifica en la siguiente dirección: "+carpetaSalida+nameSalida);
-            int dialogResult = JOptionPane.showConfirmDialog (null, "¿Desea abrir el archivo generado?","Warning",dialogButton);
-            if(dialogResult == JOptionPane.YES_OPTION){
-              // Saving code here
-              openWord(carpetaSalida + "Contrato"+nameSalida);
-            }
-        }
+                crearDocumentoContrato( datosPalabra,datosReemplazo, carpetaSalida, nameSalida, tipoDocumento);
+//                System.out.println("Error al crear directorio");
+//                crearDocumentoContrato( datosPalabra,datosReemplazo, carpetaSalida, nameSalida, tipoDocumento);
+            
+//        }
+//        else{
+//            int dialogButton = JOptionPane.YES_NO_OPTION;
+//            JOptionPane.showMessageDialog(null,"El directorio ya existe, verifica en la siguiente dirección: "+carpetaSalida);
+//            int dialogResult = JOptionPane.showConfirmDialog (null, "¿Desea abrir el archivo generado?","Warning",dialogButton);
+//            if(dialogResult == JOptionPane.YES_OPTION){
+//              // Saving code here
+//              nameSalida = lbtc.tipoDocumentoGenerar(tipoDocumento, nameSalida);
+//              lbtc.openWord(carpetaSalida+nameSalida);
+//            }
+//        }
      
     }
     
     public void crearDocumentoContrato(String[] datosPalabra,
-            Object[] datosReemplazo, String direccion, String nameArchive) 
+            Object[] datosReemplazo, String direccion, String nameArchive, int tipoDoc) 
             throws InvalidFormatException, IOException{
    
          //Obtengo el documento creado para no afectar el de la raíz
@@ -318,7 +307,8 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
 //            doc.write(salida);
 //            doc.close();
 //            salida.close();
-            String nombreNuevo = "ContratoFolio-"+nameArchive;
+//            String nombreNuevo = "ContratoFolio-"+nameArchive;
+            String nombreNuevo = lbtc.tipoDocumentoGenerar(tipoDoc, nameArchive);
             try (FileOutputStream fileOut = new FileOutputStream(direccion+nombreNuevo)) {
                 doc.write(fileOut);
                 doc.close();
@@ -326,11 +316,18 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
             //Files.delete(Paths.get(direccion+nameArchive));
             //Files.move(Paths.get(direccion+nameArchive+".docx"), Paths.get(direccion+nameArchive+".docx"));
             int dialogButton = JOptionPane.YES_NO_OPTION;
-            JOptionPane.showMessageDialog(null,"El archivo se creo con éxito en la siguiente dirección: "+direccion+nameArchive);
+            JOptionPane.showMessageDialog(null,"El archivo se creo con éxito en la siguiente dirección: "+direccion+nombreNuevo);
             int dialogResult = JOptionPane.showConfirmDialog (null, "¿Desea abrir el archivo generado?","Warning",dialogButton);
             if(dialogResult == JOptionPane.YES_OPTION){
               // Saving code here
-              openWord(direccion+nameArchive);
+              //nameArchive archivoGenerado sin permiso :v
+              int elimine = lbtc.deleteDocumento(direccion+nameArchive);
+              if(elimine == 1){
+                lbtc.openWord(direccion+nombreNuevo);
+              }
+              else{
+                  System.out.println("La dirección:"+direccion+nameArchive+". No Existe.");
+              }
             }
     
     }

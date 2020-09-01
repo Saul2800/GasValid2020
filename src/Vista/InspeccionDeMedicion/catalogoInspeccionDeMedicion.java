@@ -10,8 +10,11 @@ import Controlador.colorTabla;
 import Controlador.reportesWord;
 import Modelo.modeloTablaUsuario;
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
@@ -35,6 +38,29 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 //        colorT.setColumna(0);
 //        colorT.setColumna(2);
 //        //colorT.setColumna(2);
+         //lleno el combo de termometros
+         lbd.openConnection();
+         List <String> listaAux = lbd.obtenerTermometros(2,"");
+         String [] lista = new String[listaAux.size()];
+         lista = listaAux.toArray(lista);        
+         jComboBoxTermometro.setModel((new javax.swing.DefaultComboBoxModel<>(lista)));
+         String item_seleccionado = jComboBoxTermometro.getSelectedItem().toString();
+         listaAux = lbd.obtenerTermometros(1,item_seleccionado);
+         datosTermometro.setText(listaAux.toString());
+         //lleno el combo de cronometros
+         listaAux = lbd.obtenerCronometros(2,"");
+         lista = new String[listaAux.size()];
+         lista = listaAux.toArray(lista);        
+         jComboBoxCronometro.setModel((new javax.swing.DefaultComboBoxModel<>(lista)));
+         item_seleccionado = jComboBoxCronometro.getSelectedItem().toString();
+         listaAux = lbd.obtenerCronometros(1,item_seleccionado);
+         datosCronometro.setText(listaAux.toString());
+         //lleno los combos jarra
+         lbd.closeConnection();
+         //lleno la hora
+         Date fecha = new Date();
+         jDateChooserFechaIM.setDate(fecha);
+         
     }
 
     /**
@@ -58,16 +84,17 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        campoEstacion = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBoxCronometro = new javax.swing.JComboBox<>();
+        jComboBoxDispensarios = new javax.swing.JComboBox<>();
+        jComboBoxTermometro = new javax.swing.JComboBox<>();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        datosTermometro = new javax.swing.JTextField();
+        datosCronometro = new javax.swing.JTextField();
+        jDateChooserFechaIM = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         verificacionVisual = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -203,7 +230,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBoxJarraA = new javax.swing.JComboBox<>();
         jPanel13 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -325,7 +352,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel110 = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBoxJarraB = new javax.swing.JComboBox<>();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
@@ -447,7 +474,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel160 = new javax.swing.JLabel();
         jLabel161 = new javax.swing.JLabel();
         jLabel162 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBoxJarraC = new javax.swing.JComboBox<>();
         jPanel23 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel163 = new javax.swing.JLabel();
@@ -569,7 +596,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel210 = new javax.swing.JLabel();
         jLabel211 = new javax.swing.JLabel();
         jLabel212 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jComboBoxJarraD = new javax.swing.JComboBox<>();
         jPanel28 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         jLabel213 = new javax.swing.JLabel();
@@ -691,7 +718,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel260 = new javax.swing.JLabel();
         jLabel261 = new javax.swing.JLabel();
         jLabel262 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBoxJarraE = new javax.swing.JComboBox<>();
         jPanel33 = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
         jLabel263 = new javax.swing.JLabel();
@@ -813,7 +840,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel310 = new javax.swing.JLabel();
         jLabel311 = new javax.swing.JLabel();
         jLabel312 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBoxJarraF = new javax.swing.JComboBox<>();
         jPanel38 = new javax.swing.JPanel();
         jPanel39 = new javax.swing.JPanel();
         jLabel313 = new javax.swing.JLabel();
@@ -860,6 +887,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 
         jLabel1.setText("Verificación Visual:");
 
+        folioSolicitud.setToolTipText("Para cargar los datos, ingresa el folio seguido de un enter");
         folioSolicitud.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 folioSolicitudKeyPressed(evt);
@@ -894,15 +922,37 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 
         jLabel8.setText("Tipo Verificacion");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        campoEstacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                campoEstacionActionPerformed(evt);
+            }
+        });
+        campoEstacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoEstacionKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoEstacionKeyTyped(evt);
             }
         });
 
-        jDateChooser1.setEnabled(false);
+        jComboBoxCronometro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxCronometroItemStateChanged(evt);
+            }
+        });
 
-        jButton2.setText("Consultar Folio");
+        jComboBoxTermometro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxTermometroItemStateChanged(evt);
+            }
+        });
+
+        jDateChooserFechaIM.setEnabled(false);
+
+        jButton2.setText("Guardar");
+
+        jCheckBox1.setText("ValidaInformación");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -923,11 +973,11 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxCronometro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(folioSolicitud, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, 156, Short.MAX_VALUE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBoxDispensarios, javax.swing.GroupLayout.Alignment.LEADING, 0, 156, Short.MAX_VALUE)
+                            .addComponent(jComboBoxTermometro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jDateChooserFechaIM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -936,16 +986,17 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                                     .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1)
+                                    .addComponent(campoEstacion)
                                     .addComponent(jTextField3)))
                             .addComponent(jTextField2)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(datosTermometro, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(datosCronometro, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCheckBoxImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(81, 81, 81))
         );
         jPanel1Layout.setVerticalGroup(
@@ -958,7 +1009,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                     .addComponent(folioSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBoxImprimir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -966,7 +1017,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxDispensarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
@@ -976,18 +1027,19 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jDateChooserFechaIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jComboBoxTermometro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datosTermometro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox1)))
                     .addComponent(jButtonImprimir))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datosCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -1838,7 +1890,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel53.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel53.setText("Inf. Calib.");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJarraA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1858,7 +1910,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel49, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxJarraA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField56)
                             .addComponent(jTextField57, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1886,7 +1938,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel48)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxJarraA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2126,7 +2178,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel73)
                             .addComponent(jButton1))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mangueraALayout = new javax.swing.GroupLayout(mangueraA);
@@ -2568,7 +2620,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel112.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel112.setText("Inf. Calib.");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJarraB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -2588,7 +2640,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel108, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxJarraB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField117)
                             .addComponent(jTextField118, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2616,7 +2668,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addGroup(jPanel17Layout.createSequentialGroup()
                                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel107)
-                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxJarraB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField117, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2856,7 +2908,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel127)
                             .addComponent(jButton3))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mangueraA1Layout = new javax.swing.GroupLayout(mangueraA1);
@@ -3298,7 +3350,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel162.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel162.setText("Inf. Calib.");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJarraC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -3318,7 +3370,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel158, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxJarraC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField181)
                             .addComponent(jTextField182, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3346,7 +3398,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addGroup(jPanel22Layout.createSequentialGroup()
                                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel157)
-                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxJarraC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField181, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3586,7 +3638,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel177)
                             .addComponent(jButton4))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mangueraA2Layout = new javax.swing.GroupLayout(mangueraA2);
@@ -4028,7 +4080,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel212.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel212.setText("Inf. Calib.");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJarraD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -4048,7 +4100,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel208, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxJarraD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField245)
                             .addComponent(jTextField246, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4076,7 +4128,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addGroup(jPanel27Layout.createSequentialGroup()
                                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel207)
-                                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxJarraD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField245, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4316,7 +4368,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel227)
                             .addComponent(jButton5))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mangueraA3Layout = new javax.swing.GroupLayout(mangueraA3);
@@ -4758,7 +4810,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel262.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel262.setText("Inf. Calib.");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJarraE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
@@ -4778,7 +4830,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel258, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxJarraE, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField309)
                             .addComponent(jTextField310, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4806,7 +4858,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addGroup(jPanel32Layout.createSequentialGroup()
                                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel257)
-                                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxJarraE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5046,7 +5098,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel277)
                             .addComponent(jButton6))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mangueraA4Layout = new javax.swing.GroupLayout(mangueraA4);
@@ -5488,7 +5540,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel312.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel312.setText("Inf. Calib.");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJarraF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
@@ -5508,7 +5560,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addComponent(jLabel308, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxJarraF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField373)
                             .addComponent(jTextField374, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5536,7 +5588,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                             .addGroup(jPanel37Layout.createSequentialGroup()
                                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel307)
-                                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxJarraF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField373, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5776,7 +5828,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                         .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel327)
                             .addComponent(jButton7))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mangueraA5Layout = new javax.swing.GroupLayout(mangueraA5);
@@ -5839,7 +5891,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
             if(validaFSol != 0){
 
                 JOptionPane.showMessageDialog(null,"El folio es valido, da clic al boton imprimir para continuar.");
-
+                
             }
             else{
 
@@ -5851,7 +5903,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 
     private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
         // TODO add your handling code here:
-        
+        int tipoDocumento = 1;
         if(jCheckBoxImprimir.isSelected()){
             //jButtonImprimir.setEnabled(true);
             Object [] arregloDatosDoc;
@@ -5890,7 +5942,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
                     "«TESTIGO»"};
                 /*Recupero la información para mi documento :) */
                 lbd.openConnection();
-                arregloDatosDoc = lbd.obtenerDatosSolicitud(folioSol);
+                arregloDatosDoc = lbd.obtenerDatosContrato(folioSol);
                 lbd.closeConnection();
                 System.out.println("Datos:"+arregloDatosDoc.length+"Etiquetas:"+etiquetasReemplazo.length);
                 try {
@@ -5899,7 +5951,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 //                        //arregloDatosDoc[i];
 //                        System.out.println("" + arregloDatosDoc1);
 //                    }
-                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc);
+                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc,tipoDocumento);
                 } catch (InvalidFormatException | IOException ex) {
                     Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al crear el archivo error es el siguiente:"+ex);
@@ -5925,9 +5977,9 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jCheckBoxImprimirItemStateChanged
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void campoEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEstacionActionPerformed
+        // TODO add your handling code here:   
+    }//GEN-LAST:event_campoEstacionActionPerformed
 
     private void jRadioButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton38ActionPerformed
         // TODO add your handling code here:
@@ -6019,42 +6071,109 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField388ActionPerformed
 
+    private void campoEstacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEstacionKeyTyped
+        // TODO add your handling code here:7
+    }//GEN-LAST:event_campoEstacionKeyTyped
+
+    private void campoEstacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEstacionKeyPressed
+        // TODO add your handling code here:
+        
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER){
+           
+            String nEstacion = campoEstacion.getText();
+            int validaFSol = 0;
+
+            lbd.openConnection();
+            validaFSol = lbd.obtenerEstaciones(nEstacion);
+            lbd.closeConnection();
+
+            if(validaFSol != 0){
+
+                JOptionPane.showMessageDialog(null,"El cliente si existe, da si para cargar la información");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                JOptionPane.showMessageDialog(null,"Se cargaran los datos del cliente: "+campoEstacion.getText());
+                int dialogResult = JOptionPane.showConfirmDialog (null, "¿Está de acuerdo?","Warning",dialogButton);
+                if(dialogResult == JOptionPane.YES_OPTION){
+                   
+                }
+                else{
+                
+                }
+            }
+            else{
+
+                JOptionPane.showMessageDialog(null,"No existe el clinte que quiere consultar.");
+            }
+        }
+    }//GEN-LAST:event_campoEstacionKeyPressed
+
+    private void jComboBoxTermometroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTermometroItemStateChanged
+        // TODO add your handling code here:
+        lbd.openConnection();
+        List <String> listaAux = lbd.obtenerTermometros(1, (String) evt.getItem());
+        //String [] lista = new String[listaAux.size()];
+         //lista = listaAux.toArray(lista);        
+         //jComboBoxTermometro.setModel((new javax.swing.DefaultComboBoxModel<>(lista)));
+         //String item_seleccionado = jComboBoxTermometro.getSelectedItem().toString();
+         datosTermometro.setText(listaAux.toString());
+         //lleno el combo de cronometros
+         //lleno los combos jarra
+         lbd.closeConnection();
+    }//GEN-LAST:event_jComboBoxTermometroItemStateChanged
+
+    private void jComboBoxCronometroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCronometroItemStateChanged
+        // TODO add your handling code here:
+        lbd.openConnection();
+        List <String> listaAux = lbd.obtenerCronometros(1, (String) evt.getItem());
+        //String [] lista = new String[listaAux.size()];
+         //lista = listaAux.toArray(lista);        
+         //jComboBoxTermometro.setModel((new javax.swing.DefaultComboBoxModel<>(lista)));
+         //String item_seleccionado = jComboBoxTermometro.getSelectedItem().toString();
+         datosCronometro.setText(listaAux.toString());
+         //lleno el combo de cronometros
+         //lleno los combos jarra
+         lbd.closeConnection();
+    }//GEN-LAST:event_jComboBoxCronometroItemStateChanged
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new catalogoInspeccionDeMedicion().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Windows".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new catalogoInspeccionDeMedicion().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField campoEstacion;
+    private javax.swing.JTextField datosCronometro;
+    private javax.swing.JTextField datosTermometro;
     private javax.swing.JTextField folioSolicitud;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -6064,17 +6183,18 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonImprimir;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBoxImprimir;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox<String> jComboBoxCronometro;
+    private javax.swing.JComboBox<String> jComboBoxDispensarios;
+    private javax.swing.JComboBox<String> jComboBoxJarraA;
+    private javax.swing.JComboBox<String> jComboBoxJarraB;
+    private javax.swing.JComboBox<String> jComboBoxJarraC;
+    private javax.swing.JComboBox<String> jComboBoxJarraD;
+    private javax.swing.JComboBox<String> jComboBoxJarraE;
+    private javax.swing.JComboBox<String> jComboBoxJarraF;
+    private javax.swing.JComboBox<String> jComboBoxTermometro;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaIM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -6461,7 +6581,6 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton37;
     private javax.swing.JRadioButton jRadioButton38;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField100;
     private javax.swing.JTextField jTextField101;
@@ -6784,7 +6903,6 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField388;
     private javax.swing.JTextField jTextField389;
     private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
@@ -6795,7 +6913,6 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField47;
     private javax.swing.JTextField jTextField48;
     private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField50;
     private javax.swing.JTextField jTextField51;
     private javax.swing.JTextField jTextField52;

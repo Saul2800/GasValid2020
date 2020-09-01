@@ -7,20 +7,29 @@ package Vista.Solicitud;
 
 import Modelo.modeloTablaUsuario;
 import Controlador.LibreriaBDControlador;
+import Controlador.LibreriaToolsControlador;
+import Controlador.reportesWord;
+import Vista.InspeccionDeMedicion.catalogoInspeccionDeMedicion;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 /**
  *
  * @author Saul
  */
 public class catalogoSolicitud extends javax.swing.JDialog {
-public String columna[];
+    public String columna[];
+    LibreriaToolsControlador lbt = new LibreriaToolsControlador();
     LibreriaBDControlador lbd = new LibreriaBDControlador();
-        modeloTablaUsuario mtu = new modeloTablaUsuario();
+    modeloTablaUsuario mtu = new modeloTablaUsuario();
     DefaultTableModel  modeloSolicitud;
-public String  Usuario;
+    reportesWord reporteWord = new reportesWord();
+    public String  Usuario;
     
     public catalogoSolicitud(modeloTablaUsuario mtu){
 
@@ -126,6 +135,11 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
 
         imprimirCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/printer.png"))); // NOI18N
         imprimirCS.setText("Imprimir Solicitud");
+        imprimirCS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imprimirCSActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -319,6 +333,73 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TOD
         tablaCatalogoSolicitud.setModel(modeloSolicitud);
         modeloSolicitud.fireTableDataChanged();
     }//GEN-LAST:event_buscarCSActionPerformed
+
+    private void imprimirCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirCSActionPerformed
+        // TODO add your handling code here:
+        /*
+        Imprimo la solicitud
+        Realizo la consulta de la información que se necesita.
+        Se adecua el codigo para la solcitud para no reeplicar codigo
+        */
+            int tipoDoc = 2;
+            Object [] arregloDatosDoc;
+            String folioSol = folioSolicitudCS.getText();
+            int validaFSol = 0;
+
+            lbd.openConnection();
+            validaFSol = lbd.validaFolioSolicitud(folioSol);
+            lbd.closeConnection();
+       
+            if(validaFSol != 0){
+            /*Creo un arreglo con las etiquetas que se necesitan modificar/reemplazar*/
+                String [] etiquetasReemplazo = {"«FOLY»",
+                    "«SOLTYPE»",
+                    "«SOLICITA»",
+                    "«RZNSOCIAL»",
+                    "«CITY»",
+                    "«STATE»",
+                    "«DATE»",
+                    "«TESTIGO»",
+                    "«DOM»",
+                    "«CELL»",
+                    "«CORELE»",
+                    "«NESTACION»",
+                    "«NCRE»",
+                    "«MGN»",
+                    "«PMM»",
+                    "«DISL»",
+                    "«OBSEVCNS»",
+                    "«CPP»",
+                    "«RFC»",
+                    "«PERIODO»"
+            };
+                String periodo = lbt.obtenerPeriodo();
+                
+                /*Recupero la información para mi documento :) */
+                lbd.openConnection();
+                arregloDatosDoc = lbd.obtenerDatosSolicitud(folioSol,periodo);
+                lbd.closeConnection();
+                //arregloDatosDoc = (String[]) arregloDatosDocAux;
+                System.out.println("Datos:"+arregloDatosDoc.length+"Etiquetas:"+etiquetasReemplazo.length);
+                try {
+                    /*Inserto los valores al documento machote y lo guardo en la nueva ubicación*/
+//                    for (Object arregloDatosDoc1 : arregloDatosDoc) {
+//                        //arregloDatosDoc[i];
+//                        System.out.println("" + arregloDatosDoc1);
+//                    }
+                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc, tipoDoc);
+                } catch (InvalidFormatException | IOException ex) {
+                    Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al crear el archivo error es el siguiente:"+ex);
+                }
+               
+            }
+            else{
+
+                JOptionPane.showMessageDialog(null,"No existe el folio que quiere imprimir");
+            }
+        
+    }//GEN-LAST:event_imprimirCSActionPerformed
 
     /**
      * @param args the command line arguments

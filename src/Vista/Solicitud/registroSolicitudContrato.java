@@ -603,6 +603,8 @@ int validaEstacion = 0;
     if(valida == 1)
     {
         valida = lbd.guardarMangueras(Foliodesolicitud,total_mangueras,magnaRSC.getText(),premiumRSC.getText(),diselRSC.getText());
+//        if(valida ==1)
+//            valida = lbd.updateMGasolinas(Foliodesolicitud, Fecha2, perApoyo, Fecha2)
     }
     else{
         JOptionPane.showMessageDialog(null,"Hubo un error en el proceso, valida nuevamente los datos.");

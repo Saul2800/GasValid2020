@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import java.sql.*;
+import java.util.Arrays;
 import static java.util.Collections.list;
 import javax.swing.table.DefaultTableModel;
 
@@ -1106,7 +1107,7 @@ public void EliminarHolograma(String Holograma){
     
         //Jose Luis Caamal Ic 23/07/2020
         //insertar los dipensarios en la tabla_dispensarios
-        public void insertaDispensarios(String campoDispensario,
+        public int insertaDispensarios(String campoDispensario,
         String campoEstacion,
         String campoMDispensario,
         String campoModeloD,
@@ -1121,6 +1122,7 @@ public void EliminarHolograma(String Holograma){
         String campoME,
         String campoMF,
         String fechaRegistroD) {
+        int valida = 0;
         try {
                 String idDispAux = "default";
                 PreparedStatement pps=Conexion.prepareStatement("INSERT INTO "
@@ -1162,11 +1164,14 @@ public void EliminarHolograma(String Holograma){
     
                 //JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
                 System.out.println("Datos almacenados de forma exitosa");
+                valida = 1;
         } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
                 //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
                 System.out.println("Error en el almacenamiento de datos"+ex);
+                valida = 0;
         }
+        return valida;
     }
     //Jose Luis Caamal Ic 23/07/2020
     //Obtiene el numero de dispensarios de la estación    
@@ -1601,11 +1606,11 @@ public void EliminarHolograma(String Holograma){
      /*
             obtenerDatosSolicitud
             Caamal Ic Jose Luis
-            Obtiene toda la información del los datos de solicitud y del cliente;
+            Obtiene toda la información del los datos de Contrato y del cliente;
             si no exista lo añade.
             Since 06/08/2020
     */
-     public Object[] obtenerDatosSolicitud(String idFolio) 
+     public Object[] obtenerDatosContrato(String idFolio) 
                 {
                 Object [] arrObjetos = null;
                 try{
@@ -1639,7 +1644,7 @@ public void EliminarHolograma(String Holograma){
                         {
                             for (int i=0;i<numeroColumnas;i++)
                             {
-                                arrObjetos[i]=res.getObject(i+1);
+                                arrObjetos[i]=String.valueOf(res.getObject(i+1));
                             }
                             
                         }
@@ -2132,6 +2137,198 @@ public void EliminarHolograma(String Holograma){
         }
        return valida;
        }
+    /*
+            obtenerDatosSolicitud
+            Caamal Ic Jose Luis
+            Obtiene toda la información del los datos de Solicitud y del cliente;
+            si no exista lo añade.
+            Since 06/08/2020
+    */
+     public Object[] obtenerDatosSolicitud(String idFolio, String docPeriodo) 
+                {
+                Object [] arrObjetos = null;
+                try{
+                    //String Query = "SELECT * FROM tabla_dispensarios WHERE numero_estacion = '" +idEstacion+ "' AND no_dispensario = '" +idDispensario+ "';";
+                    String Query = "SELECT tblreg.folio_solicitud, "
+                            + "UPPER(tblreg.tipo_solicitud) as tipo_solicitud,"
+                            + "tblclie.nombre_responsable, "
+                            + "tblclie.razon_social,"
+                            + "tblclie.ciudad, "
+                            + "tblclie.estado,"
+                            + "tblreg.fecha_propuesta,"
+                            + "UPPER(tblreg.personal) as Tecnico," 
+                            + "tblclie.domicilio,"
+                            + "tblclie.telefono,"
+                            + "tblclie.correo_electronico,"
+                            + "tblclie.numero_cre,"
+                            + "tblclie.idestacion,"
+                            + "tbl_mang.magna,"
+                            + "tbl_mang.premium," 
+                            + "tbl_mang.diesel,"
+                            + "tblreg.observaciones,"
+                            + "tblclie.codigo_postal,"
+                            + "tblclie.registro_fedcausante "
+                            /*+ "UPPER(tblreg.nombre_usuario) as nombre_usuario,"
+                            + "UPPER(tblreg.nombre_tecnico) as nombre_tecnico, "*/
+                            /*+ "CONCAT(UPPER(tblreg.nombre_tecnico),'/', UPPER(tblreg.personal)) as Tecnico "*/
+                            /*+ "UPPER(tblreg.personal) as personal " +*/
+                            + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie, tabla_mangueras tbl_mang "
+                            + "WHERE  tblreg.idestacion = tblclie.idestacion and tbl_mang.id_tmanguera = '"+idFolio+"' "
+                            + "and tblreg.folio_solicitud = '"+idFolio+"'";
+                    /*Se añade personal de apoyo, jose caamal 23/08/2020*/
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    System.out.println(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                    ResultSetMetaData metaDatos = res.getMetaData();
+                        // Se obtiene el número de columnas.
+                        int numeroColumnas = metaDatos.getColumnCount();
+                        // Se crea un array de etiquetas para rellenar
+                        arrObjetos =new Object[numeroColumnas+1];
+                        
+                        while (res.next())
+                        {
+                            for (int i=0;i<numeroColumnas;i++)
+                            {
+                                
+//                                if(i==1){
+//                                    arrObjetos[i]=docPeriodo;
+//                                }else{
+                                    arrObjetos[i]=String.valueOf(res.getObject(i+1));
+                                
+                            }
+                            
+                       }
+                       System.out.println(Arrays.toString(arrObjetos));
+                       numeroColumnas = arrObjetos.length;
+                       arrObjetos[numeroColumnas-1]=docPeriodo;
+                       System.out.println(Arrays.toString(arrObjetos));
+               
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    arrObjetos = null;
+                }
+        
+        return arrObjetos;
+        
+    }
+     
+    /*  ----------------------------------------------------------------------------------
+    Nombre: Clase updateDatosUsuario
+    Función: Actualiza los valores en la tabla correspondiente.
+    Aut@r: José Luis Caamal Ic
+    Parametros: Table: tabla_clientes
+                Columns:
+    Date: 31/08/2020
+    ----------------------------------------------------------------------------------
+    */
+    public int updateMGasolinas(String id, String  magna, String premium, String Diesel) {
+        try {
+            //int response;
+            String sql = ("UPDATE tabla_clientes "
+                    + "SET "
+                    + "mangueraMagna = '" + magna + "', "
+                    + "mangueraPremium = '" + premium + "', "
+                    + "mangueraDiesel = '" + Diesel + "' "
+                    + "WHERE idestacion = '"+id +"'");
+            System.out.println("consulta updateMGasolinas "+sql);
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(sql);	
+            //System.out.println(" Response: "+ response);
+            //JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+            return 1;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
+            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    
+    //Jose Luis Caamal Ic 31/08/2020
+    //Obtiene el numero de termometros en uso y los datos segun el seleccionado.  
+    public List <String> obtenerTermometros(int tipoConsulta, String idTermometro) 
+                {
+                List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    if(tipoConsulta==1)
+                     Query = "SELECT marca,modelo,serie FROM tabla_termometros WHERE id_Termo = '"+idTermometro+"'";
+                    if(tipoConsulta==2)
+                        Query = "SELECT id_Termo FROM tabla_termometros";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                        if(tipoConsulta==2)
+                            listaAux.add(res.getString("id_Termo"));
+                        if(tipoConsulta==1){
+                            listaAux.add("Marca:"+res.getString("marca"));
+                            listaAux.add("Modelo:"+res.getString("modelo"));
+                            listaAux.add("Serie:"+res.getString("serie"));
+                        }
+                            
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+        return listaAux;
+        
+    }
+    
+    //Jose Luis Caamal Ic 31/08/2020
+    //Obtiene el numero de Cronometro en uso y los datos segun el seleccionado.  
+    public List <String> obtenerCronometros(int tipoConsulta, String idCronometro) 
+                {
+                List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    if(tipoConsulta==1)
+                     Query = "SELECT marca,modelo,serie FROM tabla_cronometros WHERE id_Crono = '"+idCronometro+"'";
+                    if(tipoConsulta==2)
+                        Query = "SELECT id_Crono FROM tabla_cronometros";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                        if(tipoConsulta==2)
+                            listaAux.add(res.getString("id_Crono"));
+                        if(tipoConsulta==1){
+                            listaAux.add("Marca:"+res.getString("marca"));
+                            listaAux.add("Modelo:"+res.getString("modelo"));
+                            listaAux.add("Serie:"+res.getString("serie"));
+                        }
+                            
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+        return listaAux;
+        
+    }
  
      
 }//final

@@ -446,10 +446,20 @@ public class agregarDispensario extends javax.swing.JDialog {
         Date obtenFecha = new Date();
         String fechaRegistroDisp = lbt.convertirFecha(obtenFecha);
         String fechaRegistroD = fechaRegistroDisp;
+        int valida = 0;
         lbd.openConnection();
         //Inserto los datos a a la tabla_dispensarios
-        lbd.insertaDispensarios(campoDispensario, campoEstacion, campoMDispensario, campoModeloD, campoSerieD, campoAlcanceMin, campoAprobacion, campoAlcanceMax, campoMA, campoMB, campoMC, campoMD, campoME, campoMF, fechaRegistroD);
+        valida = lbd.insertaDispensarios(campoDispensario, campoEstacion, campoMDispensario, campoModeloD, campoSerieD, campoAlcanceMin, campoAprobacion, campoAlcanceMax, campoMA, campoMB, campoMC, campoMD, campoME, campoMF, fechaRegistroD);
         lbd.closeConnection();
+        if(valida==1)
+        {
+            JOptionPane.showMessageDialog(null, "Proceso exitoso, datos almacenados.");
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Proceso no exitos, verifica tus datos e intenta nuevamente.");
+            //this.dispose();
+        }
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void campoNoEstacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNoEstacionKeyPressed
