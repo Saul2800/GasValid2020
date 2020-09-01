@@ -47,7 +47,7 @@ Crecenciales de DB
             //Como obtener la información desde un archivo properties
             String db_nam = "gasvalid";
             String use = "root";
-            String pas ="caamal95";
+            String pas ="ARENAS28";
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_nam, use, pas);
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
@@ -1622,7 +1622,7 @@ public void EliminarHolograma(String Holograma){
                             + "CONCAT(UPPER(tblreg.nombre_tecnico),'/', UPPER(tblreg.personal)) as Tecnico "
                             /*+ "UPPER(tblreg.personal) as personal " +*/
                             + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie "
-                            + "WHERE  tblreg.idestacion = tblclie.idestacion and folio_solicitud = '"+idFolio+"'";
+                            + "WHERE  tblreg.idestacion = tblclie.idestacion and tblreg.folio_solicitud = '"+idFolio+"'";
                     /*Se añade personal de apoyo, jose caamal 23/08/2020*/
                     PreparedStatement stmt;
                     stmt = Conexion.prepareStatement(Query);

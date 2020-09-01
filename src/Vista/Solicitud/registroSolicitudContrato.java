@@ -144,11 +144,13 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Solicitud de Contrato");
-        setMinimumSize(new java.awt.Dimension(593, 712));
+        setMaximumSize(new java.awt.Dimension(644, 615));
+        setMinimumSize(new java.awt.Dimension(644, 615));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        guardarRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         guardarRSC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/save.png"))); // NOI18N
         guardarRSC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,146 +158,152 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel1.setText("Folio de solicitud");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel2.setText("Tipo de solicitud");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel3.setText("No. Estacion");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel4.setText("Fecha Propuesta");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel5.setText("Referencia de Solicitud");
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel6.setText("Observaciones");
 
-        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel11.setText("Nombre de solicitante");
 
-        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel12.setText("Razon social");
 
-        jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel13.setText("Reg.Fed.Causantes");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel14.setText("Domicilio");
 
-        jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel15.setText("Telefono");
 
-        jLabel16.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel16.setText("Estado");
 
-        jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel17.setText("Email");
 
         nombreSolicitanteRSC.setEditable(false);
-        nombreSolicitanteRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nombreSolicitanteRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         razonSocialRSC.setEditable(false);
-        razonSocialRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        razonSocialRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         domicilioRSC.setEditable(false);
-        domicilioRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        domicilioRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel19.setText("Estacion No.");
 
         estacionRSC.setEditable(false);
-        estacionRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        estacionRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         regfedCausantesRSC.setEditable(false);
-        regfedCausantesRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        regfedCausantesRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         telefonoRSC.setEditable(false);
-        telefonoRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        telefonoRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         estadoRSC.setEditable(false);
-        estadoRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        estadoRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         emailRSC.setEditable(false);
-        emailRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        emailRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel7.setText("Mangueras a verificar");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        manguerasaVerificarRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        magnaRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel8.setText("Magna");
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel9.setText("Premium");
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        premiumRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel10.setText("Diesel");
+
+        diselRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(68, 68, 68)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel11)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(nombreSolicitanteRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel12)
                                 .addComponent(jLabel13))
+                            .addGap(21, 21, 21)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(manguerasaVerificarRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                                    .addComponent(magnaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(premiumRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel10)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(diselRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(19, 19, 19))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(razonSocialRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(regfedCausantesRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel19)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(estacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(29, 29, 29)))))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(nombreSolicitanteRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(manguerasaVerificarRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel8)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(magnaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(premiumRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(diselRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(razonSocialRSC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(domicilioRSC)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(regfedCausantesRSC)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel19)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(estacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(telefonoRSC)
+                                            .addComponent(estadoRSC)
+                                            .addComponent(emailRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
                             .addComponent(jLabel15)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))
-                        .addGap(82, 82, 82)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(domicilioRSC, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                            .addComponent(telefonoRSC)
-                            .addComponent(estadoRSC)
-                            .addComponent(emailRSC))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(396, 396, 396)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,32 +350,35 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tiposolicitudRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        tiposolicitudRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         tiposolicitudRSC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inicial", "Periodica", "Extraordinaria" }));
 
-        jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel18.setText("Fecha");
 
-        tecnicoRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        tecnicoRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        folioSolicitudRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        fechaRCS.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        noEstacionRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        folioSolicitudRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        noEstacionRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         noEstacionRSC.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                noEstacionRSCKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 noEstacionRSCKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                noEstacionRSCKeyPressed(evt);
             }
         });
 
         fechaPropuestaRSC.setEnabled(false);
+        fechaPropuestaRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        referenciaSolicitudRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        referenciaSolicitudRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         referenciaSolicitudRSC.setText("  ");
 
-        observacionesRSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        observacionesRSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         observacionesRSC.setText("   ");
         observacionesRSC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,18 +390,21 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         jLabel21.setForeground(new java.awt.Color(51, 102, 0));
         jLabel21.setText("Registro Solicitud/Contrato");
 
-        jLabel22.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel22.setText("Presione enter al terminar");
 
-        jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel23.setText("de ingresar el No.Estacion");
 
+        jCheckBoxTecnico.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jCheckBoxTecnico.setText("Técnico");
 
+        jCheckBoxPApoyo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jCheckBoxPApoyo.setText("Personal Apoyo");
 
-        personalApoyo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        personalApoyo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 51, 51));
         jLabel20.setText("Para habilitar el nombre del Técnico o Personal de Apoyo, favor de hacer clic en las casillas de verificación e ingrese la información.");
 
@@ -398,7 +412,6 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,47 +421,44 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                         .addComponent(guardarRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(jLabel21))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel23)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel3))
                             .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(noEstacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel22)
-                                            .addComponent(jLabel23)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(referenciaSolicitudRSC)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(tiposolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jLabel18)
                                         .addGap(18, 18, 18)
-                                        .addComponent(fechaRCS, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(3, 3, 3)))
-                                .addComponent(fechaPropuestaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(folioSolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(69, 69, 69)
-                            .addComponent(observacionesRSC)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jCheckBoxTecnico)
-                            .addGap(31, 31, 31)
-                            .addComponent(tecnicoRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBoxPApoyo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(personalApoyo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(fechaRCS, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(11, 11, 11)
+                                        .addComponent(observacionesRSC)))
+                                .addComponent(folioSolicitudRSC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fechaPropuestaRSC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(noEstacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel22)))))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCheckBoxTecnico)
+                        .addGap(31, 31, 31)
+                        .addComponent(tecnicoRSC, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBoxPApoyo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(personalApoyo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,24 +475,21 @@ public class registroSolicitudContrato extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tiposolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel18)))
-                        .addGap(18, 18, 18)
+                                .addComponent(tiposolicitudRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel18))
+                            .addComponent(jLabel2))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(noEstacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(fechaPropuestaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(fechaRCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel22)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel23)))
+                            .addComponent(noEstacionRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22)))
+                    .addComponent(fechaRCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(fechaPropuestaRSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)

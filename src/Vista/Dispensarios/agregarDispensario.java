@@ -126,15 +126,18 @@ public class agregarDispensario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Dispensario");
+        setMaximumSize(new java.awt.Dimension(799, 341));
+        setMinimumSize(new java.awt.Dimension(799, 341));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 19)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel1.setText("Número de la CRE:");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 19)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel2.setText("Razón Social:");
 
+        campoNoEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoNoEstacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 campoNoEstacionKeyPressed(evt);
@@ -142,11 +145,15 @@ public class agregarDispensario extends javax.swing.JDialog {
         });
 
         campoRazonSocial.setEditable(false);
+        campoRazonSocial.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel18.setText("Fecha Registro:");
 
+        campoFechaReg.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoFechaReg.setText("Fecha");
 
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel20.setText("Para validar el número de estación, dirigirse a los catalogos de estaciones.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -164,14 +171,12 @@ public class agregarDispensario extends javax.swing.JDialog {
                     .addComponent(campoNoEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel20)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campoRazonSocial)))
-                .addContainerGap())
+                        .addComponent(campoRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,42 +197,47 @@ public class agregarDispensario extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel3.setText("Núm Dispensario:");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel4.setText("Marca:");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel5.setText("Modelo:");
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel6.setText("Num Serie:");
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel7.setText("Alcance Min:");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel8.setText("Alcance Max:");
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        campoModelo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        campoSerie.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel9.setText("Manguera A:");
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel10.setText("Manguera C:");
 
-        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel11.setText("Manguera E:");
 
-        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel12.setText("Manguera B:");
 
-        jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel13.setText("Manguera D:");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel14.setText("Manguera F:");
 
+        campoMangueraA.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMangueraA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magna", "Premium", "Diesel", "N/A" }));
         campoMangueraA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,24 +245,38 @@ public class agregarDispensario extends javax.swing.JDialog {
             }
         });
 
+        campoMangueraC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMangueraC.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magna", "Premium", "Diesel", "N/A" }));
 
+        campoMangueraE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMangueraE.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magna", "Premium", "Diesel", "N/A" }));
 
+        campoMangueraD.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMangueraD.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magna", "Premium", "Diesel", "N/A" }));
 
+        campoMangueraB.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMangueraB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magna", "Premium", "Diesel", "N/A" }));
 
+        campoMangueraF.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMangueraF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magna", "Premium", "Diesel", "N/A" }));
 
+        campoMarcaDispensario.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMarcaDispensario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WAYNE", "PETROL & IMPORT", "GILBARCO", "TOKHEIM", "PEGASUS", "TEAM", "GBR", "UNIVERSEL", "BENNETT", "SUPRAMAX" }));
 
+        campoAlcanceMaximo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        campoAlcanceMinimo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel15.setText("l/m");
 
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel16.setText("l/m");
 
-        jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel17.setText("Aprobación DGN:");
+
+        campoAprobacionDGN.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         botonGuardar.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         botonGuardar.setText("Guardar");
@@ -262,14 +286,18 @@ public class agregarDispensario extends javax.swing.JDialog {
             }
         });
 
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel21.setText("Para \"Guardar\", es necesario que indique el número de estación.");
 
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel22.setText("Marca Gasolina:");
 
+        etiquetaMarcaGasolina.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         etiquetaMarcaGasolina.setText("jLabel23");
 
         campoNoDispensario.setEditable(false);
         campoNoDispensario.setBackground(new java.awt.Color(204, 255, 204));
+        campoNoDispensario.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -279,76 +307,77 @@ public class agregarDispensario extends javax.swing.JDialog {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel8))
-                                .addGap(60, 60, 60)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(campoAprobacionDGN)
-                                    .addComponent(campoSerie)
-                                    .addComponent(campoModelo)
-                                    .addComponent(campoMarcaDispensario, 0, 199, Short.MAX_VALUE)
-                                    .addComponent(campoAlcanceMinimo)
-                                    .addComponent(campoAlcanceMaximo)
-                                    .addComponent(campoNoDispensario)))
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel8))
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoAprobacionDGN)
+                            .addComponent(campoSerie)
+                            .addComponent(campoModelo)
+                            .addComponent(campoMarcaDispensario, 0, 199, Short.MAX_VALUE)
+                            .addComponent(campoAlcanceMinimo)
+                            .addComponent(campoAlcanceMaximo)
+                            .addComponent(campoNoDispensario)))
+                    .addComponent(jLabel7))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addGap(30, 30, 30)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel9))
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGap(12, 12, 12)
-                                                .addComponent(campoMangueraC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(campoMangueraA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel14)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(campoMangueraF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel13)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(campoMangueraD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel12)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(campoMangueraB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel22))
+                                        .addGap(30, 30, 30)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGap(12, 12, 12)
-                                                .addComponent(campoMangueraE, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel10)
+                                                    .addComponent(jLabel9))
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(campoMangueraA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addGap(12, 12, 12)
+                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(campoMangueraE, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(campoMangueraC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel14)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(campoMangueraF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel13)
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(campoMangueraD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel12)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(campoMangueraB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(etiquetaMarcaGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                .addContainerGap(27, Short.MAX_VALUE))
+                                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel22))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(etiquetaMarcaGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(67, 67, 67)
+                                        .addComponent(jLabel21)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,17 +420,15 @@ public class agregarDispensario extends javax.swing.JDialog {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(campoAprobacionDGN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoAprobacionDGN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonGuardar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(campoAlcanceMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(botonGuardar))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel21))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -409,7 +436,7 @@ public class agregarDispensario extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,6 +447,7 @@ public class agregarDispensario extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoMangueraAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMangueraAActionPerformed

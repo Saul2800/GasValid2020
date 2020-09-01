@@ -35,11 +35,16 @@ public class capturaDispensarios extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(432, 240));
+        setMinimumSize(new java.awt.Dimension(432, 240));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jButton1.setText("Añadir");
 
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jButton2.setText("Modificar");
 
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jButton3.setText("Consulta");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -84,6 +89,7 @@ public class capturaDispensarios extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

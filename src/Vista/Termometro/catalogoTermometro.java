@@ -101,13 +101,14 @@ public class catalogoTermometro extends javax.swing.JDialog {
         setMaximumSize(new java.awt.Dimension(987, 558));
         setMinimumSize(new java.awt.Dimension(987, 558));
 
+        tablaCatalogoTermometros.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         tablaCatalogoTermometros.setModel(modeloTermometros);
         jScrollPane1.setViewportView(tablaCatalogoTermometros);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setForeground(new java.awt.Color(204, 204, 255));
 
-        agregarCT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        agregarCT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         agregarCT.setText("Agregar");
         agregarCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +116,7 @@ public class catalogoTermometro extends javax.swing.JDialog {
             }
         });
 
-        editarCT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        editarCT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         editarCT.setText("Editar");
         editarCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +124,7 @@ public class catalogoTermometro extends javax.swing.JDialog {
             }
         });
 
-        eliminarCT.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
+        eliminarCT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
         eliminarCT.setText("Eliminar");
         eliminarCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

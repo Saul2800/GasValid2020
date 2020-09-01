@@ -95,10 +95,12 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1098, 591));
+        setMaximumSize(new java.awt.Dimension(1098, 627));
+        setMinimumSize(new java.awt.Dimension(1098, 627));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        AgregarEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         AgregarEstacion.setText("Agregar Estación");
         AgregarEstacion.setFocusable(false);
         AgregarEstacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -109,6 +111,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             }
         });
 
+        ModificarEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         ModificarEstacion.setText("Modificar Estación ");
         ModificarEstacion.setFocusable(false);
         ModificarEstacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -119,6 +122,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             }
         });
 
+        EliminarEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         EliminarEstacion.setText("Eliminar Estación");
         EliminarEstacion.setFocusable(false);
         EliminarEstacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -132,6 +136,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 153));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        MostrarTodasCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         MostrarTodasCH.setForeground(new java.awt.Color(255, 0, 0));
         MostrarTodasCH.setText("Buscar");
         MostrarTodasCH.addActionListener(new java.awt.event.ActionListener() {
@@ -140,16 +145,24 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel3.setText("Núm. Estación:");
 
+        folioEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel1.setText("Marca Gasolina:");
 
+        tipoMGas.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         tipoMGas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pemex", "Oxxo Gas", "Mobil", "British Petroleum", "Repsol", "Shell", "Petro Seven", "G-500", "Hidrosina", "Akron", "Grupo Eco" }));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel2.setText("Estatus:");
 
+        estatusEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         estatusEstacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VIGENTE", "CANCELADO", "EN_REPARACION", "DESCONTINUADO", "FUERA_DE_SERVICIO", "ASIGNADA", "NO_ASIGNADA" }));
 
+        RefrescarCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         RefrescarCH.setText("Refrescar");
         RefrescarCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +176,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -173,7 +186,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tipoMGas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(estatusEstacion, 0, 1, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
@@ -185,7 +198,6 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -199,16 +211,16 @@ public class catalogoEstaciones extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(estatusEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4))
+                            .addComponent(estatusEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(RefrescarCH)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
         jTextArea1.setRows(5);
         jTextArea1.setText("Para filtrar los campos primero deben \nañadir información a los campos y después \ndarle clic a buscar. Nota: Puede seleccionar\ndirectamente en la tabla para llenar el \nnúmerode estación en automatico.");
@@ -226,7 +238,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
                     .addComponent(ModificarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(EliminarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -236,18 +248,21 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(AgregarEstacion)
-                        .addGap(27, 27, 27)
-                        .addComponent(ModificarEstacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EliminarEstacion))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(AgregarEstacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ModificarEstacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EliminarEstacion)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jTable1.setFont(new java.awt.Font("Lucida Grande", 2, 12)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Times New Roman", 2, 11)); // NOI18N
         jTable1.setModel(modeloEstaciones);
         jScrollPane1.setViewportView(jTable1);
 
@@ -263,7 +278,8 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();

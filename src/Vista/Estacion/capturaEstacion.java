@@ -33,6 +33,8 @@ public class capturaEstacion extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(432, 240));
+        setMinimumSize(new java.awt.Dimension(432, 240));
 
         jButton1.setText("Añadir");
 
@@ -82,6 +84,7 @@ public class capturaEstacion extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
 //    /**

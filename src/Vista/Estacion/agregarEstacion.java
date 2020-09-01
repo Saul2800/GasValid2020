@@ -77,100 +77,101 @@ public class agregarEstacion extends javax.swing.JDialog {
         campoEstatusManguera = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(719, 783));
+        setMaximumSize(new java.awt.Dimension(639, 608));
+        setMinimumSize(new java.awt.Dimension(639, 608));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel1.setText("No. de la CRE:");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel3.setText("Nombre Responsable:");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel4.setText("Razón Social:");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel5.setText("Reg. Fed. Causantes:");
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel6.setText("Domicilio:");
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel7.setText("Colonia:");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel8.setText("Ciudad:");
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel9.setText("Estado:");
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel10.setText("Teléfonos:");
 
-        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel11.setText("Email:");
 
-        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel12.setText("Coordenas UTM:");
 
-        campoEstacion.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoEstacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoEstacionKeyTyped(evt);
             }
         });
 
-        campoResponsable.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoResponsable.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoResponsable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoResponsableKeyTyped(evt);
             }
         });
 
-        campoRazonSocial.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoRazonSocial.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        campoRegFedCausante.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoRegFedCausante.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoRegFedCausante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoRegFedCausanteActionPerformed(evt);
             }
         });
 
-        campoDomicilio.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoDomicilio.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        campoColonia.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoColonia.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        campoCiudad.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoCiudad.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        campoTelefono.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoTelefono.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoTelefonoKeyTyped(evt);
             }
         });
 
-        campoEmail.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoEmail.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        campoCoordenadasUTM.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoCoordenadasUTM.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoCoordenadasUTM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCoordenadasUTMActionPerformed(evt);
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel13.setText("Código Postal:");
 
-        campoCodigoPostal.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoCodigoPostal.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoCodigoPostal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoCodigoPostalKeyTyped(evt);
             }
         });
 
-        botonGuardar.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        botonGuardar.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         botonGuardar.setForeground(new java.awt.Color(51, 51, 255));
         botonGuardar.setText("Guardar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -179,10 +180,10 @@ public class agregarEstacion extends javax.swing.JDialog {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel14.setText("No. de la estación:");
 
-        campoNumeroCRE.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        campoNumeroCRE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoNumeroCRE.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoNumeroCREKeyTyped(evt);
@@ -190,23 +191,26 @@ public class agregarEstacion extends javax.swing.JDialog {
         });
 
         jLabel2.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 44)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 255, 204));
         jLabel2.setText("Registro de Estaciones");
 
-        jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel15.setText("Marca Gasolina:");
 
+        campoMarcaGasolina.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoMarcaGasolina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pemex", "Oxxo Gas", "Mobil", "British Petroleum", "Repsol", "Shell", "Petro Seven", "G-500", "Hidrosina", "Akron", "Grupo Eco" }));
 
+        campoEstado.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jalisco", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila de Zaragoza", "Colima", "Chiapas", "Chihuahua", "Distrito Federal", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "México", "Michoacán de Ocampo", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz de Ignacio de la Llave", "Yucatán", "Zacatecas" }));
 
-        jLabel16.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel16.setText("Estatus de Manguera:");
 
-        jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel17.setText("Mangueras Instaladas:");
 
+        campoTotalMagna.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoTotalMagna.setText("0");
         campoTotalMagna.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -214,6 +218,7 @@ public class agregarEstacion extends javax.swing.JDialog {
             }
         });
 
+        campoTotalPremium.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoTotalPremium.setText("0");
         campoTotalPremium.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -221,6 +226,7 @@ public class agregarEstacion extends javax.swing.JDialog {
             }
         });
 
+        campoTotalDiesel.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoTotalDiesel.setText("0");
         campoTotalDiesel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -228,12 +234,16 @@ public class agregarEstacion extends javax.swing.JDialog {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel18.setText("Magna");
 
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel19.setText("Premium");
 
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel20.setText("Diesel");
 
+        campoEstatusManguera.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         campoEstatusManguera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VIGENTE", "CANCELADO", "EN_REPARACION", "DESCONTINUADO", "FUERA_DE_SERVICIO", "ASIGNADA", "NO_ASIGNADA" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -241,77 +251,78 @@ public class agregarEstacion extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1))
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(campoEstacion)
+                                    .addComponent(campoResponsable)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(23, 23, 23)
+                                .addComponent(campoEstatusManguera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(61, 61, 61)
+                                    .addComponent(campoRazonSocial))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel5)
+                                                .addComponent(jLabel6)
+                                                .addComponent(jLabel7)
+                                                .addComponent(jLabel15)
+                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel9)
+                                                .addComponent(jLabel10)
+                                                .addComponent(jLabel11)
+                                                .addComponent(jLabel12)
+                                                .addComponent(jLabel13)
+                                                .addComponent(jLabel14))
+                                            .addGap(26, 26, 26)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(campoDomicilio)
+                                                .addComponent(campoRegFedCausante)
+                                                .addComponent(campoColonia)
+                                                .addComponent(campoMarcaGasolina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(campoCiudad)
+                                                .addComponent(campoEstado, 0, 506, Short.MAX_VALUE)
+                                                .addComponent(campoTelefono)
+                                                .addComponent(campoEmail)
+                                                .addComponent(campoCoordenadasUTM)
+                                                .addComponent(campoCodigoPostal)
+                                                .addComponent(campoNumeroCRE)))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel17)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel18)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(campoTotalMagna, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel19)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(campoTotalPremium, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel20)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(campoTotalDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(175, 175, 175)
                 .addComponent(jLabel2)
-                .addGap(102, 102, 102))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoEstacion)
-                            .addComponent(campoResponsable)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(91, 91, 91)
-                        .addComponent(campoRazonSocial))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoDomicilio)
-                            .addComponent(campoRegFedCausante)
-                            .addComponent(campoColonia)
-                            .addComponent(campoMarcaGasolina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(campoCiudad)
-                            .addComponent(campoEstado, 0, 506, Short.MAX_VALUE)
-                            .addComponent(campoTelefono)
-                            .addComponent(campoEmail)
-                            .addComponent(campoCoordenadasUTM)
-                            .addComponent(campoCodigoPostal)
-                            .addComponent(campoNumeroCRE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoTotalMagna, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoTotalPremium, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
-                        .addComponent(campoTotalDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(23, 23, 23)
-                        .addComponent(campoEstatusManguera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(255, 255, 255)
-                .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -388,13 +399,11 @@ public class agregarEstacion extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(campoEstatusManguera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(campoEstatusManguera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(campoEstado)
-                        .addGap(293, 293, 293)))
-                .addComponent(botonGuardar)
-                .addGap(64, 64, 64))
+                        .addGap(222, 222, 222)))
+                .addComponent(botonGuardar))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -405,7 +414,7 @@ public class agregarEstacion extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

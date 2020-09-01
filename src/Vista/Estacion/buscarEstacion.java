@@ -35,6 +35,8 @@ public class buscarEstacion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(339, 160));
+        setMinimumSize(new java.awt.Dimension(339, 160));
 
         jLabel1.setText("No Estación:");
 
@@ -96,6 +98,7 @@ public class buscarEstacion extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -93,80 +93,80 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel8.setText("Mangueras a verificar");
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel9.setText("Magna");
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel10.setText("Premium");
 
-        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel11.setText("Disel");
 
-        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel12.setText("Nombre de solicitante");
 
-        jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel13.setText("Razon social");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel14.setText("Reg.Fed.Causantes");
 
-        jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel15.setText("Domicilio");
 
-        jLabel19.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel19.setText("Estacion No.");
 
-        jLabel16.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel16.setText("Telefono");
 
-        jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel17.setText("Estado");
 
-        jLabel24.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel24.setText("Email");
 
-        manguerasaVerificarMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        manguerasaVerificarMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        magnaMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        magnaMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        premiumMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        premiumMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        diselMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        diselMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         nombreSolicitanteMSC.setEditable(false);
-        nombreSolicitanteMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nombreSolicitanteMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         razonSocialMSC.setEditable(false);
-        razonSocialMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        razonSocialMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         domicilioMSC.setEditable(false);
-        domicilioMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        domicilioMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         estadoMSC.setEditable(false);
-        estadoMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        estadoMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         telefonoMSC.setEditable(false);
-        telefonoMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        telefonoMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         emailMSC.setEditable(false);
-        emailMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        emailMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         regfedCausantesMSC.setEditable(false);
-        regfedCausantesMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        regfedCausantesMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         estacionMSC.setEditable(false);
-        estacionMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        estacionMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(70, 70, 70)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
@@ -210,14 +210,14 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
                         .addComponent(jLabel15)
                         .addGap(97, 97, 97)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(domicilioMSC)
+                            .addComponent(domicilioMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(regfedCausantesMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(estacionMSC)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(estacionMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,34 +265,34 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel2.setText("Tipo de solicitud");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel3.setText("No. Estacion");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel4.setText("Fecha Propuesta");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel5.setText("Referencia de Solicitud");
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel6.setText("Observaciones");
 
-        jLabel20.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel20.setText("Tecnico");
 
-        jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel18.setText("Fecha");
 
-        jLabel22.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel22.setText("Presione enter al terminar");
 
-        jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel23.setText("de ingresar el No.Estacion");
 
-        noEstacionMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        noEstacionMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         noEstacionMSC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 noEstacionMSCKeyTyped(evt);
@@ -302,18 +302,23 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
             }
         });
 
-        referenciaSolicitudMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        referenciaSolicitudMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        observacionesMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        observacionesMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        tecnicoMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        tecnicoMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        fechaMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        fechaPropuestaMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel7.setText("Folio de solicitud");
 
+        tiposolicitudMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         tiposolicitudMSC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inicial", "Periodica", "Extraordinaria" }));
 
-        foliosolicitudMSC.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        foliosolicitudMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(153, 153, 0));
@@ -326,16 +331,15 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
             }
         });
 
-        jLabel25.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel25.setText("Personal de Apoyo");
 
-        tecnicoMSC1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        tecnicoMSC1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,41 +358,42 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
                             .addComponent(observacionesMSC)
                             .addComponent(tecnicoMSC))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tecnicoMSC1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel23))))
-                        .addGap(2, 2, 2))
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel23)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(55, 55, 55)
-                                .addComponent(tiposolicitudMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7)
+                                .addGap(53, 53, 53)
+                                .addComponent(foliosolicitudMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fechaMSC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(41, 41, 41)
+                                        .addComponent(tiposolicitudMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(14, 14, 14)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jLabel21))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(24, 24, 24)
-                                        .addComponent(foliosolicitudMSC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel18)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fechaMSC, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))))
-                        .addGap(63, 63, 63))))
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(jLabel21)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,10 +402,10 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel21)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -412,15 +417,12 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
                             .addComponent(jLabel2)
                             .addComponent(tiposolicitudMSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(fechaMSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(noEstacionMSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel22)
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel23)))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(noEstacionMSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)

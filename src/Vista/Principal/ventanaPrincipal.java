@@ -26,6 +26,7 @@ import Vista.Solicitud.registroSolicitudContrato;
 import Vista.Solicitud.catalogoSolicitud;
 
 import Vista.Termometro.catalogoTermometro;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,6 +83,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 0));
+        setMaximumSize(new java.awt.Dimension(1000, 600));
         setMinimumSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -253,6 +255,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     */
     private void cambiarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarImagenActionPerformed
         // TODO add your handling code here:
+       
+//Saul Arenas 31/08/20
+JOptionPane.showMessageDialog(rootPane, "El tamañio de la imagen preferentemente de 1000x800");
+        
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
     

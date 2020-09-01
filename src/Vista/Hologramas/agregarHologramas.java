@@ -39,6 +39,8 @@ public class agregarHologramas extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(374, 238));
+        setMinimumSize(new java.awt.Dimension(374, 238));
 
         jButton1.setText("Guardar");
 
@@ -116,6 +118,7 @@ public class agregarHologramas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
 //    /**

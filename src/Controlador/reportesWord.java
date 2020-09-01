@@ -214,7 +214,7 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
     public void creaDocContrato(/*String name,
             String nameSalida,
             String carpetaSalida,
-            String direccion, */ 
+            String direccion, */
             String[] datosPalabra,
             Object[] datosReemplazo) 
             throws InvalidFormatException, IOException{
@@ -232,7 +232,8 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
         XWPFDocument doc = new XWPFDocument(OPCPackage.open(direccion+name));
         //XWPFDocument docTempAux = doc;
     
-        //String nameCarpeta = 
+        //String nameCarpeta =
+        //Folio´+ "-"+(String) datosReemplazo[0];
         nameSalida =  (String) datosReemplazo[6]+"-"+(String) datosReemplazo[0]; //Genera el nombre único
         carpetaSalida = carpetaSalida+"\\"+nameSalida+"\\"; //Creo la carpeta
         nameSalida = nameSalida + extensiónSalida;
@@ -241,10 +242,10 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
         
         
         if (!archivoFinal.exists()) {
-            if (archivoFinal.mkdirs()) {
+            if (archivoFinal.mkdirs()) {//Se crea la carpeta
                 System.out.println("Directorio creado");
                 FileOutputStream salida = new FileOutputStream(carpetaSalida+nameSalida);
-                doc.write(salida);
+                doc.write(salida); //Copio el documento en la salida
                 doc.close();
                 System.out.println("Lo que escribí:"+carpetaSalida+nameSalida);
                 salida.close();
@@ -267,7 +268,8 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
     }
     
     public void crearDocumentoContrato(String[] datosPalabra,
-            Object[] datosReemplazo, String direccion, String nameArchive) throws InvalidFormatException, IOException{
+            Object[] datosReemplazo, String direccion, String nameArchive) 
+            throws InvalidFormatException, IOException{
    
          //Obtengo el documento creado para no afectar el de la raíz
         //doc = new XWPFDocument(OPCPackage.open(direccion+name));
@@ -285,7 +287,7 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
                         if (text != null && text.contains(datosPalabra[i])) {
                             text = text.replace(datosPalabra[i], (String) datosReemplazo[i]);
                             r.setText(text, 0);
-                             r.setBold(r.isBold());
+                            r.setBold(r.isBold());
                         }
                     }
                 }
@@ -316,7 +318,7 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
 //            doc.write(salida);
 //            doc.close();
 //            salida.close();
-            String nombreNuevo = "Contrato"+nameArchive;
+            String nombreNuevo = "ContratoFolio-"+nameArchive;
             try (FileOutputStream fileOut = new FileOutputStream(direccion+nombreNuevo)) {
                 doc.write(fileOut);
                 doc.close();
