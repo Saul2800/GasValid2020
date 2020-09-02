@@ -54,7 +54,6 @@ public class editarTermometro extends javax.swing.JDialog {
         resultadoET = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(488, 289));
         setMinimumSize(new java.awt.Dimension(488, 289));
         setSize(new java.awt.Dimension(493, 560));
 
@@ -89,8 +88,10 @@ public class editarTermometro extends javax.swing.JDialog {
         modeloET.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         modificarET.setBackground(new java.awt.Color(255, 255, 204));
-        modificarET.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/good_or_tick.png"))); // NOI18N
-        modificarET.setBorder(null);
+        modificarET.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
+        modificarET.setText("Editar");
+        modificarET.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        modificarET.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         modificarET.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarETActionPerformed(evt);

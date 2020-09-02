@@ -39,7 +39,6 @@ public class eliminarTermometro extends javax.swing.JDialog {
         reingresarIdELT = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(247, 211));
         setMinimumSize(new java.awt.Dimension(247, 211));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -50,8 +49,8 @@ public class eliminarTermometro extends javax.swing.JDialog {
         jLabel1.setText("Reingrese el ID");
 
         eliminarELT.setBackground(new java.awt.Color(255, 204, 204));
-        eliminarELT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/error.png"))); // NOI18N
-        eliminarELT.setBorder(null);
+        eliminarELT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
+        eliminarELT.setText("Eliminar");
         eliminarELT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarELTActionPerformed(evt);
@@ -86,8 +85,8 @@ public class eliminarTermometro extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(117, 117, 117))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(eliminarELT, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83))))
+                        .addComponent(eliminarELT)
+                        .addGap(77, 77, 77))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,8 +100,8 @@ public class eliminarTermometro extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reingresarIdELT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eliminarELT, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(eliminarELT, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

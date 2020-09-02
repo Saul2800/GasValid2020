@@ -63,7 +63,6 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
         CEROSADICIONALESGDC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(284, 320));
         setMinimumSize(new java.awt.Dimension(284, 320));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -128,6 +127,7 @@ public class GeneradorDeCalcomonia extends javax.swing.JDialog {
         GuardarGDC.setBackground(new java.awt.Color(0, 153, 102));
         GuardarGDC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         GuardarGDC.setForeground(new java.awt.Color(0, 102, 0));
+        GuardarGDC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         GuardarGDC.setText("Guardar");
         GuardarGDC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

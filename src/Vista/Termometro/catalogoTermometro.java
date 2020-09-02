@@ -98,7 +98,6 @@ public class catalogoTermometro extends javax.swing.JDialog {
         eliminarCT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(987, 558));
         setMinimumSize(new java.awt.Dimension(987, 558));
 
         tablaCatalogoTermometros.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
@@ -109,6 +108,7 @@ public class catalogoTermometro extends javax.swing.JDialog {
         jPanel3.setForeground(new java.awt.Color(204, 204, 255));
 
         agregarCT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        agregarCT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         agregarCT.setText("Agregar");
         agregarCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +117,7 @@ public class catalogoTermometro extends javax.swing.JDialog {
         });
 
         editarCT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        editarCT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         editarCT.setText("Editar");
         editarCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +126,7 @@ public class catalogoTermometro extends javax.swing.JDialog {
         });
 
         eliminarCT.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        eliminarCT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
         eliminarCT.setText("Eliminar");
         eliminarCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

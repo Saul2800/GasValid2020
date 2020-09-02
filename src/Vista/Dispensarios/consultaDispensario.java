@@ -35,7 +35,6 @@ public class consultaDispensario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(559, 368));
         setMinimumSize(new java.awt.Dimension(559, 368));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
@@ -53,6 +52,7 @@ public class consultaDispensario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/left1.png"))); // NOI18N
         jButton1.setText("Regresar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

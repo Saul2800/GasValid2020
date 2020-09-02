@@ -61,7 +61,6 @@ public class agregarMedVolumetrica extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(731, 273));
         setMinimumSize(new java.awt.Dimension(731, 273));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,6 +126,8 @@ public class agregarMedVolumetrica extends javax.swing.JDialog {
         jScrollPane1.setViewportView(campoResultado);
 
         botonGuardar.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        botonGuardar.setForeground(new java.awt.Color(0, 102, 51));
+        botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         botonGuardar.setText("Guardar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

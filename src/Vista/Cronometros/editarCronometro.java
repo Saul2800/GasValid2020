@@ -53,8 +53,8 @@ public class editarCronometro extends javax.swing.JDialog {
         resultadoEC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(399, 435));
-        setMinimumSize(new java.awt.Dimension(399, 435));
+        setMaximumSize(new java.awt.Dimension(387, 343));
+        setMinimumSize(new java.awt.Dimension(387, 343));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -87,8 +87,8 @@ public class editarCronometro extends javax.swing.JDialog {
         modeloEC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         modificarEC.setBackground(new java.awt.Color(255, 255, 204));
-        modificarEC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/good_or_tick.png"))); // NOI18N
-        modificarEC.setBorder(null);
+        modificarEC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
+        modificarEC.setText("Editar");
         modificarEC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarECActionPerformed(evt);

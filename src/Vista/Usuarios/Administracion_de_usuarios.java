@@ -112,6 +112,7 @@ public class Administracion_de_usuarios extends javax.swing.JFrame {
         });
 
         RegresarADU.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        RegresarADU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/left1.png"))); // NOI18N
         RegresarADU.setText("Regresar");
         RegresarADU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,8 +145,8 @@ public class Administracion_de_usuarios extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(RegresarADU, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(173, 173, 173)
+                                .addComponent(RegresarADU)
+                                .addGap(166, 166, 166)
                                 .addComponent(jLabel2))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(204, 204, 204)
@@ -156,7 +157,7 @@ public class Administracion_de_usuarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(AgregarADU, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(EditarADU, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(91, 91, 91)
                         .addComponent(EliminarADU, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))

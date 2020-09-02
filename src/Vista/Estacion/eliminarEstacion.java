@@ -41,7 +41,6 @@ public class eliminarEstacion extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(414, 188));
         setMinimumSize(new java.awt.Dimension(414, 188));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -52,7 +51,7 @@ public class eliminarEstacion extends javax.swing.JDialog {
         jLabel2.setText("ELIMINAR ESTACIONES");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel1.setText("Repita el No Estación");
+        jLabel1.setText("No. de la CRE");
 
         estacionEE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         estacionEE.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -62,7 +61,7 @@ public class eliminarEstacion extends javax.swing.JDialog {
         });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel3.setText("No Estación:");
+        jLabel3.setText("No. de la CRE");
 
         repitaEstacionEE.setBackground(new java.awt.Color(255, 255, 204));
         repitaEstacionEE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
@@ -74,6 +73,7 @@ public class eliminarEstacion extends javax.swing.JDialog {
 
         eliminarEE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         eliminarEE.setForeground(new java.awt.Color(204, 51, 0));
+        eliminarEE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
         eliminarEE.setText("ELIMINAR");
         eliminarEE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,22 +88,24 @@ public class eliminarEstacion extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(jLabel3)
-                            .addGap(33, 33, 33)
-                            .addComponent(estacionEE, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(31, 31, 31)
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(repitaEstacionEE, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(eliminarEE))))
+                            .addComponent(eliminarEE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(repitaEstacionEE, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(estacionEE, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(jLabel2)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

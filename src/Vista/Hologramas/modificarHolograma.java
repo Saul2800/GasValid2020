@@ -45,7 +45,6 @@ public class modificarHolograma extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(312, 215));
         setMinimumSize(new java.awt.Dimension(312, 215));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -79,6 +78,7 @@ public class modificarHolograma extends javax.swing.JDialog {
 
         modificarMH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         modificarMH.setForeground(new java.awt.Color(204, 204, 0));
+        modificarMH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         modificarMH.setText("MODIFICAR");
         modificarMH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

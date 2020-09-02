@@ -39,7 +39,6 @@ public class eliminarCronometro extends javax.swing.JDialog {
         reingresarIdELC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(315, 202));
         setMinimumSize(new java.awt.Dimension(315, 202));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -50,8 +49,8 @@ public class eliminarCronometro extends javax.swing.JDialog {
         jLabel1.setText("Reingrese el ID");
 
         eliminarELC.setBackground(new java.awt.Color(255, 204, 204));
-        eliminarELC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/error.png"))); // NOI18N
-        eliminarELC.setBorder(null);
+        eliminarELC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
+        eliminarELC.setText("Eliminar");
         eliminarELC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarELCActionPerformed(evt);
@@ -82,11 +81,11 @@ public class eliminarCronometro extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(eliminarELC, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(148, 148, 148)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(eliminarELC)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

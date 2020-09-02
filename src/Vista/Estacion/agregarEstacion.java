@@ -47,7 +47,7 @@ public class agregarEstacion extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        campoEstacion = new javax.swing.JTextField();
+        campoNumeroCRE = new javax.swing.JTextField();
         campoResponsable = new javax.swing.JTextField();
         campoRazonSocial = new javax.swing.JTextField();
         campoRegFedCausante = new javax.swing.JTextField();
@@ -61,7 +61,7 @@ public class agregarEstacion extends javax.swing.JDialog {
         campoCodigoPostal = new javax.swing.JTextField();
         botonGuardar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        campoNumeroCRE = new javax.swing.JTextField();
+        campoNumerodeEstacion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         campoMarcaGasolina = new javax.swing.JComboBox<>();
@@ -77,7 +77,6 @@ public class agregarEstacion extends javax.swing.JDialog {
         campoEstatusManguera = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(639, 608));
         setMinimumSize(new java.awt.Dimension(639, 608));
         setResizable(false);
 
@@ -116,10 +115,10 @@ public class agregarEstacion extends javax.swing.JDialog {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel12.setText("Coordenas UTM:");
 
-        campoEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        campoEstacion.addKeyListener(new java.awt.event.KeyAdapter() {
+        campoNumeroCRE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        campoNumeroCRE.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                campoEstacionKeyTyped(evt);
+                campoNumeroCREKeyTyped(evt);
             }
         });
 
@@ -173,6 +172,7 @@ public class agregarEstacion extends javax.swing.JDialog {
 
         botonGuardar.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         botonGuardar.setForeground(new java.awt.Color(51, 51, 255));
+        botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         botonGuardar.setText("Guardar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,10 +183,10 @@ public class agregarEstacion extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel14.setText("No. de la estación:");
 
-        campoNumeroCRE.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        campoNumeroCRE.addKeyListener(new java.awt.event.KeyAdapter() {
+        campoNumerodeEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        campoNumerodeEstacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                campoNumeroCREKeyTyped(evt);
+                campoNumerodeEstacionKeyTyped(evt);
             }
         });
 
@@ -265,60 +265,59 @@ public class agregarEstacion extends javax.swing.JDialog {
                                     .addComponent(jLabel1))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campoEstacion)
+                                    .addComponent(campoNumeroCRE)
                                     .addComponent(campoResponsable)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(23, 23, 23)
                                 .addComponent(campoEstatusManguera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(campoRazonSocial))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel6)
-                                                .addComponent(jLabel7)
-                                                .addComponent(jLabel15)
-                                                .addComponent(jLabel8)
-                                                .addComponent(jLabel9)
-                                                .addComponent(jLabel10)
-                                                .addComponent(jLabel11)
-                                                .addComponent(jLabel12)
-                                                .addComponent(jLabel13)
-                                                .addComponent(jLabel14))
-                                            .addGap(26, 26, 26)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(campoDomicilio)
-                                                .addComponent(campoRegFedCausante)
-                                                .addComponent(campoColonia)
-                                                .addComponent(campoMarcaGasolina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(campoCiudad)
-                                                .addComponent(campoEstado, 0, 506, Short.MAX_VALUE)
-                                                .addComponent(campoTelefono)
-                                                .addComponent(campoEmail)
-                                                .addComponent(campoCoordenadasUTM)
-                                                .addComponent(campoCodigoPostal)
-                                                .addComponent(campoNumeroCRE)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel18)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(campoTotalMagna, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel19)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(campoTotalPremium, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel20)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(campoTotalDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(61, 61, 61)
+                                .addComponent(campoRazonSocial))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel15)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(campoDomicilio)
+                                            .addComponent(campoRegFedCausante)
+                                            .addComponent(campoColonia)
+                                            .addComponent(campoMarcaGasolina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(campoCiudad)
+                                            .addComponent(campoEstado, 0, 506, Short.MAX_VALUE)
+                                            .addComponent(campoTelefono)
+                                            .addComponent(campoEmail)
+                                            .addComponent(campoCoordenadasUTM)
+                                            .addComponent(campoCodigoPostal)
+                                            .addComponent(campoNumerodeEstacion)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoTotalMagna, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoTotalPremium, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel20)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(campoTotalDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(175, 175, 175)
@@ -335,7 +334,7 @@ public class agregarEstacion extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(campoEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campoNumeroCRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -366,6 +365,9 @@ public class agregarEstacion extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(campoEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                        .addGap(192, 192, 192))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -386,7 +388,7 @@ public class agregarEstacion extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(campoNumeroCRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campoNumerodeEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
@@ -396,14 +398,14 @@ public class agregarEstacion extends javax.swing.JDialog {
                             .addComponent(campoTotalPremium, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel20)
                             .addComponent(campoTotalDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(campoEstatusManguera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(campoEstado)
-                        .addGap(222, 222, 222)))
-                .addComponent(botonGuardar))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoEstatusManguera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))))
+                .addComponent(botonGuardar)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -435,7 +437,7 @@ public class agregarEstacion extends javax.swing.JDialog {
         Jose Luis Caamal Ic
         Since: 12/07/2020 */
         //Se recupera la información a guardar.
-        String estacion = campoEstacion.getText();
+        String estacion = campoNumeroCRE.getText();
         String idEstacion = estacion; //Se cambia por motivos del cliente //Jose Luis Caamal Ic 19/07/2020
         Date obtenFecha = new Date();
         String fechaRegistro = ltc.convertirFecha(obtenFecha);
@@ -450,7 +452,7 @@ public class agregarEstacion extends javax.swing.JDialog {
         String correoElectronico = campoEmail.getText();
         String coordenadasUTM = campoCoordenadasUTM.getText();
         String codigoPostal = campoCodigoPostal.getText();
-        String numeroCRE = campoNumeroCRE.getText();
+        String numeroCRE = campoNumerodeEstacion.getText();
         String marcaGasolina = (String) campoMarcaGasolina.getSelectedItem();
         int totalGasMagna = Integer.valueOf(campoTotalMagna.getText());
         int totalGasDiesel = Integer.valueOf(campoTotalDiesel.getText());
@@ -482,14 +484,14 @@ public class agregarEstacion extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void campoEstacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEstacionKeyTyped
+    private void campoNumeroCREKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNumeroCREKeyTyped
   //Saul Arenas Ramirez 17/07/2020
 //        char solonumeros=evt.getKeyChar();
 //                if(Character.isLetter(solonumeros)){
 //                getToolkit().beep();
 //                evt.consume();
 //                JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}       
-    }//GEN-LAST:event_campoEstacionKeyTyped
+    }//GEN-LAST:event_campoNumeroCREKeyTyped
 
     private void campoResponsableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoResponsableKeyTyped
 //Saul Arenas Ramirez 17/07/2020
@@ -515,9 +517,9 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN
         evt.consume();
 JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN-LAST:event_campoCodigoPostalKeyTyped
 
-    private void campoNumeroCREKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNumeroCREKeyTyped
+    private void campoNumerodeEstacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNumerodeEstacionKeyTyped
             // TODO add your handling code here:
-    }//GEN-LAST:event_campoNumeroCREKeyTyped
+    }//GEN-LAST:event_campoNumerodeEstacionKeyTyped
 
     private void campoTotalMagnaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTotalMagnaKeyTyped
   //Saul Arenas Ramirez 17/07/2020
@@ -551,11 +553,11 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN
     private javax.swing.JTextField campoCoordenadasUTM;
     private javax.swing.JTextField campoDomicilio;
     private javax.swing.JTextField campoEmail;
-    private javax.swing.JTextField campoEstacion;
     private javax.swing.JComboBox<String> campoEstado;
     private javax.swing.JComboBox<String> campoEstatusManguera;
     private javax.swing.JComboBox<String> campoMarcaGasolina;
     private javax.swing.JTextField campoNumeroCRE;
+    private javax.swing.JTextField campoNumerodeEstacion;
     private javax.swing.JTextField campoRazonSocial;
     private javax.swing.JTextField campoRegFedCausante;
     private javax.swing.JTextField campoResponsable;

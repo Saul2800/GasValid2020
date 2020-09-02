@@ -95,16 +95,16 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1098, 627));
         setMinimumSize(new java.awt.Dimension(1098, 627));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         AgregarEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        AgregarEstacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         AgregarEstacion.setText("Agregar Estación");
+        AgregarEstacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AgregarEstacion.setFocusable(false);
-        AgregarEstacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        AgregarEstacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        AgregarEstacion.setIconTextGap(1);
         AgregarEstacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarEstacionActionPerformed(evt);
@@ -112,10 +112,10 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         });
 
         ModificarEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        ModificarEstacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         ModificarEstacion.setText("Modificar Estación ");
+        ModificarEstacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ModificarEstacion.setFocusable(false);
-        ModificarEstacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ModificarEstacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ModificarEstacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarEstacionActionPerformed(evt);
@@ -123,10 +123,10 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         });
 
         EliminarEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        EliminarEstacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
         EliminarEstacion.setText("Eliminar Estación");
+        EliminarEstacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         EliminarEstacion.setFocusable(false);
-        EliminarEstacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        EliminarEstacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         EliminarEstacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarEstacionActionPerformed(evt);
@@ -138,6 +138,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
 
         MostrarTodasCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         MostrarTodasCH.setForeground(new java.awt.Color(255, 0, 0));
+        MostrarTodasCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/find.png"))); // NOI18N
         MostrarTodasCH.setText("Buscar");
         MostrarTodasCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +147,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel3.setText("Núm. Estación:");
+        jLabel3.setText("No. de la CRE");
 
         folioEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
@@ -163,6 +164,7 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         estatusEstacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VIGENTE", "CANCELADO", "EN_REPARACION", "DESCONTINUADO", "FUERA_DE_SERVICIO", "ASIGNADA", "NO_ASIGNADA" }));
 
         RefrescarCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        RefrescarCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/refresh.png"))); // NOI18N
         RefrescarCH.setText("Refrescar");
         RefrescarCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,13 +234,13 @@ public class catalogoEstaciones extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AgregarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ModificarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(EliminarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                    .addComponent(EliminarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ModificarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AgregarEstacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -247,19 +249,16 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(AgregarEstacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ModificarEstacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(EliminarEstacion)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(AgregarEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModificarEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(EliminarEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 2, 11)); // NOI18N
@@ -277,8 +276,8 @@ public class catalogoEstaciones extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

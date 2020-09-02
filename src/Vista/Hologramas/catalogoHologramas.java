@@ -112,7 +112,6 @@ public class catalogoHologramas extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1109, 639));
         setMinimumSize(new java.awt.Dimension(1109, 639));
         setResizable(false);
 
@@ -134,7 +133,7 @@ public class catalogoHologramas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -144,10 +143,9 @@ public class catalogoHologramas extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         AgregarCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        AgregarCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         AgregarCH.setText("Agregar");
         AgregarCH.setFocusable(false);
-        AgregarCH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        AgregarCH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         AgregarCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarCHActionPerformed(evt);
@@ -155,10 +153,9 @@ public class catalogoHologramas extends javax.swing.JFrame {
         });
 
         ModificarEstatusCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        ModificarEstatusCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         ModificarEstatusCH.setText("Modificar ");
         ModificarEstatusCH.setFocusable(false);
-        ModificarEstatusCH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ModificarEstatusCH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ModificarEstatusCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarEstatusCHActionPerformed(evt);
@@ -166,10 +163,9 @@ public class catalogoHologramas extends javax.swing.JFrame {
         });
 
         eliminarFolio.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        eliminarFolio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
         eliminarFolio.setText("Eliminar Folio");
         eliminarFolio.setFocusable(false);
-        eliminarFolio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        eliminarFolio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         eliminarFolio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarFolioActionPerformed(evt);
@@ -181,6 +177,7 @@ public class catalogoHologramas extends javax.swing.JFrame {
 
         MostrarTodasCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         MostrarTodasCH.setForeground(new java.awt.Color(255, 0, 0));
+        MostrarTodasCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/find.png"))); // NOI18N
         MostrarTodasCH.setText("Buscar");
         MostrarTodasCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +203,7 @@ public class catalogoHologramas extends javax.swing.JFrame {
         estatusHolograma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASIGNADA", "NO ASIGNADA", "DAÑADO" }));
 
         RefrescarCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        RefrescarCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/refresh.png"))); // NOI18N
         RefrescarCH.setText("Refrescar");
         RefrescarCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,16 +289,16 @@ public class catalogoHologramas extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(AgregarCH)
-                            .addGap(18, 18, 18)
-                            .addComponent(ModificarEstatusCH)
-                            .addGap(18, 18, 18)
-                            .addComponent(eliminarFolio)))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(AgregarCH)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModificarEstatusCH)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eliminarFolio))
+                    .addComponent(jScrollPane2))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

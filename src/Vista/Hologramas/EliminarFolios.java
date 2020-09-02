@@ -51,7 +51,6 @@ public class EliminarFolios extends javax.swing.JDialog {
         TipodeverificacionEF = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(261, 410));
         setMinimumSize(new java.awt.Dimension(261, 410));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -82,6 +81,7 @@ public class EliminarFolios extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 51, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
         jButton1.setText("ELIMINAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class EliminarFolios extends javax.swing.JDialog {
                                 .addComponent(ReingreseFolioFinalEF, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 6, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(77, 77, 77)
                 .addComponent(jButton1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

@@ -81,7 +81,6 @@ public class catalogoCronometros extends javax.swing.JDialog {
         eliminarCC = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(987, 558));
         setMinimumSize(new java.awt.Dimension(987, 558));
 
         tablaCatalogoCronometros.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
@@ -93,6 +92,7 @@ public class catalogoCronometros extends javax.swing.JDialog {
 
         agregarCC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         agregarCC.setForeground(new java.awt.Color(0, 153, 51));
+        agregarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         agregarCC.setText("Agregar");
         agregarCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +102,7 @@ public class catalogoCronometros extends javax.swing.JDialog {
 
         editarCC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         editarCC.setForeground(new java.awt.Color(204, 204, 0));
+        editarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         editarCC.setText("Editar");
         editarCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +112,7 @@ public class catalogoCronometros extends javax.swing.JDialog {
 
         eliminarCC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         eliminarCC.setForeground(new java.awt.Color(153, 51, 0));
+        eliminarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/erase.png"))); // NOI18N
         eliminarCC.setText("Eliminar");
         eliminarCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -269,7 +269,7 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
         jLabel2.setText("Tipo de solicitud");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel3.setText("No. Estacion");
+        jLabel3.setText("No de la CRE");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel4.setText("Fecha Propuesta");
@@ -290,7 +290,7 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
         jLabel22.setText("Presione enter al terminar");
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel23.setText("de ingresar el No.Estacion");
+        jLabel23.setText("de ingresar el No de la CRE");
 
         noEstacionMSC.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         noEstacionMSC.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -358,14 +358,14 @@ public class modificarSolicitudContrato extends javax.swing.JDialog {
                             .addComponent(observacionesMSC)
                             .addComponent(tecnicoMSC))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tecnicoMSC1))
+                                .addComponent(tecnicoMSC1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel23)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()

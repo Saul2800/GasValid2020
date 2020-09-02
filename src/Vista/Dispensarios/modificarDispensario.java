@@ -138,7 +138,6 @@ public class modificarDispensario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modificar Dispensario");
-        setMaximumSize(new java.awt.Dimension(841, 376));
         setMinimumSize(new java.awt.Dimension(841, 376));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
@@ -300,6 +299,7 @@ public class modificarDispensario extends javax.swing.JDialog {
         });
 
         botonGuardar.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         botonGuardar.setText("Actualizar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,7 +308,7 @@ public class modificarDispensario extends javax.swing.JDialog {
         });
 
         jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel21.setText("Para \"Guardar\", es necesario que indique el número de estación.");
+        jLabel21.setText("Para \"Guardar\", es necesario que indique el número de la CRE.");
 
         etiquetaMarcaGasolina.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         etiquetaMarcaGasolina.setText("jLabel23");
@@ -350,23 +350,22 @@ public class modificarDispensario extends javax.swing.JDialog {
                                 .addGap(30, 30, 30)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(campoMangueraE, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel10)
                                                     .addComponent(jLabel9))
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                                        .addGap(12, 12, 12)
-                                                        .addComponent(campoMangueraC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addGroup(jPanel2Layout.createSequentialGroup()
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(campoMangueraA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                                        .addGap(18, 18, 18)
+                                                        .addComponent(campoMangueraA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addGap(12, 12, 12)
+                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(campoMangueraE, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(campoMangueraC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addGap(61, 61, 61)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(jLabel14)

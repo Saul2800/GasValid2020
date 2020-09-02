@@ -66,7 +66,7 @@ public class catalogoDispensarios extends javax.swing.JFrame {
     /*Obtengo los titulos de mi tabla*/
     String[] getColumnas(){ //Columnas
             columna = new String[] {"ID","NUMDISPENSARIO",
-            "NÚM.ESTACIÓN",
+            "NÚM.CRE",
             "MARCA",
             "MODELO",
             "SERIE",
@@ -114,7 +114,6 @@ public class catalogoDispensarios extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1112, 656));
         setMinimumSize(new java.awt.Dimension(1112, 656));
         setResizable(false);
 
@@ -147,7 +146,9 @@ public class catalogoDispensarios extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         botonAgregarDispensario.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        botonAgregarDispensario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/edit_add.png"))); // NOI18N
         botonAgregarDispensario.setText("Agregar");
+        botonAgregarDispensario.setToolTipText("");
         botonAgregarDispensario.setFocusable(false);
         botonAgregarDispensario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botonAgregarDispensario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -158,6 +159,7 @@ public class catalogoDispensarios extends javax.swing.JFrame {
         });
 
         botonModificarDispensario.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        botonModificarDispensario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/modify.png"))); // NOI18N
         botonModificarDispensario.setText("Modificar ");
         botonModificarDispensario.setFocusable(false);
         botonModificarDispensario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -173,6 +175,7 @@ public class catalogoDispensarios extends javax.swing.JFrame {
 
         MostrarTodasCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         MostrarTodasCH.setForeground(new java.awt.Color(255, 0, 0));
+        MostrarTodasCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/find.png"))); // NOI18N
         MostrarTodasCH.setText("Buscar");
         MostrarTodasCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +189,7 @@ public class catalogoDispensarios extends javax.swing.JFrame {
         folioDispensario.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel1.setText("No Estación");
+        jLabel1.setText("No. de la CRE");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel2.setText("Marca Gasolina:");
@@ -195,6 +198,7 @@ public class catalogoDispensarios extends javax.swing.JFrame {
         marcaGasolina.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WAYNE", "PETROL & IMPORT", "GILBARCO", "TOKHEIM", "PEGASUS", "TEAM", "GBR", "UNIVERSEL", "BENNETT", "SUPRAMAX" }));
 
         RefrescarCH.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        RefrescarCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/refresh.png"))); // NOI18N
         RefrescarCH.setText("Refrescar");
         RefrescarCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +207,11 @@ public class catalogoDispensarios extends javax.swing.JFrame {
         });
 
         folioEstacion.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        folioEstacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                folioEstacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -210,10 +219,10 @@ public class catalogoDispensarios extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(folioEstacion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -223,7 +232,7 @@ public class catalogoDispensarios extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(marcaGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RefrescarCH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MostrarTodasCH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -283,12 +292,12 @@ public class catalogoDispensarios extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(botonAgregarDispensario)
-                        .addGap(31, 31, 31)
-                        .addComponent(botonModificarDispensario))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonModificarDispensario, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -357,6 +366,10 @@ public class catalogoDispensarios extends javax.swing.JFrame {
 //      jTable1.setModel(modeloDispenarios);
 //      modeloDispenarios.fireTableDataChanged();
     }//GEN-LAST:event_botonModificarDispensarioActionPerformed
+
+    private void folioEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folioEstacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_folioEstacionActionPerformed
 
 //    /**
 //     * @param args the command line arguments

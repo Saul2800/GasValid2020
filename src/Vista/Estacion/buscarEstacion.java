@@ -35,7 +35,6 @@ public class buscarEstacion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(339, 160));
         setMinimumSize(new java.awt.Dimension(339, 160));
 
         jLabel1.setText("No Estación:");
@@ -71,6 +70,7 @@ public class buscarEstacion extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/find.png"))); // NOI18N
         jButton1.setText("Aceptar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
