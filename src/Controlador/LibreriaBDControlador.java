@@ -305,23 +305,38 @@ public int updateDatosUsuario(String table_name, int ID, String password,
     
     //Saul Arenas Ramirez 07/8/2020
     //insertar los hologramas en la tabla TablaGasValid
-        public void insertarHologramas(String Holograma, String tipoHolograma) {
-        try {
+public void insertarHologramas(String Holograma, String tipoHolograma) {
+    
+    try{
+        PreparedStatement stmt;
+        stmt = Conexion.prepareStatement("SELECT Holograma FROM TablaGasValid WHERE Holograma = '" + Holograma+ "'");
+        java.sql.ResultSet res;
+        res = stmt.executeQuery();
+
+        if(res.next()){
+       JOptionPane.showMessageDialog(null, "YA existe el Holograma: " + Holograma, " por favor revise",JOptionPane.ERROR_MESSAGE);
+            res.close();
+        }
+        else{//no se 
+                       try {
                 PreparedStatement pps=Conexion.prepareStatement("INSERT INTO TablaGasValid(Holograma,tipoHolograma) VALUES (?,?) ");
                 pps.setString(1,Holograma);//Eso estuvo bueno :v buena saúl.
                 pps.setString(2, tipoHolograma);
-    
                 pps.executeUpdate();
-    
-                //Inica el statement de la conexión
-                //Statement st = Conexion.createStatement();
                 //     st.executeUpdate(Query);
-                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+              //  JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+              JOptionPane.showMessageDialog(null, "Se creo el Holograma: "+Holograma);
+
         } catch (SQLException ex) {
                 Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
         }
+            }
+        } catch(SQLException a){
+            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+            JOptionPane.showMessageDialog(null, a);}
+
     }
         
         
@@ -487,7 +502,7 @@ public void ModificarHolograma(String Holograma,String Estatus,String tipoHologr
                                 //Inica el statement de la conexión
                                 //Statement st = Conexion.createStatement();
                        //     st.executeUpdate(Query);
-                                JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+                                JOptionPane.showMessageDialog(null, "Se modifico el Holograma:"+Holograma);
                         Conexion.close();
                             } catch (SQLException ex) {
                                 Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -2135,3 +2150,5 @@ public void EliminarHolograma(String Holograma){
  
      
 }//final
+
+

@@ -344,6 +344,11 @@ public class catalogoHologramas extends javax.swing.JFrame {
     private void AgregarCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCHActionPerformed
                 GeneradorDeCalcomonia dialog = new GeneradorDeCalcomonia(new javax.swing.JFrame(), true);
                 dialog.setVisible(true);
+ lbd.openConnection();
+      modeloHologramas = lbd.modeloGasValid(columna, "", "", "");
+      lbd.closeConnection();
+      jTable1.setModel(modeloHologramas);
+      modeloHologramas.fireTableDataChanged();
     }//GEN-LAST:event_AgregarCHActionPerformed
 
     private void RefrescarCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefrescarCHActionPerformed

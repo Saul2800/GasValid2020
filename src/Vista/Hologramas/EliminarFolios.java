@@ -254,14 +254,15 @@ lbc.openConnection();
 lbc.EliminarHolograma(Holograma);
     
     }
-     
- 
+     lbc.closeConnection();
+            this.hide();
+
         }
         else{
      JOptionPane.showMessageDialog(null, "LOS FOLIOS de las entradas NO COINCIDEN por favor revise");
         }
  
-  lbc.closeConnection();
+  
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

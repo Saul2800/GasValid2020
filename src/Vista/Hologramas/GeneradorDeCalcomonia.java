@@ -299,10 +299,9 @@ lbc.insertarHologramas(HOLOGRAMA, profOuva);
 }
 //CIERRA LA CONEXION
 lbc.closeConnection();
+           this.hide();
 
-if (folioincorrecto==0){
-JOptionPane.showMessageDialog(rootPane, "Guardado exitosamente");
-}
+
   
 
     }//GEN-LAST:event_GuardarGDCActionPerformed

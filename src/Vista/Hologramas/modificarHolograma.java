@@ -181,6 +181,8 @@ public class modificarHolograma extends javax.swing.JDialog {
     //lbc.modificarHologramas(Holograma1, Estatus1, tipoHolograma1);
 
     lbc.closeConnection();
+               this.hide();
+
 
             }
             else{
