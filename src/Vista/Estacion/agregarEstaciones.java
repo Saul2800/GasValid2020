@@ -8,20 +8,19 @@ package Vista.Estacion;
 import Controlador.LibreriaBDControlador;
 import Controlador.LibreriaToolsControlador;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author joseluis.caamal
  */
-public class agregarEstacion extends javax.swing.JDialog {
+public class agregarEstaciones extends javax.swing.JDialog {
 
     /**
-     * Creates new form agregarEstacion
+     * Creates new form agregarEstaciones
      */
     LibreriaBDControlador lbd = new LibreriaBDControlador();
     LibreriaToolsControlador ltc = new LibreriaToolsControlador();
-    public agregarEstacion(java.awt.Frame parent, boolean modal) {
+    public agregarEstaciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -50,7 +49,6 @@ public class agregarEstacion extends javax.swing.JDialog {
         campoEstacion = new javax.swing.JTextField();
         campoResponsable = new javax.swing.JTextField();
         campoRazonSocial = new javax.swing.JTextField();
-        campoRegFedCausante = new javax.swing.JTextField();
         campoDomicilio = new javax.swing.JTextField();
         campoColonia = new javax.swing.JTextField();
         campoCiudad = new javax.swing.JTextField();
@@ -75,10 +73,9 @@ public class agregarEstacion extends javax.swing.JDialog {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         campoEstatusManguera = new javax.swing.JComboBox<>();
+        campoRegFedCausante = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(719, 783));
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -130,13 +127,6 @@ public class agregarEstacion extends javax.swing.JDialog {
         });
 
         campoRazonSocial.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-
-        campoRegFedCausante.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        campoRegFedCausante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoRegFedCausanteActionPerformed(evt);
-            }
-        });
 
         campoDomicilio.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
 
@@ -275,7 +265,6 @@ public class agregarEstacion extends javax.swing.JDialog {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(campoDomicilio)
-                            .addComponent(campoRegFedCausante)
                             .addComponent(campoColonia)
                             .addComponent(campoMarcaGasolina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(campoCiudad)
@@ -284,7 +273,8 @@ public class agregarEstacion extends javax.swing.JDialog {
                             .addComponent(campoEmail)
                             .addComponent(campoCoordenadasUTM)
                             .addComponent(campoCodigoPostal)
-                            .addComponent(campoNumeroCRE))
+                            .addComponent(campoNumeroCRE)
+                            .addComponent(campoRegFedCausante))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -307,7 +297,7 @@ public class agregarEstacion extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(23, 23, 23)
-                        .addComponent(campoEstatusManguera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(campoEstatusManguera, 0, 508, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
@@ -409,16 +399,47 @@ public class agregarEstacion extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoRegFedCausanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRegFedCausanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoRegFedCausanteActionPerformed
+    private void campoEstacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEstacionKeyTyped
+        //Saul Arenas Ramirez 17/07/2020
+        //        char solonumeros=evt.getKeyChar();
+        //                if(Character.isLetter(solonumeros)){
+            //                getToolkit().beep();
+            //                evt.consume();
+            //                JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}
+    }//GEN-LAST:event_campoEstacionKeyTyped
+
+    private void campoResponsableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoResponsableKeyTyped
+        //Saul Arenas Ramirez 17/07/2020
+        char sololetra=evt.getKeyChar();
+        if (Character.isDigit(sololetra)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoResponsableKeyTyped
+
+    private void campoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTelefonoKeyTyped
+        //Saul Arenas Ramirez 17/07/2020
+        char solonumeros=evt.getKeyChar();
+        if(Character.isLetter(solonumeros)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoTelefonoKeyTyped
 
     private void campoCoordenadasUTMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCoordenadasUTMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCoordenadasUTMActionPerformed
+
+    private void campoCodigoPostalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCodigoPostalKeyTyped
+        //Saul Arenas Ramirez 17/07/2020
+        char solonumeros=evt.getKeyChar();
+        if(Character.isLetter(solonumeros)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoCodigoPostalKeyTyped
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
@@ -447,7 +468,7 @@ public class agregarEstacion extends javax.swing.JDialog {
         int totalGasDiesel = Integer.valueOf(campoTotalDiesel.getText());
         int totalGasPremium = Integer.valueOf(campoTotalPremium.getText());
         String estatusManguera  = (String) campoEstatusManguera.getSelectedItem();
-        
+
         //abro conexión
         lbd.openConnection();
         //Se crea el inserte en el controlador
@@ -473,66 +494,78 @@ public class agregarEstacion extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void campoEstacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEstacionKeyTyped
-  //Saul Arenas Ramirez 17/07/2020
-//        char solonumeros=evt.getKeyChar();
-//                if(Character.isLetter(solonumeros)){
-//                getToolkit().beep();
-//                evt.consume();
-//                JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}       
-    }//GEN-LAST:event_campoEstacionKeyTyped
-
-    private void campoResponsableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoResponsableKeyTyped
-//Saul Arenas Ramirez 17/07/2020
-            char sololetra=evt.getKeyChar();
-            if (Character.isDigit(sololetra)){
-            getToolkit().beep();
-            evt.consume();
-    JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras");}    }//GEN-LAST:event_campoResponsableKeyTyped
-
-    private void campoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTelefonoKeyTyped
-  //Saul Arenas Ramirez 17/07/2020
-        char solonumeros=evt.getKeyChar();
-if(Character.isLetter(solonumeros)){
-getToolkit().beep();
-evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN-LAST:event_campoTelefonoKeyTyped
-
-    private void campoCodigoPostalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCodigoPostalKeyTyped
-  //Saul Arenas Ramirez 17/07/2020
-        char solonumeros=evt.getKeyChar();
-        if(Character.isLetter(solonumeros)){
-        getToolkit().beep();
-        evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN-LAST:event_campoCodigoPostalKeyTyped
-
     private void campoNumeroCREKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNumeroCREKeyTyped
-            // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_campoNumeroCREKeyTyped
 
     private void campoTotalMagnaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTotalMagnaKeyTyped
-  //Saul Arenas Ramirez 17/07/2020
+        //Saul Arenas Ramirez 17/07/2020
         char solonumeros=evt.getKeyChar();
         if(Character.isLetter(solonumeros)){
-        getToolkit().beep();
-        evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN-LAST:event_campoTotalMagnaKeyTyped
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoTotalMagnaKeyTyped
 
     private void campoTotalPremiumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTotalPremiumKeyTyped
-  //Saul Arenas Ramirez 17/07/2020
+        //Saul Arenas Ramirez 17/07/2020
         char solonumeros=evt.getKeyChar();
         if(Character.isLetter(solonumeros)){
-        getToolkit().beep();
-        evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN-LAST:event_campoTotalPremiumKeyTyped
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoTotalPremiumKeyTyped
 
     private void campoTotalDieselKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTotalDieselKeyTyped
-  //Saul Arenas Ramirez 17/07/2020
+        //Saul Arenas Ramirez 17/07/2020
         char solonumeros=evt.getKeyChar();
         if(Character.isLetter(solonumeros)){
-        getToolkit().beep();
-        evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        }//GEN-LAST:event_campoTotalDieselKeyTyped
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoTotalDieselKeyTyped
+
+    /**
+     * @param args the command line arguments
+     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(agregarEstaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(agregarEstaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(agregarEstaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(agregarEstaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+////        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                agregarEstaciones dialog = new agregarEstaciones(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonGuardar;

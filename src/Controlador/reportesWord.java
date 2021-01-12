@@ -203,7 +203,7 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
             String carpetaSalida,
             String direccion, */
             String[] datosPalabra,
-            Object[] datosReemplazo, int tipoDocumento) 
+            Object[] datosReemplazo, int tipoDocumento, String folioDocumento) 
             throws InvalidFormatException, IOException{
         
         /*El nombre de la carpeta de salida debe ser fijo*/
@@ -220,8 +220,8 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
         //XWPFDocument docTempAux = doc;
         //String nameCarpeta =
         //Folio´+ "-"+(String) datosReemplazo[0];
-        nameSalida = (String) datosReemplazo[0]+"-"+tipoDocumento; //Genera el nombre único
-        carpetaSalida = carpetaSalida+"\\"+(String) datosReemplazo[0]+"\\"; //Creo la carpeta
+        nameSalida = folioDocumento+"-"+tipoDocumento; //Genera el nombre único
+        carpetaSalida = carpetaSalida+"\\"+folioDocumento+"\\"; //Creo la carpeta
         nameSalida = nameSalida + extensiónSalida;
         
         File archivoFinal = new File(carpetaSalida);
@@ -253,7 +253,6 @@ public static void reemplazarDatosWord(String name,String nameSalida, String dir
 //              lbtc.openWord(carpetaSalida+nameSalida);
 //            }
 //        }
-     
     }
     
     public void crearDocumentoContrato(String[] datosPalabra,

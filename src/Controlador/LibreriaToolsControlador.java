@@ -8,6 +8,8 @@ package Controlador;
 import Modelo.modeloTablaUsuario;
 import Vista.Principal.accesoPrincipal;
 import Vista.Principal.ventanaPrincipal;
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -145,6 +147,12 @@ public class LibreriaToolsControlador {
             case 2:
                 tipoDocumento = "SOLICITUD2021.docx";
             break;
+            case 3:
+                tipoDocumento = "DICTAMENBOMBAS2021.docx";
+            break;
+            case 4:
+                tipoDocumento = "DICTAMENBOMBAS2021H2.docx";
+            break;
             default:
                 //tipoDocumento = "CONTRATO2021.docx";
             break;
@@ -168,6 +176,12 @@ public class LibreriaToolsControlador {
             break;
             case 2:
                 tipoDocumento = "SolicitudFolio-"+nameArchive;
+            break;
+            case 3:
+                tipoDocumento = "DictamenBombaUno-"+nameArchive;
+            break;
+            case 4:
+                tipoDocumento = "DictamenBombaDos-"+nameArchive;
             break;
             default:
                 //tipoDocumento = "CONTRATO2021.docx";
@@ -218,15 +232,97 @@ public class LibreriaToolsControlador {
     //31/08/2020
     public String obtenerPeriodo(){
      
-       String[] periodo={"1ER PERIODO","2DO PERIODO","3RO PERIODO","4TO PERIODO","5TO PERIODO"};
+       String[] periodo={"1ER PERIODO","2DO PERIODO"};
        JComboBox jcd = new JComboBox(periodo);
        jcd.setEditable(true);
-       jcd.setSelectedIndex(4);
+       jcd.setSelectedIndex(1);
        
        JOptionPane.showMessageDialog(null, jcd, "Title",JOptionPane.QUESTION_MESSAGE);
        
        String opcion = (String) jcd.getSelectedItem();
        
        return opcion;
+    }
+    
+    public String obtenerHorarioInicio(){
+     
+       JOptionPane.showMessageDialog(null, "Por favor, ingresa la hora inicial en formato: AM/PM");
+       String[] periodo={"00:00 AM/PM"};
+       
+       JComboBox jcd = new JComboBox(periodo);
+       jcd.setEditable(true);
+       jcd.setSelectedIndex(0);
+       
+       JOptionPane.showMessageDialog(null, jcd, "Title",JOptionPane.QUESTION_MESSAGE);
+       
+       String opcion = (String) jcd.getSelectedItem();
+       
+       return opcion;
+    }
+    
+    public String obtenerHorarioFIN(){
+     
+       JOptionPane.showMessageDialog(null, "Por favor, ingresa la hora fin en formato: AM/PM");
+       String[] periodo={"00:00 AM/PM"};
+       
+       JComboBox jcd = new JComboBox(periodo);
+       jcd.setEditable(true);
+       jcd.setSelectedIndex(0);
+       
+       JOptionPane.showMessageDialog(null, jcd, "Title",JOptionPane.QUESTION_MESSAGE);
+       
+       String opcion = (String) jcd.getSelectedItem();
+       
+       return opcion;
+    }
+    
+    public baseUserHorario obtenerPeriodoClase(){
+       baseUserHorario buh = null;
+       String[] periodo={"1ER PERIODO","2DO PERIODO"};
+       String[] horarioHora={"1ER PERIODO","2DO PERIODO"};
+       String[] horarioMin={"1ER PERIODO","2DO PERIODO"};
+       
+       JComboBox jcd = new JComboBox(periodo);
+       jcd.setEditable(true);
+       jcd.setSelectedIndex(1);
+       
+       JComboBox jcd1 = new JComboBox(horarioHora);
+       jcd.setEditable(true);
+       jcd.setSelectedIndex(1);
+       
+       JComboBox jcd2 = new JComboBox(horarioMin);
+       jcd.setEditable(true);
+       jcd.setSelectedIndex(1);
+       
+       
+       String opcion = (String) jcd.getSelectedItem();
+       String horarioinicio = (String) jcd1.getSelectedItem();
+       String horariofin = (String) jcd2.getSelectedItem();
+       
+       JOptionPane.showMessageDialog(null, jcd, "Title",JOptionPane.QUESTION_MESSAGE);
+       buh = new baseUserHorario(opcion,horarioinicio,horariofin);
+       return buh;
+    }
+    
+    public String obtenerFecha(){
+     
+       JOptionPane.showMessageDialog(null, "Por favor, ingresa la fecha");
+       JDateChooser jd = new JDateChooser();
+       Date date = new Date();
+       date.setMonth(12);
+       date.setYear(1993);
+       date.setDate(13);
+       jd.setDate(date);
+       String message ="Elija la fecha:\n";
+       Object[] params = {message,jd};
+       
+       JOptionPane.showConfirmDialog(null,params,"Fecha", JOptionPane.PLAIN_MESSAGE);
+       String s="";
+       SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+       s=sdf.format(((JDateChooser)params[1]).getDate());//Casting params[1] makes me able to get its information
+       
+       //JOptionPane.showMessageDialog(null, "Elige una fecha:");}
+       
+       return s;
     }
 }

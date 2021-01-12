@@ -271,13 +271,13 @@ public class catalogoEstaciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarEstacionActionPerformed
-        agregarEstacion ae = new agregarEstacion(this, true);
+        agregarEstaciones ae = new agregarEstaciones(this, true);
         ae.show();
     }//GEN-LAST:event_AgregarEstacionActionPerformed
 
     private void ModificarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarEstacionActionPerformed
         modificarEstacion ae = new modificarEstacion(this, true);
-        ae.show();
+        ae.show(true);
     }//GEN-LAST:event_ModificarEstacionActionPerformed
 
     private void EliminarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEstacionActionPerformed

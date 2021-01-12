@@ -1475,34 +1475,79 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField16">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField17">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField18">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField19">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-10"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">
                   <Properties>
@@ -1660,28 +1705,64 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField39">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField40">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField41">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField42">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField43">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField44">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField45">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField46">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField47">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField48">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField49">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField50">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20000"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel45">
                   <Properties>

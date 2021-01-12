@@ -199,13 +199,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void catalogoCronometrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoCronometrosActionPerformed
   catalogoCronometros abrir=new catalogoCronometros(mtu);
      abrir.show();
-        
     }//GEN-LAST:event_catalogoCronometrosActionPerformed
   
     private void catalogoJarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoJarrasActionPerformed
     catalogoMedidadVolumetricasJarras abrir = new catalogoMedidadVolumetricasJarras();
-    abrir.setVisible(true);
-    this.setVisible(false);
+    abrir.show();
+    //this.setVisible(false);
     }//GEN-LAST:event_catalogoJarrasActionPerformed
 
     private void catalogoTermometrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catalogoTermometrosActionPerformed

@@ -900,7 +900,43 @@ public void EliminarHolograma(String Holograma){
         
         return aux;
         
-    }           
+    }      
+    /*obtenerValidacionFolioEstacion
+        Author: Jose Luis Caamal Ic
+        Fecha: 13/12/2020
+        Valido que el folio y el número de estación existan*/
+    public int obtenerValidacionFolioEstacion(String folio, String idEstacion) 
+                {
+                int aux = 0;
+        
+                try{
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement("SELECT count(*) as idestacion FROM tabla_registro_solicitud "
+                            + "WHERE idestacion = '" +idEstacion+ "' and folio_solicitud = '"+folio+"'");
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+
+                    if(res.next()){
+                            //JOptionPane.showMessageDialog(null, "Si existe la estacion: " + idEstacion, "ATENCIÓN",JOptionPane.ERROR_MESSAGE);
+                            aux = res.getInt("idestacion");
+                            return aux;
+                    }
+                    else{//no se 
+                            //JOptionPane.showMessageDialog(null, "No existe la estacion: " + idEstacion, "ATENCIÓN",JOptionPane.ERROR_MESSAGE);
+                            res.close();
+                            return aux;
+                    }
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    aux = 0;
+                }
+        
+        return aux;
+        
+    }
     
      public Object[] obtenerArrEstaciones(String idEstacion) 
                 {
@@ -1999,7 +2035,7 @@ public void EliminarHolograma(String Holograma){
                 while(res.next()){
                     for (int i = 0; i<columna.length; i++){
                         objDatos[i] = res.getObject(i+1);
-                        System.out.println(objDatos[i]);
+                        //System.out.println(objDatos[i]);
                     }
                     modeloRetorno.addRow(objDatos);
                 }
@@ -2329,6 +2365,611 @@ public void EliminarHolograma(String Holograma){
         return listaAux;
         
     }
+    
+    /*  ----------------------------------------------------------------------------------
+    Nombre: Clase updateImpresionSolicitud
+    Función: Actualiza los valores en la tabla correspondiente.
+    Aut@r: José Luis Caamal Ic
+    Parametros: Table: tabla_registro_solicitud
+    Date: 12/12/2020
+    ----------------------------------------------------------------------------------
+    */
+    public int updateSolicitudDictamen(String Foliodocumento) {
+        try {
+            //int response;
+            String sql = ("UPDATE gasvalid.tabla_registro_solicitud "
+                    + "SET valida_contrato= 1 "
+                    + "where folio_solicitud = "+Foliodocumento+"");
+            System.out.println("consulta updateSolicitudDictamen "+sql);
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(sql);	
+            //System.out.println(" Response: "+ response);
+            //JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+            return 1;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
+            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    /*
+            obtenerDatosSolicitud
+            Caamal Ic Jose Luis
+            Obtiene toda la información del los datos de Solicitud y del cliente;
+            si no exista lo añade.
+            Since 06/08/2020
+    */
+     public Object[] obtenerDatosDictamenHU(String idFolio, String docPeriodo) 
+                {
+                Object [] arrObjetos = null;
+                try{
+                    //String Query = "SELECT * FROM tabla_dispensarios WHERE numero_estacion = '" +idEstacion+ "' AND no_dispensario = '" +idDispensario+ "';";
+                    String Query = "SELECT tblreg.folio_solicitud, "
+                            + "UPPER(tblreg.tipo_solicitud) as tipo_solicitud,"
+                            + "tblclie.nombre_responsable, "
+                            + "tblclie.razon_social,"
+                            + "tblclie.ciudad, "
+                            + "tblclie.estado,"
+                            + "tblreg.fecha_propuesta,"
+                            + "UPPER(tblreg.personal) as Tecnico," 
+                            + "tblclie.domicilio,"
+                            + "tblclie.telefono,"
+                            + "tblclie.correo_electronico,"
+                            + "tblclie.numero_cre,"
+                            + "tblclie.idestacion,"
+                            + "tbl_mang.magna,"
+                            + "tbl_mang.premium," 
+                            + "tbl_mang.diesel,"
+                            + "tblreg.observaciones,"
+                            + "tblclie.codigo_postal,"
+                            + "tblclie.registro_fedcausante "
+                            /*+ "UPPER(tblreg.nombre_usuario) as nombre_usuario,"
+                            + "UPPER(tblreg.nombre_tecnico) as nombre_tecnico, "*/
+                            /*+ "CONCAT(UPPER(tblreg.nombre_tecnico),'/', UPPER(tblreg.personal)) as Tecnico "*/
+                            /*+ "UPPER(tblreg.personal) as personal " +*/
+                            + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie, tabla_mangueras tbl_mang "
+                            + "WHERE  tblreg.idestacion = tblclie.idestacion and tbl_mang.id_tmanguera = '"+idFolio+"' "
+                            + "and tblreg.folio_solicitud = '"+idFolio+"'";
+                    /*Se añade personal de apoyo, jose caamal 23/08/2020*/
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    System.out.println(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                    ResultSetMetaData metaDatos = res.getMetaData();
+                        // Se obtiene el número de columnas.
+                        int numeroColumnas = metaDatos.getColumnCount();
+                        // Se crea un array de etiquetas para rellenar
+                        arrObjetos =new Object[numeroColumnas+1];
+                        
+                        while (res.next())
+                        {
+                            for (int i=0;i<numeroColumnas;i++)
+                            {
+                                
+//                                if(i==1){
+//                                    arrObjetos[i]=docPeriodo;
+//                                }else{
+                                    arrObjetos[i]=String.valueOf(res.getObject(i+1));
+                                
+                            }
+                            
+                       }
+                       System.out.println(Arrays.toString(arrObjetos));
+                       numeroColumnas = arrObjetos.length;
+                       arrObjetos[numeroColumnas-1]=docPeriodo;
+                       System.out.println(Arrays.toString(arrObjetos));
+               
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    arrObjetos = null;
+                }
+        
+        return arrObjetos;
+        
+    }
+     
+     /*
+        Caamal Ic Jose Luis
+        Obtiene el numero actual de dispensarios, por estación
+        valida que el campo estacion exista en la tabla dispensarios
+        y cuenta el numero de registros y obtiene el valor actual y le aumenta + 1,
+        si no exista lo añade.
+        Since 20/07/2020
+        */
+        public int obtenerTotalDispensarios(String idEstacion) 
+                {
+                int aux = 0;
+        
+                try{
+                    String Query = "SELECT count(*) as idDispensario FROM tabla_dispensarios "
+                            + "WHERE numero_estacion = '"+idEstacion+"'";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                    
+
+                    if(res.next()){
+                            //JOptionPane.showMessageDialog(null, "Si existe la estacion: " + idEstacion, "ATENCIÓN",JOptionPane.ERROR_MESSAGE);
+                            aux = res.getInt("idDispensario");
+                            
+                            //aux = aux + 1; //Aumento si la consulta me arroja cero y solo si existe el numero de estación
+                            //Se cambia para aumentar por codigo
+                            return aux;
+                    }
+                    else{//no se 
+                            //JOptionPane.showMessageDialog(null, "No existe la estacion: " + idEstacion, "ATENCIÓN",JOptionPane.ERROR_MESSAGE);
+//                          if(aux==0)
+//                                aux = aux + 1;
+                            res.close();
+                            return aux;
+                    }
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    aux = 0;
+                }
+        
+        return aux;
+        
+    }
+    /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros de las marcas de gasolina
+        */
+        public List <String> obtenerMarcaGasolina(){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT marca_gasolina FROM tabla_marca_gasolina";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                            listaAux.add(res.getString("marca_gasolina"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        
+        /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros de las series Dispensarios
+        */
+        public List <String> obtenerNumeroSerieDisponibles(String idEstacion){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT numSerie FROM tabla_dispensarios "
+                            + "WHERE numero_estacion = '"+idEstacion+"' ";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                            listaAux.add(res.getString("numSerie"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros de las modelos Dispensarios
+        */
+        public List <String> obtenerModeloDisponibles(String idEstacion){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT modelo FROM tabla_dispensarios "
+                            + "WHERE numero_estacion = '"+idEstacion+"' ";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                            listaAux.add(res.getString("modelo"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+/*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros de las modelos Dispensarios
+        */
+        public List <String> obtenerHologramas(int tipoHolograma){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    switch(tipoHolograma){
+                        case 1:
+                            Query = "SELECT Holograma FROM gasvalid.tablagasvalid where tipoHolograma = 'UVA'";
+
+                        break;
+                        case 2:
+                            Query = "SELECT Holograma FROM gasvalid.tablagasvalid where tipoHolograma = 'PROFECO'";
+                        break;
+                        default:
+                        break;
+                    }
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                            listaAux.add(res.getString("Holograma"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        //Saul Arenas Ramirez 07/8/2020
+    //insertar los hologramas en la tabla TablaGasValid
+        public int insertarDatosDictamen(String idDictamen, String folio,String noEstacion,String cadenaImprimir,String fecha,String hora_inicio,String hora_fin, int dispensario ) {
+        int aux = 1;
+            try {
+                PreparedStatement pps = Conexion.prepareStatement("INSERT INTO tabla_datos_dictamen(idDictamen,folio,noEstacion,cadenaImprimir,fecha,hora_inicio,hora_fin,dispensario) VALUES(?,?,?,?,?,?,?,?);");
+                pps.setInt(1, 0);
+                pps.setString(2, folio);
+                pps.setString(3, noEstacion);
+                pps.setString(4, cadenaImprimir);
+                pps.setString(5, fecha);
+                pps.setString(6, hora_inicio);
+                pps.setString(7, hora_fin);
+                pps.setString(8, String.valueOf(dispensario));
+                
+                pps.executeUpdate();
+                //JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+                aux = 1;
+            } catch (SQLException ex) {
+                Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos"+ex);
+                aux = 0;
+            }
+            return aux;
+        }
+    
+    /*
+            obtenerDatosSolicitud
+            Caamal Ic Jose Luis
+            Obtiene toda la información del los datos de Solicitud y del cliente;
+            si no exista lo añade.
+            Since 06/08/2020
+    */
+     public List <String> obtenerDatosDictamenHD(String idFolio,String noEstacion) 
+                {
+                List <String> ListaDatos = new ArrayList<String>();
+                try{
+                    String Query = "SELECT cadenaImprimir FROM tabla_datos_dictamen "
+                            + "Where folio = '"+idFolio+"' AND noEstacion = '"+noEstacion+"';";
+                    /*Se añade personal de apoyo, jose caamal 23/08/2020*/
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    System.out.println(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                        
+                    while (res.next())
+                    {
+                        ListaDatos.add(res.getString("cadenaImprimir"));
+                        //System.out.println(ListaDatos.toString());
+                            
+                    }
+                    System.out.println(ListaDatos);
+                       
+               
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                }
+        
+        return ListaDatos;
+        
+    }
+    
+    /*
+     Objetivo: Vaciar Cualquier Tipo de Tabla
+     Fecha: 13/12/2020
+     Hora: 0218pm
+     Variable: MiTabla
+     Author: Jose Luis Caamal ic
+     
+     */ 
+    
+    public int vaciarTabla(String MiTabla){
+        int auxiliarExito = 0;
+        try{
+                    String Query = "TRUNCATE TABLE "+MiTabla+";";
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    System.out.println(Query);
+                    stmt.execute(); 
+                    stmt.close();
+                    auxiliarExito = 1;
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    auxiliarExito = 0;
+                }
+        return auxiliarExito;
+    }
+    
+    /*
+            obtenerDatosDictamen
+            Caamal Ic Jose Luis
+            Obtiene toda la información del los datos del dictamen y del cliente;
+            si no exista lo añade.
+            Since: 13/12/2020
+    */
+     public Object[] obtenerDatosDictamen(String idFolio, String docPeriodo,
+     String horarioInicio, String horarioFin, String fecha) 
+                {
+                Object [] arrObjetos = null;
+                try{
+                    //String Query = "SELECT * FROM tabla_dispensarios WHERE numero_estacion = '" +idEstacion+ "' AND no_dispensario = '" +idDispensario+ "';";
+                    String Query = "SELECT tblreg.folio_solicitud, "
+                            + "UPPER(tblreg.tipo_solicitud) as tipo_solicitud,"
+                            + "UPPER(tblreg.nombre_tecnico) as Tecnico,"
+                            + "'Técnico' as cargo,"
+                            + "tblclie.nombre_responsable, "
+                            + "tblclie.razon_social,"
+                            + "tblclie.domicilio,"
+                            + "tblclie.registro_fedcausante,"
+                            + "tblclie.codigo_postal,"
+                            + "tblclie.ciudad, "
+                            + "tblclie.estado,"
+                            + "tblclie.idestacion,"
+                            + "tblclie.telefono,"
+                            + "tblclie.coordenadasUTM,"
+                            + "tblclie.nombre_responsable "
+                            /*+ "UPPER(tblreg.nombre_usuario) as nombre_usuario,"
+                            + "UPPER(tblreg.nombre_tecnico) as nombre_tecnico, "*/
+                            /*+ "CONCAT(UPPER(tblreg.nombre_tecnico),'/', UPPER(tblreg.personal)) as Tecnico "*/
+                            /*+ "UPPER(tblreg.personal) as personal " +*/
+                            + "FROM tabla_registro_solicitud tblreg, tabla_clientes tblclie, tabla_mangueras tbl_mang "
+                            + "WHERE  tblreg.idestacion = tblclie.idestacion and tbl_mang.id_tmanguera = '"+idFolio+"' "
+                            + "and tblreg.folio_solicitud = '"+idFolio+"'";
+                    /*Se añade personal de apoyo, jose caamal 23/08/2020*/
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    System.out.println(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                    ResultSetMetaData metaDatos = res.getMetaData();
+                        // Se obtiene el número de columnas.
+                        int numeroColumnas = metaDatos.getColumnCount();
+                        // Se crea un array de etiquetas para rellenar
+                        arrObjetos =new Object[numeroColumnas+4];
+                        
+                        while (res.next())
+                        {
+                            for (int i=0;i<numeroColumnas;i++)
+                            {
+                                    arrObjetos[i]=String.valueOf(res.getObject(i+1));
+                                
+                            }
+                            
+                       }
+                       System.out.println(Arrays.toString(arrObjetos));
+                       numeroColumnas = arrObjetos.length;
+                       arrObjetos[numeroColumnas-1]=fecha;
+                       arrObjetos[numeroColumnas-2]=horarioFin;
+                       arrObjetos[numeroColumnas-3]=horarioInicio;
+                       arrObjetos[numeroColumnas-4]=docPeriodo;
+                       System.out.println(Arrays.toString(arrObjetos));
+               
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    arrObjetos = null;
+                }
+        
+        return arrObjetos;
+        
+    }
+     
+        /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros Jarras
+        */
+        public List <String> obtenerJarras(){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT * FROM gasvalid.tabla_jarras where estatus = 'VIGENTE';";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                            listaAux.add(res.getString("marca")+"\t"+res.getString("modelo")+"\t"+res.getString("serie")+"\t"+res.getString("fecha_calibracion")+"\t"+res.getString("id_Jarra"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros Cronometros
+        */
+        public List <String> obtenerCronometros(){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT * FROM gasvalid.tabla_cronometros where estatus = 'VIGENTE';";
+                    
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                        listaAux.add(res.getString("marca")+"\t"+res.getString("modelo")+"\t"+res.getString("serie")+"\t"+res.getString("fecha_calibracion")+"\t"+res.getString("id_Crono"));
+                                    
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros Cronometros
+        */
+        public List <String> obtenerTermometros(){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT * FROM gasvalid.tabla_termometros where estatus = 'VIGENTE';";
+                    
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                       listaAux.add(res.getString("marca")+"\t"+res.getString("modelo")+"\t"+res.getString("serie")+"\t"+res.getString("fecha_calibracion")+"\t"+res.getString("id_Termo"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        /*
+        Inicio: Jose Luis Caamal Ic
+        12/12/2020
+        Obtiene los registros de las marcas de gasolina
+        */
+        public List <String> obtenerMarcaGasolinaDisp(String idEstacion){
+            List <String> listaAux = new ArrayList<String>();
+                try{
+                    String Query = "";
+                    Query = "SELECT marca_dispensario FROM tabla_dispensarios "
+                            + "WHERE numero_estacion = '"+idEstacion+"' ";
+                    System.out.println(Query);
+                    PreparedStatement stmt;
+                    stmt = Conexion.prepareStatement(Query);
+                    java.sql.ResultSet res;
+                    res = stmt.executeQuery();
+                     
+                    while (res.next())
+                    {
+                            listaAux.add(res.getString("marca_dispensario"));
+                    }
+                    
+                    
+                } catch(SQLException a){
+                    
+                    Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, a);
+                    JOptionPane.showMessageDialog(null, a);
+                    listaAux = null;
+                }
+        
+            return listaAux;
+        
+        }
+        
+        
  
      
 }//final

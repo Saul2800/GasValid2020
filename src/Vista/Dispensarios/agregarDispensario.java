@@ -9,6 +9,7 @@ import Controlador.LibreriaBDControlador;
 import Controlador.LibreriaToolsControlador;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -32,6 +33,13 @@ public class agregarDispensario extends javax.swing.JDialog {
         initComponents();
         
         String numEstación = campoNoEstacion.getText();
+        lbd.openConnection();
+        List<String> marcasGasolina = lbd.obtenerMarcaGasolina();
+        lbd.closeConnection();
+        campoMarcaDispensario.removeAllItems();
+        for(int i=0; i< marcasGasolina.size();i++){
+           campoMarcaDispensario.addItem(marcasGasolina.get(i));
+        }
 //        if(numEstación.equals("")){
 //            
 //            numEstac

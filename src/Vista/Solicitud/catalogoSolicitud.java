@@ -9,8 +9,11 @@ import Modelo.modeloTablaUsuario;
 import Controlador.LibreriaBDControlador;
 import Controlador.LibreriaToolsControlador;
 import Controlador.reportesWord;
+import Vista.Dictamen.catalogoConfDictamen;
 import Vista.InspeccionDeMedicion.catalogoInspeccionDeMedicion;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -45,10 +48,16 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 int row = tablaCatalogoSolicitud.rowAtPoint(evt.getPoint());
-                int col = 0;
+                int col  = 0;
+                
                 if (row >= 0 && col >= 0) {
                     String valor = tablaCatalogoSolicitud.getModel().getValueAt(row, col).toString(); //Tomo el valor de el modelo de la tabla
                     folioSolicitudCS.setText(valor); //Obtengo el valor del textfield
+                }
+                int col2 = 7;
+                if (row >= 0 && col2 >= 0) {
+                    String valor2 = tablaCatalogoSolicitud.getModel().getValueAt(row, col2).toString(); //Tomo el valor de el modelo de la tabla
+                    noEstacionCS.setText(valor2); //Obtengo el valor del textfield
                 }
 
             }
@@ -95,7 +104,6 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
         jPanel2 = new javax.swing.JPanel();
         agregarCS = new javax.swing.JButton();
         modificarCS = new javax.swing.JButton();
-        imprimirCS = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
@@ -106,6 +114,8 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
         noEstacionCS = new javax.swing.JTextField();
         buscarCS = new javax.swing.JButton();
         refrescarCS = new javax.swing.JButton();
+        imprimirDictamen = new javax.swing.JButton();
+        imprimirCS = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCatalogoSolicitud = new javax.swing.JTable();
 
@@ -133,20 +143,12 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
             }
         });
 
-        imprimirCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/printer.png"))); // NOI18N
-        imprimirCS.setText("Imprimir Solicitud");
-        imprimirCS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imprimirCSActionPerformed(evt);
-            }
-        });
-
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Para filtrar los campos primero\ndeben añadir información a los \ncampos y después darle clic a \nbuscar. Nota: Puede seleccionar\ndirectamente en la tabla para\nllenar el folio en automatico.");
+        jTextArea1.setText("Para filtrar los campos primero\ndeben añadir información a los \ncampos y después darle clic a \nbuscar. Nota: Puede seleccionar\ndirectamente en la tabla para\nllenar el folio en automatico.\n\nDespués de generar la solicitud, ya puedes\ngenerar el dictamen.");
         jTextArea1.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea1);
 
@@ -180,6 +182,22 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
             }
         });
 
+        imprimirDictamen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/printer.png"))); // NOI18N
+        imprimirDictamen.setText("Imprimir Dictamen");
+        imprimirDictamen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imprimirDictamenActionPerformed(evt);
+            }
+        });
+
+        imprimirCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/printer.png"))); // NOI18N
+        imprimirCS.setText("Imprimir Solictud");
+        imprimirCS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imprimirCSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,28 +205,35 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(agregarCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(imprimirDictamen, javax.swing.GroupLayout.PREFERRED_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(agregarCS, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(modificarCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(imprimirCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(folioSolicitudCS)
-                            .addComponent(tiposolicitudCS, 0, 179, Short.MAX_VALUE)
-                            .addComponent(noEstacionCS, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(137, 137, 137))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel11))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tiposolicitudCS, 0, 179, Short.MAX_VALUE)
+                                        .addComponent(folioSolicitudCS)))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addGap(41, 41, 41)
+                                    .addComponent(noEstacionCS)))
+                            .addGap(137, 137, 137))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addComponent(refrescarCS)
-                            .addComponent(buscarCS, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(buscarCS, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -217,34 +242,34 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(noEstacionCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(folioSolicitudCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
+                        .addGap(3, 3, 3)
                         .addComponent(buscarCS)
-                        .addGap(5, 5, 5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(tiposolicitudCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refrescarCS)
-                        .addGap(64, 64, 64))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(noEstacionCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(agregarCS)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(modificarCS, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
+                                .addComponent(imprimirCS)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(imprimirCS)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(imprimirDictamen))
+                            .addComponent(jScrollPane2))
+                        .addGap(0, 21, Short.MAX_VALUE))))
         );
 
         tablaCatalogoSolicitud.setModel(modeloSolicitud);
@@ -260,9 +285,9 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -285,7 +310,7 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
                 registroSolicitudContrato dialog = new registroSolicitudContrato(new javax.swing.JFrame(), true, mtu);
                 dialog.setVisible(true);
                 
-  lbd.openConnection();
+        lbd.openConnection();
         modeloSolicitud = lbd.modeloSolicitudtabla(columna, "", "", "");
         lbd.closeConnection();
         tablaCatalogoSolicitud.setModel(modeloSolicitud);
@@ -314,12 +339,13 @@ tablaCatalogoSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
     }//GEN-LAST:event_refrescarCSActionPerformed
 
     private void noEstacionCSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noEstacionCSKeyTyped
-char solonumero=evt.getKeyChar();
-
-if(Character.isLetter(solonumero)){
-getToolkit().beep();
-evt.consume();
-JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TODO add your handling code here:
+//    char solonumero=evt.getKeyChar();
+//
+//    if(Character.isLetter(solonumero)){
+//        getToolkit().beep();
+//        evt.consume();
+//        JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");
+//    }        // TODO add your handling code here:
     }//GEN-LAST:event_noEstacionCSKeyTyped
 
     private void buscarCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCSActionPerformed
@@ -341,6 +367,7 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TOD
         Realizo la consulta de la información que se necesita.
         Se adecua el codigo para la solcitud para no reeplicar codigo
         */
+            int operacionExitosa = 1;
             int tipoDoc = 2;
             Object [] arregloDatosDoc;
             String folioSol = folioSolicitudCS.getText();
@@ -378,6 +405,7 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TOD
                 /*Recupero la información para mi documento :) */
                 lbd.openConnection();
                 arregloDatosDoc = lbd.obtenerDatosSolicitud(folioSol,periodo);
+                operacionExitosa = lbd.updateSolicitudDictamen(folioSol);
                 lbd.closeConnection();
                 //arregloDatosDoc = (String[]) arregloDatosDocAux;
                 System.out.println("Datos:"+arregloDatosDoc.length+"Etiquetas:"+etiquetasReemplazo.length);
@@ -387,7 +415,8 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TOD
 //                        //arregloDatosDoc[i];
 //                        System.out.println("" + arregloDatosDoc1);
 //                    }
-                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc, tipoDoc);
+                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc, tipoDoc, folioSol);
+                    JOptionPane.showMessageDialog(null, "Ahora continuaremos con el proceso de dictamen.");
                 } catch (InvalidFormatException | IOException ex) {
                     Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al crear el archivo error es el siguiente:"+ex);
@@ -395,11 +424,115 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TOD
                
             }
             else{
-
                 JOptionPane.showMessageDialog(null,"No existe el folio que quiere imprimir");
             }
         
     }//GEN-LAST:event_imprimirCSActionPerformed
+
+    private void imprimirDictamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirDictamenActionPerformed
+        // TODO add your handling code here:
+            int operacionExitosa = 1;
+            int tipoDoc = 4;
+            int tipoDocDic = 3;
+            Object [] arregloDatosDoc;
+            Object [] arregloDatosDocDic = null;
+            String folioSol = folioSolicitudCS.getText();
+            String idEstacion = noEstacionCS.getText();
+            int validaPosicion = 0;
+            int validaFSol = 0;
+            int validaEstacion = 0;
+
+            lbd.openConnection();
+            validaFSol = lbd.validaFolioSolicitud(folioSol);
+            validaEstacion = lbd.obtenerEstaciones(idEstacion);
+            validaPosicion = lbd.obtenerValidacionFolioEstacion(folioSol,idEstacion);
+            lbd.closeConnection();
+            
+            if(validaFSol != 0 && validaEstacion !=0 && validaPosicion !=0){
+            /*Creo un arreglo con las etiquetas que se necesitan modificar/reemplazar*/
+                String periodo = lbt.obtenerPeriodo();
+                String horarioInicio = lbt.obtenerHorarioInicio();
+                String horarioFin = lbt.obtenerHorarioFIN();
+                String fechaLocal = lbt.obtenerFecha();
+                
+                String [] etiquetasReemplazoDictamen = {
+                    "«FOLIO»",
+                    "«TYPESOL»",
+                    "«RESPONSABLE»",
+                    "«CARGO»",
+                    "«SOLICITANTE»",
+                    "«RZNSOCIAL»",
+                    "«DOM»",
+                    "«RFC»",
+                    "«CIUDAD»",
+                    "«TELEF»",
+                    "«UTM»",
+                    "«CP»",
+                    "«ESTADO»",
+                    "«NOCRE»",
+                    "«TELEF»",
+                    "«UTM»",
+                    "«MEDIDAS»",
+                    "«CRONO»",
+                    "«TERMO»",
+                    "«OBSV»",
+                    "«TECNICO»",
+                    "«PAPOYO»",
+                    "«SOLICITANTE»",
+                    "«HORAUNO»",
+                    "«HORADOS»",
+                    "«DATE»",
+                    "«PERIODO»"
+                };
+                /*Recupero la información para mi documento :) */
+                lbd.openConnection();
+                //catalogoConfDictamen ccd = new catalogoConfDictamen(folioSol,idEstacion);
+                catalogoConfDictamen cfd = new  catalogoConfDictamen(null, rootPaneCheckingEnabled, folioSol, idEstacion);
+                cfd.show();
+                //lbd.obtenerDatosDictamenHU(folioSol,periodo);
+                arregloDatosDocDic = lbd.obtenerDatosDictamen(folioSol,periodo,horarioInicio,horarioFin,fechaLocal);
+                List <String> datosDictamen = lbd.obtenerDatosDictamenHD(folioSol,idEstacion);
+                arregloDatosDoc = new Object[85];
+                String [] etiquetasReemplazo = new String[85];// {"«FOLY»","«DICTAMENLISTA»"};
+                for (int i = 0; i < 85; i++) {
+                    arregloDatosDoc[i] = " ";
+                    etiquetasReemplazo[i]= " ";
+                }
+                
+                for (int i = 0; i < datosDictamen.size(); i++) {
+                    arregloDatosDoc[i] = datosDictamen.get(i);
+                    etiquetasReemplazo[i]= "«DICTAMENLISTA"+i+"»";
+                }
+                System.out.println(Arrays.toString(arregloDatosDoc));
+                System.out.println(Arrays.toString(etiquetasReemplazo));
+                /*Vaciar tabla */
+                lbd.vaciarTabla("tabla_datos_dictamen");
+                //operacionExitosa = lbd.updateSolicitudDictamen(folioSol);
+                lbd.closeConnection();
+                //arregloDatosDoc = (String[]) arregloDatosDocAux;
+                System.out.println("Datos:"+arregloDatosDocDic.length+"Etiquetas:"+etiquetasReemplazoDictamen.length);
+                System.out.println("Datos:"+arregloDatosDoc.length+"Etiquetas:"+etiquetasReemplazo.length);
+                try {
+                    reporteWord.creaDocContrato(etiquetasReemplazoDictamen,arregloDatosDocDic, tipoDocDic,folioSol);
+                    /*NoTocar*/
+                    
+                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc, tipoDoc,folioSol);
+                } catch (InvalidFormatException | IOException ex) {
+                    Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al crear el archivo error es el siguiente:"+ex);
+                }
+                
+            }else{
+                
+                if(validaFSol == 0)
+                    JOptionPane.showMessageDialog(null,"No existe el folio que quiere imprimir.");
+                if(validaEstacion ==0)
+                    JOptionPane.showMessageDialog(null,"No existe la estación que quiere imprimir.");
+                 if(validaPosicion ==0) 
+                    JOptionPane.showMessageDialog(null,"El folio y la estación, no están relacionados.");
+                
+            }
+    }//GEN-LAST:event_imprimirDictamenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,6 +544,7 @@ JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros");}        // TOD
     private javax.swing.JButton buscarCS;
     private javax.swing.JTextField folioSolicitudCS;
     private javax.swing.JButton imprimirCS;
+    private javax.swing.JButton imprimirDictamen;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

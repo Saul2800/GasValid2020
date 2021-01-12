@@ -1501,6 +1501,36 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel25.setText("Minimo(ml)");
 
+        jTextField6.setText("-10");
+
+        jTextField7.setText("-10");
+
+        jTextField8.setText("-10");
+
+        jTextField9.setText("-10");
+
+        jTextField10.setText("-10");
+
+        jTextField11.setText("-10");
+
+        jTextField12.setText("-10");
+
+        jTextField13.setText("-10");
+
+        jTextField14.setText("-10");
+
+        jTextField15.setText("-10");
+
+        jTextField16.setText("-10");
+
+        jTextField17.setText("-10");
+
+        jTextField18.setText("-10");
+
+        jTextField19.setText("-10");
+
+        jTextField20.setText("-10");
+
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel26.setText("Máximo");
 
@@ -1546,6 +1576,30 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel44.setText("Minimo");
+
+        jTextField39.setText("20000");
+
+        jTextField40.setText("20000");
+
+        jTextField41.setText("20000");
+
+        jTextField42.setText("20000");
+
+        jTextField43.setText("20000");
+
+        jTextField44.setText("20000");
+
+        jTextField45.setText("20000");
+
+        jTextField46.setText("20000");
+
+        jTextField47.setText("20000");
+
+        jTextField48.setText("20000");
+
+        jTextField49.setText("20000");
+
+        jTextField50.setText("20000");
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel45.setText("Máximo(ml)");
@@ -5951,7 +6005,7 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 //                        //arregloDatosDoc[i];
 //                        System.out.println("" + arregloDatosDoc1);
 //                    }
-                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc,tipoDocumento);
+                    reporteWord.creaDocContrato(etiquetasReemplazo,arregloDatosDoc,tipoDocumento,folioSol);
                 } catch (InvalidFormatException | IOException ex) {
                     Logger.getLogger(catalogoInspeccionDeMedicion.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al crear el archivo error es el siguiente:"+ex);

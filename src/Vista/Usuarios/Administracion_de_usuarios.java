@@ -64,7 +64,9 @@ public class Administracion_de_usuarios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administración de Usuarios");
         setMinimumSize(new java.awt.Dimension(1000, 600));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
