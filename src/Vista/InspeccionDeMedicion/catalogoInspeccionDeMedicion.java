@@ -878,7 +878,6 @@ public class catalogoInspeccionDeMedicion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inspeccion de Medición");
-        setMaximumSize(new java.awt.Dimension(869, 652));
         setMinimumSize(new java.awt.Dimension(869, 652));
         setResizable(false);
 

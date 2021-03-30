@@ -38,7 +38,7 @@ public class LibreriaBDControlador {
     Aut@r: José Luis Caamal Ic
     Parametros: 
     ----------------------------------------------------------------------------------
-    
+    Nota: Para la url de la conexión usar el driver compatible con SQL 5.5 o 8.0
     ----------------------------------------------------------------------------------
 Crecenciales de DB
 */
@@ -48,9 +48,12 @@ Crecenciales de DB
             //Como obtener la información desde un archivo properties
             String db_nam = "gasvalid";
             String use = "root";
-            String pas ="sakai";
-            Class.forName("com.mysql.jdbc.Driver");
-            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_nam, use, pas);
+            String pas ="SAKAI";
+            //For MySql 5.5
+            //Class.forName("com.mysql.jdbc.Driver");
+            //For MySql 8.0
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_nam + "?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC", use, pas);
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
         } catch (ClassNotFoundException | SQLException ex) {
            Logger.getLogger(LibreriaBDControlador.class.getName()).log(Level.SEVERE, null, ex);
